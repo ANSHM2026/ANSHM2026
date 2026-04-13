@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venue - ANSHM 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:#f7e6a1;color:#333;}
+.container{max-width:1200px;margin:auto;padding:60px 20px;}
+h1{text-align:center;margin-bottom:40px;}
+
+/* ===== Header ===== */
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:rgba(0,0,0,0.75);color:#fff;position:sticky;top:0;z-index:1000;}
+.logo{font-size:22px;font-weight:600;}
+.subtitle{font-size:12px;opacity:.8;}
+nav a{margin-left:20px;color:#fff;text-decoration:none;font-size:14px;}
+nav a:hover{color:#ffd54f;}
+.menu-toggle{display:none;font-size:22px;cursor:pointer;}
+@media(max-width:768px){
+nav{display:none;flex-direction:column;background:#000;position:absolute;top:60px;right:0;width:200px;}
+nav a{padding:10px;display:block;}
+nav.active{display:flex;}
+.menu-toggle{display:block;}
+}
+
+/* ===== Address ===== */
+.address{
+background:#000;color:#fff;padding:20px;text-align:center;
+font-size:20px;font-weight:600;border-radius:10px;margin-bottom:30px;
+}
+
+/* ===== Map Button ===== */
+.map-btn{
+display:inline-block;
+margin:20px auto 40px;
+padding:12px 25px;
+background:#000;
+color:#fff;
+border-radius:25px;
+text-decoration:none;
+font-size:14px;
+transition:.3s;
+}
+.map-btn:hover{
+background:#ffd54f;
+color:#000;
+}
+
+/* ===== Slider ===== */
+.slider{
+position:relative;
+height:50vh;
+min-height:320px;
+max-height:500px;
+border-radius:12px;
+overflow:hidden;
+margin-bottom:40px;
+}
+.slides img{
+width:100%;
+height:100%;
+object-fit:cover;
+position:absolute;
+opacity:0;
+transition:opacity 1s;
+}
+.slides img.active{opacity:1;}
+
+/* overlay */
+.slider-overlay{
+position:absolute;
+bottom:20px;
+left:20px;
+background:rgba(0,0,0,0.5);
+color:#fff;
+padding:15px 20px;
+border-radius:8px;
+}
+.slider-overlay h2{margin-bottom:5px;}
+
+.slider-controls{
+position:absolute;top:50%;width:100%;
+display:flex;justify-content:space-between;
+transform:translateY(-50%);
+padding:0 15px;pointer-events:none;
+}
+.slider-btn{
+pointer-events:auto;
+background:rgba(0,0,0,.5);
+color:#fff;border:none;
+border-radius:50%;
+width:40px;height:40px;
+cursor:pointer;
+}
+
+/* ===== Cards ===== */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+.card{
+background:#fff;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.15);
+transition:.3s;
+height:100%;
+}
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+.card h2{margin-bottom:15px;}
+.card p{line-height:1.6;margin-bottom:10px;}
+.card ul{padding-left:18px;}
+.card ul li{margin-bottom:10px;}
+
+/* icons */
+.icon{
+font-size:18px;
+margin-right:6px;
+}
+
+/* links */
+.card a{
+color:#000;
+text-decoration:none;
+font-weight:500;
+}
+.card a:hover{
+color:#ffd54f;
+text-decoration:underline;
+}
+
+/* ===== Footer ===== */
+footer{background:#000;color:#fff;text-align:center;padding:30px;margin-top:40px;}
+footer a{color:#ffd54f;}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+    
+    <div class="logo">
+    ANSHM 2026 PERTH
+    </div>
+    
+    <div class="subtitle" style="margin-top:1px; text-align:center;">
+        Hosted by Curtin University
+    </div>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav id="nav">
+        <a href="index.html">Home</a>
+        <a href="committees.html">Committees</a>
+        <a href="keynote.html">Invited Speakers/a> 
+        <a href="registration.html">Registration</a>
+        <a href="docs/program.pdf" target="_blank">Program</a>
+        <a href="docs/sponsorship.pdf" target="_blank">Sponsorship</a>
+        <a href="venue.html">Venue</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+<h1>Venue</h1>
+
+<div class="address">
+Curtin 137 St Georges Terrace, Perth WA 6000, Australia
+</div>
+
+<div style="text-align:center;">
+<a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Curtin+137+St+Georges+Terrace+Perth+Australia" target="_blank">
+Open in Google Maps
+</a>
+</div>
+
+<!-- Slider -->
+<div class="slider">
+<div class="slides">
+<img src="images/venue1.jpg" class="active">
+<img src="images/venue2.jpg">
+<img src="images/venue3.jpg">
+<img src="images/venue4.jpg">
+</div>
+
+<div class="slider-overlay">
+<h2>Curtin 137 St Georges Terrace</h2>
+<p>Modern facility in the heart of the city</p>
+</div>
+
+<div class="slider-controls">
+<button class="slider-btn" onclick="prevSlide()">❮</button>
+<button class="slider-btn" onclick="nextSlide()">❯</button>
+</div>
+</div>
+
+<!-- Info -->
+<div class="grid">
+
+<div class="card">
+<h2>About the Venue</h2>
+<p>Curtin 137 St Georges Terrace is a modern facility located in Perth’s central business district, designed for education, collaboration, and industry engagement.</p>
+<p>Its prime location offers excellent accessibility to transport, business hubs, and city attractions, making it an ideal conference venue.</p>
+<p><strong>Address:</strong> 137 St Georges Terrace, Perth WA 6000</p>
+</div>
+
+<div class="card">
+<h2>Getting There</h2>
+
+<p><span class="icon">🚆</span><strong>Train and Bus</strong></p>
+<p>Curtin 137 St Georges Terrace is a short walk from Elizabeth Quay train station and bus station. Several buses stop directly outside the building:</p>
+<p>24, 27, 32, 33, 72, 177, 910, 930, 935</p>
+
+<p><span class="icon">🚗</span><strong>By Car</strong></p>
+<p>The venue does not have dedicated parking. Nearby public car parks include:</p>
+
+<ul>
+<li>
+<a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Central+Park+152-158+St+Georges+Terrace+Perth+WA+6000" target="_blank">
+Central Park, 152-158 St Georges Terrace, Perth WA 6000
+</a>
+</li>
+
+<li>
+<a class="map-link" href="https://www.google.com/maps/search/?api=1&query=His+Majesty’s+377+Murray+Street+Perth+WA+6000" target="_blank">
+His Majesty’s, 377 Murray Street, Perth WA 6000
+</a>
+</li>
+
+<li>
+<a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Citipark+Wilson+Parking+427+Murray+Street+Perth+WA+6000" target="_blank">
+Citipark (Wilson Parking), 427 Murray Street, Perth WA 6000
+</a>
+</li>
+
+<li>
+<a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Convention+Centre+21+Mounts+Bay+Road+Perth+WA+6000" target="_blank">
+Convention Centre, 21 Mounts Bay Rd and Mitchell Freeway, Perth WA 6000
+</a>
+</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<p>If you have any questions regarding the ANSHM 2026 Conference, please feel free to contact us.</p>
+<p>Email: <a href="mailto:Zhen.Peng1@curtin.edu.au">Zhen.Peng1@curtin.edu.au</a></p>
+</footer>
+
+<script>
+let index=0;
+const slides=document.querySelectorAll('.slides img');
+let interval;
+
+function showSlide(i){
+slides.forEach(s=>s.classList.remove('active'));
+index=(i+slides.length)%slides.length;
+slides[index].classList.add('active');
+}
+function nextSlide(){showSlide(index+1);resetAuto();}
+function prevSlide(){showSlide(index-1);resetAuto();}
+function startAuto(){interval=setInterval(()=>{nextSlide();},3000);}
+function resetAuto(){clearInterval(interval);startAuto();}
+startAuto();
+
+function toggleMenu(){document.getElementById('nav').classList.toggle('active');}
+</script>
+
+</body>
+</html>

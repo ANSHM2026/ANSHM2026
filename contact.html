@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - ANSHM 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:#f7e6a1;}
+
+.container{max-width:1200px;margin:auto;padding:60px 20px;}
+h1{text-align:center;margin-bottom:20px;}
+.page-subtitle{
+    text-align:center;
+    margin-bottom:40px;
+    color:#555;
+}
+
+/* Header */
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:rgba(0,0,0,0.75);color:#fff;position:sticky;top:0;z-index:1000;}
+.logo{font-size:22px;font-weight:600;}
+.subtitle{font-size:12px;opacity:.8;}
+nav a{margin-left:20px;color:#fff;text-decoration:none;font-size:14px;}
+nav a:hover{color:#ffd54f;}
+.header-subtitle{
+    font-size:12px;
+    opacity:.8;
+}
+
+.menu-toggle{display:none;font-size:22px;cursor:pointer;}
+@media(max-width:768px){
+nav{display:none;flex-direction:column;background:#000;position:absolute;top:60px;right:0;width:200px;}
+nav a{padding:10px;display:block;}
+nav.active{display:flex;}
+.menu-toggle{display:block;}
+}
+
+/* Layout */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+align-items:stretch;
+}
+
+/* Cards */
+.card{
+background:#fff;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.15);
+transition:.3s;
+height:100%;
+}
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.card h2{margin-bottom:20px;}
+.card p{margin-bottom:12px;line-height:1.6;}
+
+.icon{
+margin-right:8px;
+}
+
+/* Contact links */
+.contact-link{
+color:#000;
+text-decoration:none;
+border-bottom:2px solid #000;
+transition:.3s;
+}
+.contact-link:hover{
+color:#ffd54f;
+border-bottom:2px solid #ffd54f;
+}
+
+/* Image */
+.contact-img{
+width:100%;
+height:100%;
+border-radius:12px;
+object-fit:cover;
+}
+
+/* Footer */
+footer{background:#000;color:#fff;text-align:center;padding:30px;margin-top:40px;}
+footer a{color:#ffd54f;}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+    
+    <div class="logo">
+    ANSHM 2026 PERTH
+    </div>
+    
+    <div class="header-subtitle" style="margin-top:1px; text-align:center;">
+        Hosted by Curtin University
+    </div>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    
+    <nav id="nav">
+        <a href="index.html">Home</a>
+        <a href="committees.html">Committees</a>
+        <a href="keynote.html">Invited Speakers</a> 
+        <a href="registration.html">Registration</a>
+        <a href="docs/program.pdf" target="_blank">Program</a>
+        <a href="docs/sponsorship.pdf" target="_blank">Sponsorship</a>
+        <a href="venue.html">Venue</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+
+<h1>Contact</h1>
+<p class="page-subtitle">For any enquiries regarding ANSHM 2026, please feel free to contact us.</p>
+
+<div class="grid">
+
+<!-- Contact Info -->
+<div class="card">
+<h2>Get in Touch</h2>
+<p class="page-subtitle"></p>
+<p><span class="icon">📧</span>
+<strong>Email:</strong><br>
+<a class="contact-link" href="Zhen.Peng1@curtin.edu.au">
+Zhen.Peng1@curtin.edu.au
+</a>
+</p>
+
+<p><span class="icon">📍</span>
+<strong>Address:</strong><br>
+Curtin 137 St Georges Terrace<br>
+Perth WA 6000, Australia
+</p>
+
+<p>
+For general enquiries including registration, program details, and sponsorship opportunities, please contact the organising committee via email.
+</p>
+</div>
+
+<!-- Image -->
+<div class="card">
+<img src="images/contact.jpg" class="contact-img">
+</div>
+
+</div>
+
+<!-- Extra Info -->
+<div class="card" style="margin-top:30px;">
+<h2>Organising Committee</h2>
+<p>The ANSHM 2026 Conference is organised by Curtin University in collaboration with academic and industry partners across Australia.</p>
+<p>We welcome enquiries from participants, sponsors, and collaborators worldwide.</p>
+</div>
+
+</div>
+
+<footer>
+<p>If you have any questions regarding the ANSHM 2026 Conference, please feel free to contact us.</p>
+<p>Email: <a href="mailto:Zhen.Peng1@curtin.edu.au">Zhen.Peng1@curtin.edu.au</a></p>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('nav').classList.toggle('active');}
+</script>
+
+</body>
+</html>

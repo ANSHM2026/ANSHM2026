@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration - ANSHM 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {margin:0;padding:0;box-sizing:border-box;}
+body {font-family:'Poppins',sans-serif;background:#f7e6a1;color:#333;}
+.container {max-width:1200px;margin:auto;padding:60px 20px;}
+h1,h2 {text-align:center;margin-bottom:40px;}
+h2 {font-size:28px;margin-top:40px;}
+.card {background:#fff;padding:25px;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.15);margin-bottom:30px;}
+
+/* ===== Grid layout ===== */
+.row {display:flex;flex-wrap:wrap;gap:30px;margin-bottom:30px;}
+.row .card {flex:1 1 45%;}
+
+/* Single full width card for Conference Details */
+.full-width {flex:1 1 100%;}
+
+/* Lists and notes */
+.card p {margin-bottom:12px;line-height:1.6;}
+.card ul {list-style:none;margin-left:0;padding-left:0;}
+.card ul li {padding:6px 0;border-bottom:1px solid #eee;}
+.card strong {color:#000;}
+.card-note {font-size:13px;color:#555;margin-top:10px;}
+.section-title {border-left:5px solid #000;padding-left:10px;margin-bottom:20px;font-size:22px;}
+
+/* ===== Header Styles ===== */
+header {display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:rgba(0,0,0,0.75);color:#fff;position:sticky;top:0;z-index:1000;}
+.logo {font-size:22px;font-weight:600;}
+.subtitle {font-size:12px;opacity:.8;}
+nav a {margin-left:20px;color:#fff;text-decoration:none;font-size:14px;transition:0.3s;}
+nav a:hover {color:#ffd54f;}
+.menu-toggle {display:none;font-size:22px;cursor:pointer;}
+@media(max-width:768px){
+    nav {display:none;flex-direction:column;background:#000;position:absolute;top:60px;right:0;width:200px;}
+    nav a {padding:10px;display:block;}
+    nav.active {display:flex;}
+    .menu-toggle {display:block;}
+    .row {flex-direction:column;}
+    .row .card {flex:1 1 100%;}
+}
+
+/* ===== Footer ===== */
+footer {background:#000;color:#fff;text-align:center;padding:30px;margin-top:40px;}
+footer a {color:#ffd54f;}
+.map-container {margin-top:40px;border-radius:12px;overflow:hidden;}
+iframe {width:100%;height:450px;border:0;border-radius:12px;pointer-events:none;} /* 禁止在iframe里操作，点击跳转外部 */
+.map-link {display:block;width:100%;text-decoration:none;color:inherit;}
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+    
+    <div class="logo">
+    ANSHM 2026 PERTH
+    </div>
+    
+    <div class="subtitle" style="margin-top:1px; text-align:center;">
+        Hosted by Curtin University
+    </div>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav id="nav">
+        <a href="index.html">Home</a>
+        <a href="committees.html">Committees</a>
+        <a href="keynote.html">Invited Speakers</a> 
+        <a href="registration.html">Registration</a>
+        <a href="docs/program.pdf" target="_blank">Program</a>
+        <a href="docs/sponsorship.pdf" target="_blank">Sponsorship</a>
+        <a href="venue.html">Venue</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+<h1>Registration</h1>
+
+<!-- Conference Details -->
+<div class="row">
+  <div class="card full-width">
+    <h2 class="section-title">Conference Details</h2>
+    <p><strong>Dates:</strong> 23-25 November 2026</p>
+    <p><strong>Venue:</strong> Curtin, 137 St Georges Terrace, Perth, Australia</p>
+    <p>This Conference brings together researchers, academics, and industry professionals in structural health monitoring. Please see the registration information below.</p>
+  </div>
+</div>
+
+<!-- Fees and Cancellation -->
+<div class="row">
+  <div class="card">
+    <h2 class="section-title">Registration Fees</h2>
+    <ul>
+      <li><strong>Early Bird (Before 15 Aug 2026)</strong></li>
+      <ul>
+        <li>Full Participant: $XXX (TBD) AUD</li>
+        <li>Student: $XXX (TBD) AUD</li>
+      </ul>
+      <li><strong>Regular (After 15 Aug 2026)</strong></li>
+      <ul>
+        <li>Full Participant: $XXX (TBD) AUD</li>
+        <li>Student: $XXX (TBD) AUD</li>
+      </ul>
+    </ul>
+    <p class="card-note">Fee amounts are in Australian dollars. Full and student registration fees cover the technical program, welcome receptions, morning tea, lunch and afternoon tea daily, gala dinner, programme booklet, and e-proceedings.</p>
+  </div>
+  <div class="card">
+    <h2 class="section-title">Cancellation Policy</h2>
+    <p><strong>Cancellation of Registration Deadline:</strong> 15 Oct 2026</p>
+    <p>Written notification is required for cancellations. Cancellations for registrations made by 15 Oct 2026 will result in a full refund less $150 to cover administration costs. As an alternative to cancellation, your registration may be transferred to another person by 10 Oct 2026 without incurring any cost penalty. The Organising Committee retains the authority to make decisions regarding cancellations on an individual basis.</p>
+  </div>
+</div>
+
+<!-- Important Dates and Tentative Program -->
+<div class="row">
+  <div class="card">
+    <h2 class="section-title">Important Dates</h2>
+    <ul>
+      <li>1 April 2026 – Deadline for special session proposal</li>
+      <li>15 April 2026 – Deadline for abstract submission</li>
+      <li>15 May 2026 – Notification of abstract acceptance</li>
+      <li>15 June 2026 – Full paper (optional) submission close</li>
+      <li>15 July 2026 – Notification of full paper acceptance</li>
+      <li>Before 15 Aug 2026 – Early bird registration</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2 class="section-title">Tentative Conference Program</h2>
+    <ul>
+      <li>23 Nov 2026 – Welcome reception</li>
+      <li>24 Nov 2026 – Full-day Conference + Gala Dinner</li>
+      <li>25 Nov 2026 – Full-day Conference</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Map -->
+<a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Curtin+137+St+Georges+Terrace+Perth+Australia" target="_blank">
+  <div class="map-container">
+    <iframe src="https://www.google.com/maps?q=Curtin+137+St+Georges+Terrace+Perth+Australia&output=embed" allowfullscreen></iframe>
+  </div>
+</a>
+
+</div>
+
+<footer>
+<p>If you have any questions regarding the ANSHM 2026 Conference, please feel free to contact us.</p>
+<p>Email: <a href="mailto:Zhen.Peng1@curtin.edu.au">Zhen.Peng1@curtin.edu.au</a></p>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('nav').classList.toggle('active');}
+</script>
+
+</body>
+</html>

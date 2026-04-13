@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invited Speakers - ANSHM 2026</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {margin:0;padding:0;box-sizing:border-box;}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7e6a1;
+}
+
+/* Header */
+header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:rgba(0,0,0,0.75);
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+.logo {font-size:22px;font-weight:600;}
+.subtitle {font-size:12px;opacity:0.8;}
+nav a {
+    margin-left:20px;
+    text-decoration:none;
+    color:white;
+    font-size:14px;
+    transition:0.3s;
+}
+nav a:hover {color:#ffd54f;}
+.menu-toggle {display:none;font-size:22px;cursor:pointer;}
+@media (max-width:768px){
+    nav {display:none;flex-direction:column;background:#000;position:absolute;top:60px;right:0;width:200px;}
+    nav a {padding:10px;display:block;}
+    nav.active {display:flex;}
+    .menu-toggle {display:block;}
+}
+
+/* Page content */
+.container{max-width:1100px;margin:auto;padding:60px 20px;}
+h1{text-align:center;margin-bottom:40px;font-size:36px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
+
+/* Card style */
+.card {
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    transition:transform 0.3s;
+    cursor:pointer;
+}
+.card:hover{transform:translateY(-8px);}
+.card img {width:100%;height:250px;object-fit:cover;}
+.card-content {padding:20px;}
+.card-content .name {font-weight:600;font-size:18px;margin-bottom:5px;}
+.card-content .title {font-size:14px;color:#555;margin-bottom:5px;}
+.card-content .affiliation {font-size:14px;color:#777;margin-bottom:10px;}
+.card-content .bio {font-size:13px;line-height:1.5;color:#333;}
+
+/* Footer */
+footer{background:#000;color:#fff;text-align:center;padding:30px;margin-top:40px;}
+footer a{color:#ffd54f;}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+    
+    <div class="logo">
+    ANSHM 2026 PERTH
+    </div>
+    
+    <div class="subtitle" style="margin-top:1px; text-align:center;">
+        Hosted by Curtin University
+    </div>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    
+    <nav id="nav">
+        <a href="index.html">Home</a>
+        <a href="committees.html">Committees</a>
+        <a href="keynote.html">Invited Speakers</a> 
+        <a href="registration.html">Registration</a>
+        <a href="docs/program.pdf" target="_blank">Program</a>
+        <a href="docs/sponsorship.pdf" target="_blank">Sponsorship</a>
+        <a href="venue.html">Venue</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+<h1>Invited Speakers</h1>
+
+<div class="grid">
+    <div class="card" style="display:flex; align-items:center; justify-content:center; height:250px;">
+        <div class="card-content" style="text-align:center;">
+            <div class="name" style="font-size:20px;">To be announced</div>
+            <div class="title" style="margin-top:10px;">Invited speakers will be updated soon.</div>
+        </div>
+    </div>
+</div>
+
+<footer>
+<p>If you have any questions regarding the ANSHM 2026 Conference, please feel free to contact us.</p>
+<p>Email: <a href="mailto:Zhen.Peng1@curtin.edu.au">Zhen.Peng1@curtin.edu.au</a></p>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('nav').classList.toggle('active');}
+</script>
+
+</body>
+</html>

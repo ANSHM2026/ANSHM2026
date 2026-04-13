@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Committees - ANSHM 2026</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {margin:0;padding:0;box-sizing:border-box;}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7e6a1;
+}
+
+/* ===== Header ===== */
+header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:rgba(0,0,0,0.75);
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo {font-size:22px;font-weight:600;}
+.subtitle {font-size:12px;opacity:0.8;}
+
+nav a {
+    margin-left:20px;
+    text-decoration:none;
+    color:white;
+    font-size:14px;
+    transition:0.3s;
+}
+nav a:hover {color:#ffd54f;}
+
+/* ===== Mobile Menu ===== */
+.menu-toggle {display:none;font-size:22px;cursor:pointer;}
+@media (max-width:768px){
+    nav {display:none;flex-direction:column;background:#000;position:absolute;top:60px;right:0;width:200px;}
+    nav a {padding:10px;display:block;}
+    nav.active {display:flex;}
+    .menu-toggle {display:block;}
+}
+
+/* ===== Sections ===== */
+.container{max-width:1100px;margin:auto;padding:60px 20px;}
+h1{text-align:center;margin-bottom:40px;font-size:36px;}
+.section{margin-bottom:50px;}
+.section + .section{margin-top:60px;} /* 增加距离 */
+.section h2{margin-bottom:20px;border-left:5px solid #000;padding-left:10px;font-size:24px;}
+.subheading{font-weight:600;margin:25px 0 10px;font-size:20px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.card{background:#fff;padding:15px 20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.15);transition:.3s;}
+.card:hover{transform:translateY(-5px);} 
+.name{font-weight:600;margin-bottom:5px;font-size:16px;}
+.affiliation{font-size:14px;color:#555;}
+
+footer{background:#000;color:#fff;text-align:center;padding:30px;margin-top:40px;}
+footer a{color:#ffd54f;}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+    
+    <div class="logo">
+    ANSHM 2026 PERTH
+    </div>
+    
+    <div class="subtitle" style="margin-top:1px; text-align:center;">
+        Hosted by Curtin University
+    </div>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav id="nav">
+        <a href="index.html">Home</a>
+        <a href="committees.html">Committees</a>
+        <a href="keynote.html">Invited Speakers</a> 
+        <a href="registration.html">Registration</a>
+        <a href="docs/program.pdf" target="_blank">Program</a>
+        <a href="docs/sponsorship.pdf" target="_blank">Sponsorship</a>
+        <a href="venue.html">Venue</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+<h1>Committees</h1>
+
+<!-- Advisory Committee Members -->
+<div class="section">
+<h2>Advisory Committee Members</h2>
+<div class="grid">
+<div class="card"><div class="name">Tommy Chan</div><div class="affiliation">Queensland University of Technology</div></div>
+<div class="card"><div class="name">Bijan Samali</div><div class="affiliation">Western Sydney University</div></div>
+<div class="card"><div class="name">Brian Uy</div><div class="affiliation">University of New South Wales</div></div>
+<div class="card"><div class="name">Yew-Chaye Loo</div><div class="affiliation">Griffith University</div></div>
+<div class="card"><div class="name">Hong Hao</div><div class="affiliation">Guangzhou University / Curtin University</div></div>
+<div class="card"><div class="name">Mark Stewart</div><div class="affiliation">University of Technology Sydney</div></div>
+<div class="card"><div class="name">Wenhui Duan</div><div class="affiliation">Monash University</div></div>
+<div class="card"><div class="name">Ian Petersen</div><div class="affiliation">Australian National University</div></div>
+<div class="card"><div class="name">David Thambiratnam</div><div class="affiliation">Queensland University of Technology</div></div>
+<div class="card"><div class="name">Wije Ariyaratne</div><div class="affiliation">The University of Sydney</div></div>
+<div class="card"><div class="name">Lawrence Hu</div><div class="affiliation">Queensland Transport and Main Roads</div></div>
+<div class="card"><div class="name">Shah Mustaque Parvez</div><div class="affiliation">Transport for New South Wales</div></div>
+<div class="card"><div class="name">Yew-Chin Koay</div><div class="affiliation">Major Transport Infrastructure Authority - Department of Transport</div></div>
+<div class="card"><div class="name">Govinda Pandey</div><div class="affiliation">Rockfield</div></div>
+<div class="card"><div class="name">Moustafa Al Ani</div><div class="affiliation">New Zealand Transport Agency</div></div>
+<div class="card"><div class="name">Peter Prasad</div><div class="affiliation">Australian Rail Track Corporation</div></div>
+<div class="card"><div class="name">Yasoja Gunawardena</div><div class="affiliation">Main Roads Western Australia</div></div>
+<div class="card"><div class="name">Torill Pape</div><div class="affiliation">Queensland Transport and Main Roads</div></div>
+<div class="card"><div class="name">Zheng Wu</div><div class="affiliation">Bentley Systems</div></div>
+<div class="card"><div class="name">Antony Schofield</div><div class="affiliation">Arup</div></div>
+<div class="card"><div class="name">John Vazey</div><div class="affiliation">EngAnalysis</div></div>
+<div class="card"><div class="name">Peter Runcie</div><div class="affiliation">Natirar Consulting Services</div></div>
+<div class="card"><div class="name">Khoa Nguyen</div><div class="affiliation">Ernst & Young</div></div>
+<div class="card"><div class="name">Mahesh Ramamoorthy</div><div class="affiliation">AECOM</div></div>
+<div class="card"><div class="name">Nigel Powers</div><div class="affiliation">Australian Road Research Board</div></div>
+<div class="card"><div class="name">Desiree Nortje</div><div class="affiliation">Transurban</div></div>
+<div class="card"><div class="name">Isaac Scot</div><div class="affiliation">Brisbane City Council</div></div>
+<div class="card"><div class="name">David Lo Jacono</div><div class="affiliation">ANZ Technical Director at Jacobs</div></div>
+<div class="card"><div class="name">Liam Coleman</div><div class="affiliation">Professional Head of Structures at Infrastructure, Kiwirail</div></div>
+</div>
+
+<!-- Executive Committee Members -->
+<div class="section" style="margin-top:60px;">
+<h2>Executive Committee Members</h2>
+<div class="grid">
+<div class="card"><div class="name">Tommy Chan</div><div class="affiliation">President, Queensland University of Technology</div></div>
+<div class="card"><div class="name">Jianchun Li</div><div class="affiliation">Deputy President, University of Technology Sydney</div></div>
+<div class="card"><div class="name">Hong Guan</div><div class="affiliation">Griffith University</div></div>
+<div class="card"><div class="name">Lei Hou</div><div class="affiliation">Royal Melbourne Institute of Technology</div></div>
+<div class="card"><div class="name">Jun Li</div><div class="affiliation">Curtin University</div></div>
+<div class="card"><div class="name">Mehrisadat Makki Alamdari</div><div class="affiliation">University of New South Wales</div></div>
+<div class="card"><div class="name">Alex Ching-Tai Ng</div><div class="affiliation">University of Adelaide</div></div>
+<div class="card"><div class="name">Tuan Duc Ngo</div><div class="affiliation">University of Melbourne</div></div>
+<div class="card"><div class="name">Andy Nguyen</div><div class="affiliation">University of Southern Queensland</div></div>
+<div class="card"><div class="name">Richard Yang</div><div class="affiliation">Western Sydney University</div></div>
+<div class="card"><div class="name">Xinqun Zhu</div><div class="affiliation">University of Technology Sydney</div></div>
+<div class="card"><div class="name">Colin Caprani</div><div class="affiliation">Monash University</div></div>
+<div class="card"><div class="name">Ulrike Dackermann</div><div class="affiliation">The University of New South Wales</div></div>
+<div class="card"><div class="name">Ali Hadigheh</div><div class="affiliation">The University of Sydney</div></div>
+</div>
+</div>
+
+<!-- Local Organizing Committee -->
+<div class="section" style="margin-top:60px;">
+<h2>Local Organizing Committee</h2>
+<div class="grid">
+<div class="card"><div class="name">Zhen Peng</div><div class="affiliation">Curtin University</div></div>
+<div class="card"><div class="name">Phil Cutter</div><div class="affiliation">Rockfield Perth</div></div>
+<div class="card"><div class="name">Yanda Shao</div><div class="affiliation">Curtin University</div></div>
+<div class="card"><div class="name">Chiyuan Lin</div><div class="affiliation">Curtin University</div></div>
+<div class="card"><div class="name">Dechen</div><div class="affiliation">Curtin University</div></div>
+<div class="card"><div class="name">Shihong Chen</div><div class="affiliation">Curtin University</div></div>
+<div class="card"><div class="name">Chao Fan</div><div class="affiliation">Curtin University</div></div>
+</div>
+</div>
+
+<footer>
+<p>If you have any questions regarding the ANSHM 2026 Conference, please feel free to contact us.</p>
+<p>Email: <a href="mailto:Zhen.Peng1@curtin.edu.au">Zhen.Peng1@curtin.edu.au</a></p>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('nav').classList.toggle('active');}
+</script>
+
+</body>
+</html>

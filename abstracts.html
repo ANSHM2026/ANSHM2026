@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Call for Abstracts - ANSHM 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:#f7e6a1;}
+
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:rgba(0,0,0,0.75);color:#fff;position:sticky;top:0;z-index:1000;}
+.logo{font-size:22px;font-weight:600;}
+.subtitle{font-size:12px;opacity:.8;}
+nav a{margin-left:20px;color:#fff;text-decoration:none;font-size:14px;}
+nav a:hover{color:#ffd54f;}
+
+.menu-toggle{display:none;font-size:22px;cursor:pointer;}
+@media(max-width:768px){
+nav{display:none;flex-direction:column;background:#000;position:absolute;top:60px;right:0;width:200px;}
+nav.active{display:flex;}
+.menu-toggle{display:block;}
+}
+
+.container{max-width:1000px;margin:auto;padding:60px 20px;}
+h1{text-align:center;margin-bottom:30px;}
+h2{margin-top:40px;margin-bottom:15px;border-left:5px solid #000;padding-left:10px;}
+p{line-height:1.7;margin-bottom:15px;}
+ul{margin-left:20px;margin-bottom:20px;}
+li{margin-bottom:8px;}
+
+.submit-btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 25px;
+background:#000;
+color:#fff;
+border-radius:8px;
+text-decoration:none;
+transition:0.3s;
+}
+.submit-btn:hover{
+background:#ffd54f;
+color:#000;
+}
+
+footer{background:#000;color:#fff;text-align:center;padding:30px;margin-top:40px;}
+footer a{color:#ffd54f;}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+    
+    <div class="logo">
+    ANSHM 2026 PERTH
+    </div>
+    
+    <div class="subtitle" style="margin-top:1px; text-align:center;">
+        Hosted by Curtin University
+    </div>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    
+    <nav id="nav">
+        <a href="index.html">Home</a>
+        <a href="committees.html">Committees</a>
+        <a href="keynote.html">Invited Speakers</a> 
+        <a href="registration.html">Registration</a>
+        <a href="docs/program.pdf" target="_blank">Program</a>
+        <a href="docs/sponsorship.pdf" target="_blank">Sponsorship</a>
+        <a href="venue.html">Venue</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+
+<h1>Call for Abstracts</h1>
+
+<p>
+The 18th ANSHM Conference invites submissions of abstracts from researchers and practitioners working in structural health monitoring and related fields.
+</p>
+
+<h2>Abstract Submission Guidelines</h2>
+<ul>
+<li>Abstracts should be written in English and should not exceed 300 words.</li>
+<li>The abstract should clearly summarise the objectives, methodology, and key contributions of the work.</li>
+<li>All authors’ full names, affiliations, and email addresses must be included.</li>
+<li>The presenting author should be clearly indicated.</li>
+<li>An abstract template will be provided on this website (coming soon).</li>
+<li>All abstracts must be submitted through the EasyChair system. Email submissions will not be accepted.</li>
+</ul>
+
+<h2>Submission Process (EasyChair)</h2>
+<ul>
+<li>If you do not have an EasyChair account, please create one at: 
+<a href="https://easychair.org/" target="_blank">https://easychair.org/</a></li>
+<li>Log in to your EasyChair account.</li>
+<li>Navigate to the ANSHM 2026 submission page (link will be available soon).</li>
+<li>Click “Make a New Submission”.</li>
+<li>Enter author details, title, keywords, and abstract.</li>
+<li>Complete and submit your abstract online.</li>
+</ul>
+
+<h2>Full Paper Submission (Optional)</h2>
+<p>
+Authors may optionally submit a full paper to support their abstract submission. Please note that accepted full papers will not be formally published or indexed, but will be included in the conference electronic proceedings for communication purposes.
+</p>
+
+<ul>
+<li>Full paper submission must also be completed via EasyChair. Email submissions will not be accepted.</li>
+<li>A full paper template will be available on the website (coming soon).</li>
+<li>If you have already submitted an abstract, please upload your full paper under the same submission.</li>
+<li>If you have not submitted an abstract, please create a new submission and include your full paper.</li>
+<li>Please avoid creating duplicate submissions for the same work.</li>
+</ul>
+
+<h2>Important Dates</h2>
+<ul>
+<li>Abstract submission opens: Coming soon</li>
+<li>Submission deadline: To be announced</li>
+<li>Notification of acceptance: To be announced</li>
+</ul>
+
+<h2>Submit Your Abstract</h2>
+<p>
+The submission system will be available soon. Please check back later.
+</p>
+
+<a href="https://easychair.org/" class="submit-btn" target="_blank">
+Submit via EasyChair (Coming Soon)
+</a>
+
+</div>
+
+<footer>
+<p>If you have any questions regarding the ANSHM 2026 Conference, please feel free to contact us.</p>
+<p>Email: <a href="mailto:Zhen.Peng1@curtin.edu.au">Zhen.Peng1@curtin.edu.au</a></p>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('nav').classList.toggle('active');}
+</script>
+
+</body>
+</html>
