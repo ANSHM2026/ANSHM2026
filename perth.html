@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perth - ANSHM 2026 Conference</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:#f7e6a1;}
+
+/* Header */
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:rgba(0,0,0,0.75);color:#fff;position:sticky;top:0;z-index:1000;}
+.logo{font-size:22px;font-weight:600;}
+.subtitle{font-size:12px;opacity:.8;}
+nav a{margin-left:20px;color:#fff;text-decoration:none;font-size:14px;}
+nav a:hover{color:#ffd54f;}
+
+.menu-toggle{display:none;font-size:22px;cursor:pointer;}
+@media(max-width:768px){
+nav{display:none;flex-direction:column;background:#000;position:absolute;top:60px;right:0;width:200px;}
+nav.active{display:flex;}
+.menu-toggle{display:block;}
+}
+
+/* ================= SLIDER ================= */
+.slider{
+position:relative;
+width:100%;
+aspect-ratio:16/9;
+max-height:80vh;
+overflow:hidden;
+}
+
+.slides img{
+width:100%;
+height:100%;
+object-fit:cover;
+position:absolute;
+top:0;
+left:0;
+opacity:0;
+transition:opacity 1s;
+}
+
+.slides img.active{opacity:1;}
+
+@media(max-width:768px){
+.slider{aspect-ratio:4/3;}
+}
+
+/* Controls */
+.slider-controls{
+position:absolute;
+top:50%;
+width:100%;
+display:flex;
+justify-content:space-between;
+transform:translateY(-50%);
+padding:0 20px;
+pointer-events:none;
+}
+
+.slider-btn{
+pointer-events:auto;
+background:rgba(0,0,0,.5);
+color:#fff;
+border:none;
+border-radius:50%;
+width:42px;
+height:42px;
+cursor:pointer;
+}
+
+/* Dots */
+.slider-dots{
+position:absolute;
+bottom:20px;
+width:100%;
+text-align:center;
+}
+
+.dot{
+display:inline-block;
+width:10px;
+height:10px;
+background:#fff;
+border-radius:50%;
+margin:5px;
+opacity:.5;
+cursor:pointer;
+}
+.dot.active{opacity:1;background:#ffd54f;}
+
+/* Overlay */
+.hero-text{
+position:absolute;
+bottom:40px;
+left:40px;
+color:#fff;
+background:rgba(0,0,0,.55);
+padding:20px;
+border-radius:10px;
+max-width:520px;
+}
+
+.hero-text h1{
+font-size:20px;
+letter-spacing:3px;
+margin-bottom:10px;
+}
+
+.hero-text p{
+font-size:14px;
+line-height:1.7;
+}
+
+/* Footer */
+footer{background:#000;color:#fff;text-align:center;padding:30px;margin-top:40px;}
+footer a{color:#ffd54f;}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+<div style="display:flex; flex-direction:column; align-items:center;">
+<div class="logo">ANSHM 2026 Conference</div>
+<div class="subtitle">Hosted by Curtin University</div>
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<nav id="nav">
+<a href="index.html">Home</a>
+<a href="committees.html">Committees</a>
+<a href="keynote.html">Invited Speakers</a> 
+<a href="registration.html">Registration</a>
+<a href="docs/program.pdf" target="_blank">Program</a>
+<a href="docs/sponsorship.pdf" target="_blank">Sponsorship</a>
+<a href="venue.html">Venue</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<!-- ================= SLIDER ================= -->
+<div class="slider">
+
+<div class="slides">
+<img src="images/perth1.jpg" class="active">
+<img src="images/perth2.jpg">
+<img src="images/perth3.jpg">
+</div>
+
+<div class="slider-controls">
+<button class="slider-btn" onclick="prevSlide()">❮</button>
+<button class="slider-btn" onclick="nextSlide()">❯</button>
+</div>
+
+<div class="slider-dots">
+<span class="dot active" onclick="goToSlide(0)"></span>
+<span class="dot" onclick="goToSlide(1)"></span>
+<span class="dot" onclick="goToSlide(2)"></span>
+</div>
+
+<!-- ================= DISCOVER PERTH ================= -->
+<div class="hero-text">
+<h1>DISCOVER PERTH</h1>
+<p>
+Perth blends urban energy with natural beauty, where the Swan River meets the Indian Ocean. From golden beaches and wide-open parks to vibrant food districts and cultural spaces, the city offers a relaxed yet sophisticated atmosphere.
+<br><br>
+Whether you explore Kings Park, enjoy a sunset at Cottesloe Beach, or take a short trip to Swan Valley wineries, Perth provides a unique Western Australian experience.
+<br><br>
+Plan your stay and explore more at <a href="https://visitperth.com/" target="_blank" style="color:#ffd54f;">visitperth.com</a>
+</p>
+</div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+<p>If you have any questions regarding the ANSHM 2026 Conference, please feel free to contact us.</p>
+<p>Email: <a href="mailto:Zhen.Peng1@curtin.edu.au">Zhen.Peng1@curtin.edu.au</a></p>
+</footer>
+
+<script>
+let index=0;
+const slides=document.querySelectorAll('.slides img');
+const dots=document.querySelectorAll('.dot');
+let interval;
+
+function showSlide(i){
+slides.forEach(s=>s.classList.remove('active'));
+dots.forEach(d=>d.classList.remove('active'));
+index=(i+slides.length)%slides.length;
+slides[index].classList.add('active');
+dots[index].classList.add('active');
+}
+
+function nextSlide(){showSlide(index+1);resetAuto();}
+function prevSlide(){showSlide(index-1);resetAuto();}
+function goToSlide(i){showSlide(i);resetAuto();}
+
+function startAuto(){interval=setInterval(()=>nextSlide(),3000);}
+function resetAuto(){clearInterval(interval);startAuto();}
+startAuto();
+
+function toggleMenu(){
+document.getElementById('nav').classList.toggle('active');
+}
+</script>
+
+</body>
+</html>
