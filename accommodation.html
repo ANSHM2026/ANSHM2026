@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accommodation - ANSHM 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:#f7e6a1;}
+
+/* Header */
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:rgba(0,0,0,0.75);color:#fff;position:sticky;top:0;z-index:1000;}
+.logo{font-size:22px;font-weight:600;}
+.subtitle{font-size:12px;opacity:.8;}
+nav a{margin-left:20px;color:#fff;text-decoration:none;font-size:14px;}
+nav a:hover{color:#ffd54f;}
+
+.menu-toggle{display:none;font-size:22px;cursor:pointer;}
+@media(max-width:768px){
+nav{display:none;flex-direction:column;background:#000;position:absolute;top:60px;right:0;width:200px;}
+nav.active{display:flex;}
+.menu-toggle{display:block;}
+}
+
+/* Content */
+.container{max-width:1200px;margin:auto;padding:60px 20px;}
+h1{text-align:center;margin-bottom:20px;}
+.subtitle-text{text-align:center;margin-bottom:40px;color:#555;line-height:1.7;}
+
+/* Cards */
+.cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+}
+
+@media(max-width:768px){
+.cards{grid-template-columns:1fr;}
+}
+
+.card{
+background:#fff;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+transition:.3s;
+display:flex;
+flex-direction:column;
+height:100%;
+}
+.card:hover{transform:translateY(-8px);}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+/* ⭐关键优化 */
+.card-content{
+padding:15px;
+display:flex;
+flex-direction:column;
+height:100%;
+}
+
+.hotel-name{
+font-weight:600;
+margin-bottom:8px;
+}
+
+/* ⭐关键：撑开高度 */
+.hotel-desc{
+font-size:14px;
+color:#555;
+margin-bottom:10px;
+flex:1;
+}
+
+/* Discount */
+.discount{
+margin-top:10px;
+padding:8px;
+background:#ffd54f;
+text-align:center;
+font-weight:600;
+border-radius:6px;
+font-size:13px;
+}
+
+/* Buttons */
+.buttons{
+display:flex;
+gap:10px;
+margin-top:12px;
+}
+
+.btn{
+flex:1;
+text-align:center;
+padding:8px;
+border-radius:6px;
+text-decoration:none;
+font-size:13px;
+transition:.3s;
+}
+
+.btn-website{background:#000;color:#fff;}
+.btn-website:hover{background:#ffd54f;color:#000;}
+
+.btn-map{border:1px solid #000;color:#000;}
+.btn-map:hover{background:#000;color:#fff;}
+
+footer{background:#000;color:#fff;text-align:center;padding:30px;margin-top:40px;}
+footer a{color:#ffd54f;}
+</style>
+</head>
+
+<body>
+
+<header>
+<div style="display:flex; flex-direction:column; align-items:center;">
+<div class="logo">ANSHM 2026 Conference</div>
+<div class="subtitle">Hosted by Curtin University</div>
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<nav id="nav">
+<a href="index.html">Home</a>
+<a href="committees.html">Committees</a>
+<a href="keynote.html">Invited Speakers</a> 
+<a href="registration.html">Registration</a>
+<a href="docs/program.pdf" target="_blank">Program</a>
+<a href="docs/sponsorship.pdf" target="_blank">Sponsorship</a>
+<a href="venue.html">Venue</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<div class="container">
+
+<h1>Accommodation</h1>
+
+<p class="subtitle-text">
+A selection of recommended hotels is available within walking distance of the conference venue at Curtin University, 137 St Georges Terrace, Perth. These accommodations offer a range of options from premium to budget-friendly, all conveniently located near the central business district, dining, and public transport.
+</p>
+
+<div class="cards">
+
+<!-- Hotel 1 -->
+<div class="card">
+<img src="images/hotel1.jpg">
+<div class="card-content">
+<div class="hotel-name">Parmelia Hilton Perth</div>
+<div class="hotel-desc">
+A premium hotel located close to the venue, offering high-end facilities and comfort for conference delegates.
+</div>
+<div class="discount">Discount Code: XXX (To be announced)</div>
+<div class="buttons">
+<a href="https://www.hilton.com/en/hotels/perhitw-parmelia-hilton-perth/" target="_blank" class="btn btn-website">Website</a>
+<a href="https://www.google.com/maps/search/?api=1&query=Parmelia+Hilton+Perth" target="_blank" class="btn btn-map">Directions</a>
+</div>
+</div>
+</div>
+
+<!-- Hotel 2 -->
+<div class="card">
+<img src="images/hotel2.jpg">
+<div class="card-content">
+<div class="hotel-name">ibis Perth</div>
+<div class="hotel-desc">
+A practical and affordable choice in the city centre, ideal for delegates seeking convenience and value.
+</div>
+<div class="discount">Discount Code: XXX (To be announced)</div>
+<div class="buttons">
+<a href="https://all.accor.com/hotel/1773/index.en.shtml" target="_blank" class="btn btn-website">Website</a>
+<a href="https://www.google.com/maps/search/?api=1&query=ibis+Perth" target="_blank" class="btn btn-map">Directions</a>
+</div>
+</div>
+</div>
+
+<!-- Hotel 3 -->
+<div class="card">
+<img src="images/hotel3.jpg">
+<div class="card-content">
+<div class="hotel-name">Holiday Inn Perth City Centre by IHG</div>
+<div class="hotel-desc">
+A well-located hotel with modern amenities, providing a comfortable stay near shops and restaurants.
+</div>
+<div class="discount">Discount Code: XXX (To be announced)</div>
+<div class="buttons">
+<a href="https://www.ihg.com/holidayinn/hotels/us/en/perth/purhs/hoteldetail" target="_blank" class="btn btn-website">Website</a>
+<a href="https://www.google.com/maps/search/?api=1&query=Holiday+Inn+Perth+City+Centre" target="_blank" class="btn btn-map">Directions</a>
+</div>
+</div>
+</div>
+
+<!-- Hotel 4 -->
+<div class="card">
+<img src="images/hotel4.jpg">
+<div class="card-content">
+<div class="hotel-name">Adina Apartment Hotel Perth</div>
+<div class="hotel-desc">
+A modern apartment-style hotel offering spacious accommodation, ideal for longer stays and added comfort.
+</div>
+<div class="discount">Discount Code: XXX (To be announced)</div>
+<div class="buttons">
+<a href="https://www.adinahotels.com/en/apartments/perth/" target="_blank" class="btn btn-website">Website</a>
+<a href="https://www.google.com/maps/search/?api=1&query=Adina+Apartment+Hotel+Perth" target="_blank" class="btn btn-map">Directions</a>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<p>If you have any questions regarding the ANSHM 2026 conference, please feel free to contact us.</p>
+<p>Email: <a href="mailto:Zhen.Peng1@curtin.edu.au">Zhen.Peng1@curtin.edu.au</a></p>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('nav').classList.toggle('active');}
+</script>
+
+</body>
+</html>
