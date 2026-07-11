@@ -3,124 +3,751 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Keynote speakers - ANSHM 2026</title>
+<meta name="description" content="Keynote speakers for the 18th ANSHM Workshop 2026, hosted by Curtin University.">
 
-<!-- Google Fonts -->
+<title>Keynote Speakers - ANSHM 2026</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-* {margin:0;padding:0;box-sizing:border-box;}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f7e6a1;
+    background: #f7e6a1;
+    color: #333;
 }
 
-/* Header */
+/* ===== Header Styles ===== */
+
 header {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 40px;
-    background:rgba(0,0,0,0.75);
-    color:white;
-    position:sticky;
-    top:0;
-    z-index:1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
-.logo {font-size:22px;font-weight:600;}
-.subtitle {font-size:12px;opacity:0.8;}
+
+.logo {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
 nav a {
-    margin-left:20px;
-    text-decoration:none;
-    color:white;
-    font-size:14px;
-    transition:0.3s;
-}
-nav a:hover {color:#ffd54f;}
-.menu-toggle {display:none;font-size:22px;cursor:pointer;}
-@media (max-width:768px){
-    nav {display:none;flex-direction:column;background:#000;position:absolute;top:60px;right:0;width:200px;}
-    nav a {padding:10px;display:block;}
-    nav.active {display:flex;}
-    .menu-toggle {display:block;}
+    margin-left: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
 }
 
-/* Page content */
-.container{max-width:1100px;margin:auto;padding:60px 20px;}
-h1{text-align:center;margin-bottom:40px;font-size:36px;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
-
-/* Card style */
-.card {
-    background:#fff;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 8px 20px rgba(0,0,0,0.15);
-    transition:transform 0.3s;
-    cursor:pointer;
+nav a:hover {
+    color: #ffd54f;
 }
-.card:hover{transform:translateY(-8px);}
-.card img {width:100%;height:250px;object-fit:cover;}
-.card-content {padding:20px;}
-.card-content .name {font-weight:600;font-size:18px;margin-bottom:5px;}
-.card-content .title {font-size:14px;color:#555;margin-bottom:5px;}
-.card-content .affiliation {font-size:14px;color:#777;margin-bottom:10px;}
-.card-content .bio {font-size:13px;line-height:1.5;color:#333;}
 
-/* Footer */
-footer{background:#000;color:#fff;text-align:center;padding:30px;margin-top:40px;}
-footer a{color:#ffd54f;}
+.menu-toggle {
+    display: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* ===== Main Content ===== */
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 36px;
+    line-height: 1.3;
+    color: #222;
+}
+
+.page-intro {
+    max-width: 850px;
+    margin: 0 auto 40px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* ===== Speaker Grid ===== */
+
+.speaker-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* ===== Speaker Card ===== */
+
+.speaker-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 420px;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.speaker-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 32px rgba(0, 0, 0, 0.19);
+}
+
+/* ===== Upper Card Area ===== */
+
+.speaker-main {
+    display: grid;
+    grid-template-columns: 185px minmax(0, 1fr);
+    gap: 28px;
+    flex: 1;
+    padding: 28px 30px 25px;
+}
+
+/* ===== Portrait ===== */
+
+.speaker-photo {
+    position: relative;
+    width: 185px;
+    height: 220px;
+    align-self: start;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #ececec;
+    box-shadow:
+        0 7px 18px rgba(0, 0, 0, 0.13),
+        0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.speaker-photo::before {
+    content: "";
+    position: absolute;
+    inset: -14px;
+    background-image: var(--speaker-image);
+    background-position: center;
+    background-size: cover;
+    filter: blur(15px);
+    transform: scale(1.12);
+    opacity: 0.22;
+}
+
+.speaker-photo img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.speaker-card:hover .speaker-photo img {
+    transform: scale(1.025);
+}
+
+/* Individual portrait adjustments */
+
+.photo-yong {
+    object-position: center 18%;
+}
+
+.photo-dominique {
+    object-position: center 20%;
+}
+
+.photo-desiree {
+    object-position: center 30%;
+}
+
+.photo-yew {
+    object-position: center 22%;
+}
+
+/* ===== Speaker Information ===== */
+
+.speaker-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding-top: 2px;
+}
+
+.speaker-label {
+    align-self: flex-start;
+    margin-bottom: 19px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: #111;
+    color: #ffd54f;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.speaker-name {
+    margin-bottom: 11px;
+    color: #111;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.speaker-position {
+    margin-bottom: 13px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.speaker-affiliation {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+/* ===== Full-width Presentation Area ===== */
+
+.presentation {
+    position: relative;
+    min-height: 108px;
+    padding: 20px 30px 23px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(247, 230, 161, 0.44),
+            rgba(255, 255, 255, 0.94)
+        );
+    border-top: 1px solid rgba(188, 145, 0, 0.30);
+}
+
+.presentation::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 30px;
+    width: 72px;
+    height: 3px;
+    border-radius: 5px;
+    background: #d5aa00;
+}
+
+.presentation-label {
+    margin-bottom: 7px;
+    color: #806500;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.presentation-title {
+    color: #555;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* ===== Footer ===== */
+
+footer {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+footer a {
+    color: #ffd54f;
+}
+
+/* ===== Tablet ===== */
+
+@media (max-width: 1080px) {
+
+    .speaker-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .speaker-card {
+        min-height: auto;
+    }
+
+    .speaker-main {
+        grid-template-columns: 190px minmax(0, 1fr);
+    }
+
+    .speaker-photo {
+        width: 190px;
+        height: 225px;
+    }
+}
+
+/* ===== Mobile ===== */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        background: #000;
+    }
+
+    nav a {
+        display: block;
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .container {
+        padding: 45px 15px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .page-intro {
+        margin-bottom: 30px;
+        font-size: 14px;
+    }
+
+    .speaker-main {
+        grid-template-columns: 145px minmax(0, 1fr);
+        gap: 21px;
+        padding: 23px;
+    }
+
+    .speaker-photo {
+        width: 145px;
+        height: 180px;
+    }
+
+    .speaker-label {
+        margin-bottom: 14px;
+        padding: 5px 11px;
+        font-size: 9px;
+    }
+
+    .speaker-name {
+        margin-bottom: 8px;
+        font-size: 19px;
+    }
+
+    .speaker-position,
+    .speaker-affiliation {
+        font-size: 13px;
+    }
+
+    .presentation {
+        min-height: 100px;
+        padding: 19px 23px 22px;
+    }
+
+    .presentation::before {
+        left: 23px;
+    }
+
+    footer {
+        padding: 30px 20px;
+    }
+
+    footer p {
+        font-size: 14px;
+    }
+}
+
+/* ===== Small Mobile ===== */
+
+@media (max-width: 520px) {
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .subtitle {
+        font-size: 11px;
+    }
+
+    .speaker-main {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .speaker-photo {
+        width: 100%;
+        max-width: 210px;
+        height: 245px;
+        justify-self: center;
+    }
+
+    .speaker-info {
+        align-items: center;
+        text-align: center;
+    }
+
+    .speaker-label {
+        align-self: center;
+    }
+
+    .speaker-name {
+        font-size: 20px;
+    }
+
+    .presentation {
+        text-align: center;
+    }
+
+    .presentation::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
 </style>
 </head>
 
 <body>
 
+<!-- Header -->
+
 <header>
+
     <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
-    
-    <div class="logo">
-    ANSHM 2026
-    </div>
-    
-    <div class="subtitle" style="margin-top:1px; text-align:center;">
-        Hosted by Curtin University
-    </div>
+
+        <div class="logo">
+            ANSHM 2026
+        </div>
+
+        <div class="subtitle" style="margin-top:1px; text-align:center;">
+            Hosted by Curtin University
+        </div>
+
     </div>
 
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    
+
     <nav id="nav">
         <a href="index.html">Home</a>
         <a href="committees.html">Committees</a>
-        <a href="keynote.html">Keynote speakers</a> 
-        <a href="abstracts.html">Submission</a> 
+        <a href="keynote.html">Keynote speakers</a>
+        <a href="abstracts.html">Submission</a>
         <a href="registration.html">Registration</a>
         <a href="docs/program.pdf" target="_blank">Program</a>
         <a href="docs/sponsorship.pdf" target="_blank">Sponsorship</a>
         <a href="venue.html">Venue</a>
         <a href="contact.html">Contact</a>
     </nav>
+
 </header>
 
-<div class="container">
-<h1>Keynote speakers</h1>
+<!-- Main Content -->
 
-<div class="grid">
-    <div class="card" style="display:flex; align-items:center; justify-content:center; height:250px;">
-        <div class="card-content" style="text-align:center;">
-            <div class="name" style="font-size:20px;">To be announced</div>
-            <div class="title" style="margin-top:10px;">Keynote speakers will be updated soon.</div>
-        </div>
-    </div>
-</div>
+<main class="container">
+
+    <h1>Keynote speakers</h1>
+
+    <p class="page-intro">
+        Distinguished researchers and industry leaders will share their perspectives
+        on structural health monitoring, infrastructure engineering and asset management.
+        Presentation titles will be announced closer to the workshop.
+    </p>
+
+    <section class="speaker-grid" aria-label="ANSHM 2026 keynote speakers">
+
+        <!-- Prof. Yong Xia -->
+
+        <article class="speaker-card">
+
+            <div class="speaker-main">
+
+                <div
+                    class="speaker-photo"
+                    style="--speaker-image:url('images/yong-xia.png');"
+                >
+                    <img
+                        src="images/yong-xia.png"
+                        alt="Portrait of Prof. Yong Xia"
+                        class="photo-yong"
+                        loading="eager"
+                    >
+                </div>
+
+                <div class="speaker-info">
+
+                    <div class="speaker-label">
+                        Keynote speaker
+                    </div>
+
+                    <h2 class="speaker-name">
+                        Prof. Yong Xia
+                    </h2>
+
+                    <p class="speaker-position">
+                        Chair Professor
+                    </p>
+
+                    <p class="speaker-affiliation">
+                        The Hong Kong Polytechnic University<br>
+                        Hong Kong
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="presentation">
+
+                <div class="presentation-label">
+                    Presentation title
+                </div>
+
+                <div class="presentation-title">
+                    To be announced
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- Dr. Dominique Cavell -->
+
+        <article class="speaker-card">
+
+            <div class="speaker-main">
+
+                <div
+                    class="speaker-photo"
+                    style="--speaker-image:url('images/dominique-cavell.jpg');"
+                >
+                    <img
+                        src="images/dominique-cavell.jpg"
+                        alt="Portrait of Dr. Dominique Cavell"
+                        class="photo-dominique"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="speaker-info">
+
+                    <div class="speaker-label">
+                        Keynote speaker
+                    </div>
+
+                    <h2 class="speaker-name">
+                        Dr. Dominique Cavell
+                    </h2>
+
+                    <p class="speaker-position">
+                        Technical Director, Bridges &amp; Civil Structures
+                    </p>
+
+                    <p class="speaker-affiliation">
+                        Aurecon<br>
+                        Perth, Western Australia
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="presentation">
+
+                <div class="presentation-label">
+                    Presentation title
+                </div>
+
+                <div class="presentation-title">
+                    To be announced
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- Dr. Désirée Nortje -->
+
+        <article class="speaker-card">
+
+            <div class="speaker-main">
+
+                <div
+                    class="speaker-photo"
+                    style="--speaker-image:url('images/desiree-nortje.jpg');"
+                >
+                    <img
+                        src="images/desiree-nortje.jpg"
+                        alt="Portrait of Dr. Désirée Nortje"
+                        class="photo-desiree"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="speaker-info">
+
+                    <div class="speaker-label">
+                        Keynote speaker
+                    </div>
+
+                    <h2 class="speaker-name">
+                        Dr. Désirée Nortje
+                    </h2>
+
+                    <p class="speaker-position">
+                        Principal Asset Engineer – Civil Structures
+                    </p>
+
+                    <p class="speaker-affiliation">
+                        Transurban<br>
+                        Melbourne, Victoria
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="presentation">
+
+                <div class="presentation-label">
+                    Presentation title
+                </div>
+
+                <div class="presentation-title">
+                    To be announced
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- Dr. Yew Chin Koay -->
+
+        <article class="speaker-card">
+
+            <div class="speaker-main">
+
+                <div
+                    class="speaker-photo"
+                    style="--speaker-image:url('images/yew-chin-koay.jpg');"
+                >
+                    <img
+                        src="images/yew-chin-koay.jpg"
+                        alt="Portrait of Dr. Yew Chin Koay"
+                        class="photo-yew"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="speaker-info">
+
+                    <div class="speaker-label">
+                        Keynote speaker
+                    </div>
+
+                    <h2 class="speaker-name">
+                        Dr. Yew Chin Koay
+                    </h2>
+
+                    <p class="speaker-position">
+                        Senior Specialist, Materials and Structural Engineering
+                    </p>
+
+                    <p class="speaker-affiliation">
+                        VIDA Roads<br>
+                        Melbourne, Victoria
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="presentation">
+
+                <div class="presentation-label">
+                    Presentation title
+                </div>
+
+                <div class="presentation-title">
+                    To be announced
+                </div>
+
+            </div>
+
+        </article>
+
+    </section>
+
+</main>
+
+<!-- Footer -->
 
 <footer>
-<p>If you have any questions regarding the 18th ANSHM Workshop (2026), please feel free to contact us.</p>
-<p>Email: <a href="mailto:Zhen.Peng1@curtin.edu.au">Zhen.Peng1@curtin.edu.au</a></p>
+
+    <p>
+        If you have any questions regarding the 18th ANSHM Workshop (2026),
+        please feel free to contact us.
+    </p>
+
+    <p>
+        Email:
+        <a href="mailto:Zhen.Peng1@curtin.edu.au">
+            Zhen.Peng1@curtin.edu.au
+        </a>
+    </p>
+
 </footer>
 
 <script>
-function toggleMenu(){document.getElementById('nav').classList.toggle('active');}
+function toggleMenu() {
+    document.getElementById('nav').classList.toggle('active');
+}
 </script>
 
 </body>
