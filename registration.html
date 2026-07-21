@@ -30,6 +30,25 @@ h2 {font-size:28px;margin-top:40px;}
 .card-note {font-size:13px;color:#555;margin-top:10px;}
 .section-title {border-left:5px solid #000;padding-left:10px;margin-bottom:20px;font-size:22px;}
 
+/* ===== Registration Link ===== */
+.registration-link-container {margin-top:22px;}
+.registration-link {
+    display:inline-block;
+    padding:12px 24px;
+    background:#000;
+    color:#fff;
+    text-decoration:none;
+    border-radius:6px;
+    font-size:14px;
+    font-weight:600;
+    transition:0.3s;
+}
+.registration-link:hover {
+    background:#ffd54f;
+    color:#000;
+    transform:translateY(-2px);
+}
+
 /* ===== Header Styles ===== */
 header {display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:rgba(0,0,0,0.75);color:#fff;position:sticky;top:0;z-index:1000;}
 .logo {font-size:22px;font-weight:600;}
@@ -37,6 +56,7 @@ header {display:flex;justify-content:space-between;align-items:center;padding:15
 nav a {margin-left:20px;color:#fff;text-decoration:none;font-size:14px;transition:0.3s;}
 nav a:hover {color:#ffd54f;}
 .menu-toggle {display:none;font-size:22px;cursor:pointer;}
+
 @media(max-width:768px){
     nav {display:none;flex-direction:column;background:#000;position:absolute;top:60px;right:0;width:200px;}
     nav a {padding:10px;display:block;}
@@ -44,6 +64,7 @@ nav a:hover {color:#ffd54f;}
     .menu-toggle {display:block;}
     .row {flex-direction:column;}
     .row .card {flex:1 1 100%;}
+    .registration-link {width:100%;text-align:center;}
 }
 
 /* ===== Footer ===== */
@@ -60,14 +81,14 @@ iframe {width:100%;height:450px;border:0;border-radius:12px;pointer-events:none;
 <!-- Header -->
 <header>
     <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
-    
-    <div class="logo">
-    ANSHM 2026
-    </div>
-    
-    <div class="subtitle" style="margin-top:1px; text-align:center;">
-        Hosted by Curtin University
-    </div>
+
+        <div class="logo">
+            ANSHM 2026
+        </div>
+
+        <div class="subtitle" style="margin-top:1px; text-align:center;">
+            Hosted by Curtin University
+        </div>
     </div>
 
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
@@ -75,8 +96,8 @@ iframe {width:100%;height:450px;border:0;border-radius:12px;pointer-events:none;
     <nav id="nav">
         <a href="index.html">Home</a>
         <a href="committees.html">Committees</a>
-        <a href="keynote.html">Keynote speakers</a> 
-        <a href="abstracts.html">Submission</a> 
+        <a href="keynote.html">Keynote speakers</a>
+        <a href="abstracts.html">Submission</a>
         <a href="registration.html">Registration</a>
         <a href="docs/program.pdf" target="_blank">Program</a>
         <a href="docs/sponsorship.pdf" target="_blank">Sponsorship</a>
@@ -86,80 +107,101 @@ iframe {width:100%;height:450px;border:0;border-radius:12px;pointer-events:none;
 </header>
 
 <div class="container">
-<h1>Registration</h1>
+    <h1>Registration</h1>
 
-<!-- Workshop Details -->
-<div class="row">
-  <div class="card full-width">
-    <h2 class="section-title">Workshop Details</h2>
-    <p><strong>Dates:</strong> 23-25 November 2026</p>
-    <p><strong>Venue:</strong> Curtin, 137 St Georges Terrace, Perth, Australia</p>
-    <p>This Workshop brings together researchers, academics, and industry professionals in structural health monitoring. Please see the registration information below.</p>
-  </div>
-</div>
+    <!-- Workshop Details -->
+    <div class="row">
+        <div class="card full-width">
+            <h2 class="section-title">Workshop Details</h2>
+            <p><strong>Dates:</strong> 23-25 November 2026</p>
+            <p><strong>Venue:</strong> Curtin, 137 St Georges Terrace, Perth, Australia</p>
+            <p>This Workshop brings together researchers, academics, and industry professionals in structural health monitoring. Please see the registration information below.</p>
 
-<!-- Fees and Cancellation -->
-<div class="row">
-  <div class="card">
-    <h2 class="section-title">Registration Fees</h2>
-    <ul>
-      <li><strong>Early Bird (Before 15 Aug 2026)</strong></li>
-      <ul>
-        <li>Full Participant: $300 AUD</li>
-        <li>Student: $200 AUD</li>
-      </ul>
-      <li><strong>Regular (After 15 Aug 2026)</strong></li>
-      <ul>
-        <li>Full Participant: $350 AUD</li>
-        <li>Student: $250 AUD</li>
-      </ul>
-    </ul>
-    <p class="card-note">Fee amounts are in Australian dollars. Full and student registration fees cover the technical program, welcome receptions, morning tea, lunch and afternoon tea daily, gala dinner, programme booklet, and e-proceedings.</p>
-  </div>
-  <div class="card">
-    <h2 class="section-title">Cancellation Policy</h2>
-    <p><strong>Cancellation of Registration Deadline:</strong> 15 Oct 2026</p>
-    <p>Written notification is required for cancellations. Cancellations for registrations made by 15 Oct 2026 will result in a full refund less $150 to cover administration costs. As an alternative to cancellation, your registration may be transferred to another person by 10 Oct 2026 without incurring any cost penalty. The Organising Committee retains the authority to make decisions regarding cancellations on an individual basis.</p>
-  </div>
-</div>
+            <div class="registration-link-container">
+                <a
+                    class="registration-link"
+                    href="https://payments.curtin.edu.au/other-payments1/booking?UDS_ACTION=S1I&UDS_ACTION_DATA=EVFWATAxW3ZOXlF2MUJDd1dSQnc8WjEbXjNLXABCUDMPRCwk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Register for ANSHM 2026
+                </a>
+            </div>
+        </div>
+    </div>
 
-<!-- Important Dates and Tentative Program -->
-<div class="row">
-  <div class="card">
-    <h2 class="section-title">Important Dates</h2>
-    <ul>
-      <li>15 Jul: Deadline for abstract submission</li>
-      <li>1 Aug: Notification of abstract acceptance</li>
-      <li>15 Aug: Early bird registration deadline</li>
-      <li>15 Sep: Regular registration deadline</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h2 class="section-title">Tentative Workshop Program</h2>
-    <ul>
-      <li>23 Nov: AB & EC Tour (Optional)</li>
-      <li>24 Nov: Full-day Workshop + Dinner</li>
-      <li>25 Nov: Half-day Workshop</li>
-    </ul>
-  </div>
-</div>
+    <!-- Fees and Cancellation -->
+    <div class="row">
+        <div class="card">
+            <h2 class="section-title">Registration Fees</h2>
+            <ul>
+                <li><strong>Early Bird (Before 15 Aug 2026)</strong></li>
+                <ul>
+                    <li>Full Participant: $300 AUD</li>
+                    <li>Student: $200 AUD</li>
+                </ul>
+                <li><strong>Regular (After 15 Aug 2026)</strong></li>
+                <ul>
+                    <li>Full Participant: $350 AUD</li>
+                    <li>Student: $250 AUD</li>
+                </ul>
+            </ul>
+            <p class="card-note">Fee amounts are in Australian dollars. Full and student registration fees cover the technical program, welcome receptions, morning tea, lunch and afternoon tea daily, gala dinner, programme booklet, and e-proceedings.</p>
+        </div>
 
-<!-- Map -->
-<a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Curtin+137+St+Georges+Terrace+Perth+Australia" target="_blank">
-  <div class="map-container">
-    <iframe src="https://www.google.com/maps?q=Curtin+137+St+Georges+Terrace+Perth+Australia&output=embed" allowfullscreen></iframe>
-  </div>
-</a>
+        <div class="card">
+            <h2 class="section-title">Cancellation Policy</h2>
+            <p><strong>Cancellation of Registration Deadline:</strong> 15 Oct 2026</p>
+            <p>Written notification is required for cancellations. Cancellations for registrations made by 15 Oct 2026 will result in a full refund less $150 to cover administration costs. As an alternative to cancellation, your registration may be transferred to another person by 10 Oct 2026 without incurring any cost penalty. The Organising Committee retains the authority to make decisions regarding cancellations on an individual basis.</p>
+        </div>
+    </div>
 
+    <!-- Important Dates and Tentative Program -->
+    <div class="row">
+        <div class="card">
+            <h2 class="section-title">Important Dates</h2>
+            <ul>
+                <li>15 Jul: Deadline for abstract submission</li>
+                <li>1 Aug: Notification of abstract acceptance</li>
+                <li>15 Aug: Early bird registration deadline</li>
+                <li>15 Sep: Regular registration deadline</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">Tentative Workshop Program</h2>
+            <ul>
+                <li>23 Nov: AB & EC Tour (Optional)</li>
+                <li>24 Nov: Full-day Workshop + Dinner</li>
+                <li>25 Nov: Half-day Workshop</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Map -->
+    <a
+        class="map-link"
+        href="https://www.google.com/maps/search/?api=1&query=Curtin+137+St+Georges+Terrace+Perth+Australia"
+        target="_blank"
+    >
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps?q=Curtin+137+St+Georges+Terrace+Perth+Australia&output=embed"
+                allowfullscreen
+            ></iframe>
+        </div>
+    </a>
 </div>
 
 <footer>
-<p>If you have any questions regarding the 18th ANSHM Workshop (2026), please feel free to contact us.</p>
-<p>Email: <a href="mailto:Zhen.Peng1@curtin.edu.au">Zhen.Peng1@curtin.edu.au</a></p>
+    <p>If you have any questions regarding the 18th ANSHM Workshop (2026), please feel free to contact us.</p>
+    <p>Email: <a href="mailto:Zhen.Peng1@curtin.edu.au">Zhen.Peng1@curtin.edu.au</a></p>
 </footer>
 
 <script>
-function toggleMenu(){document.getElementById('nav').classList.toggle('active');}
+function toggleMenu(){
+    document.getElementById('nav').classList.toggle('active');
+}
 </script>
 
 </body>
