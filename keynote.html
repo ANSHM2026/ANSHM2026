@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -20,6 +20,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #f7e6a1;
     color: #333;
+    overflow-x: hidden;
 }
 
 /* ===== Header Styles ===== */
@@ -67,7 +68,7 @@ nav a:hover {
 /* ===== Main Content ===== */
 
 .container {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: auto;
     padding: 60px 20px;
 }
@@ -82,11 +83,22 @@ h1 {
 
 .page-intro {
     max-width: 850px;
-    margin: 0 auto 40px;
+    margin: 0 auto 8px;
     text-align: center;
     font-size: 15px;
     line-height: 1.7;
     color: #555;
+}
+
+/* ===== Speaker Ordering Note ===== */
+
+.sorting-note {
+    margin: 0 auto 40px;
+    text-align: center;
+    color: #766522;
+    font-size: 12px;
+    line-height: 1.6;
+    font-style: italic;
 }
 
 /* ===== Speaker Grid ===== */
@@ -169,7 +181,52 @@ h1 {
     transform: scale(1.025);
 }
 
-/* Individual portrait adjustments */
+/* ===== Portrait Placeholder ===== */
+
+.speaker-photo.placeholder::before {
+    display: none;
+}
+
+.photo-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background:
+        linear-gradient(
+            145deg,
+            #f4f0dd,
+            #e5ddba
+        );
+    text-align: center;
+}
+
+.placeholder-initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 76px;
+    margin-bottom: 14px;
+    border: 2px solid #c8a71d;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.65);
+    color: #4f430e;
+    font-size: 23px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.placeholder-text {
+    color: #6c6040;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* ===== Individual Portrait Positions ===== */
 
 .photo-yong {
     object-position: center 18%;
@@ -232,7 +289,7 @@ h1 {
     line-height: 1.75;
 }
 
-/* ===== Full-width Presentation Area ===== */
+/* ===== Presentation Area ===== */
 
 .presentation {
     position: relative;
@@ -293,9 +350,67 @@ footer a {
     color: #ffd54f;
 }
 
+/* ===== Wide Screen ===== */
+
+@media (min-width: 1320px) {
+
+    .speaker-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .speaker-card {
+        grid-column: span 2;
+    }
+
+    .speaker-card:nth-last-child(2):nth-child(3n + 1) {
+        grid-column: 2 / span 2;
+    }
+
+    .speaker-card:last-child:nth-child(3n + 2) {
+        grid-column: 4 / span 2;
+    }
+
+    .speaker-card:last-child:nth-child(3n + 1) {
+        grid-column: 3 / span 2;
+    }
+
+    .speaker-main {
+        grid-template-columns: 150px minmax(0, 1fr);
+        gap: 22px;
+        padding: 26px;
+    }
+
+    .speaker-photo {
+        width: 150px;
+        height: 190px;
+    }
+
+    .speaker-name {
+        font-size: 20px;
+    }
+
+    .speaker-position,
+    .speaker-affiliation {
+        font-size: 13px;
+    }
+
+    .presentation {
+        padding-left: 26px;
+        padding-right: 26px;
+    }
+
+    .presentation::before {
+        left: 26px;
+    }
+}
+
 /* ===== Tablet ===== */
 
 @media (max-width: 1080px) {
+
+    .container {
+        max-width: 850px;
+    }
 
     .speaker-grid {
         grid-template-columns: 1fr;
@@ -327,16 +442,22 @@ footer a {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 100%;
         right: 0;
-        width: 200px;
+        width: min(250px, 100%);
         background: #000;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
     }
 
     nav a {
         display: block;
         margin-left: 0;
-        padding: 10px;
+        padding: 12px 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    nav a:last-child {
+        border-bottom: none;
     }
 
     nav.active {
@@ -356,8 +477,16 @@ footer a {
     }
 
     .page-intro {
-        margin-bottom: 30px;
         font-size: 14px;
+    }
+
+    .sorting-note {
+        margin-bottom: 30px;
+        font-size: 11px;
+    }
+
+    .speaker-grid {
+        gap: 24px;
     }
 
     .speaker-main {
@@ -407,25 +536,46 @@ footer a {
 
 /* ===== Small Mobile ===== */
 
-@media (max-width: 520px) {
+@media (max-width: 640px) {
 
-    .logo {
-        font-size: 19px;
+    .container {
+        padding: 38px 14px;
     }
 
-    .subtitle {
+    h1 {
+        margin-bottom: 14px;
+        font-size: 28px;
+    }
+
+    .page-intro {
+        max-width: 430px;
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+    .sorting-note {
+        margin-bottom: 26px;
         font-size: 11px;
+    }
+
+    .speaker-grid {
+        gap: 22px;
+    }
+
+    .speaker-card {
+        min-height: auto;
+        border-radius: 14px;
     }
 
     .speaker-main {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 18px;
+        padding: 22px 20px 20px;
     }
 
     .speaker-photo {
-        width: 100%;
-        max-width: 210px;
-        height: 245px;
+        width: 170px;
+        height: 205px;
         justify-self: center;
     }
 
@@ -436,19 +586,83 @@ footer a {
 
     .speaker-label {
         align-self: center;
+        margin-bottom: 12px;
     }
 
     .speaker-name {
+        margin-bottom: 8px;
         font-size: 20px;
     }
 
+    .speaker-position {
+        margin-bottom: 9px;
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
+    .speaker-affiliation {
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
     .presentation {
+        min-height: 96px;
+        padding: 18px 20px 20px;
         text-align: center;
     }
 
     .presentation::before {
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    .presentation-title {
+        font-size: 13px;
+    }
+
+    footer {
+        margin-top: 30px;
+        padding: 26px 16px;
+    }
+
+    footer p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 380px) {
+
+    header {
+        padding: 13px 15px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .subtitle {
+        font-size: 11px;
+    }
+
+    .container {
+        padding-left: 11px;
+        padding-right: 11px;
+    }
+
+    .speaker-main {
+        padding-left: 17px;
+        padding-right: 17px;
+    }
+
+    .speaker-photo {
+        width: 155px;
+        height: 190px;
+    }
+
+    .presentation {
+        padding-left: 17px;
+        padding-right: 17px;
     }
 }
 </style>
@@ -500,62 +714,11 @@ footer a {
         Presentation titles will be announced closer to the workshop.
     </p>
 
+    <p class="sorting-note">
+        Speakers are listed alphabetically by last name.
+    </p>
+
     <section class="speaker-grid" aria-label="ANSHM 2026 keynote speakers">
-
-        <!-- Prof. Yong Xia -->
-
-        <article class="speaker-card">
-
-            <div class="speaker-main">
-
-                <div
-                    class="speaker-photo"
-                    style="--speaker-image:url('images/yong-xia.png');"
-                >
-                    <img
-                        src="images/yong-xia.png"
-                        alt="Portrait of Prof. Yong Xia"
-                        class="photo-yong"
-                        loading="eager"
-                    >
-                </div>
-
-                <div class="speaker-info">
-
-                    <div class="speaker-label">
-                        Keynote speaker
-                    </div>
-
-                    <h2 class="speaker-name">
-                        Prof. Yong Xia
-                    </h2>
-
-                    <p class="speaker-position">
-                        Chair Professor
-                    </p>
-
-                    <p class="speaker-affiliation">
-                        The Hong Kong Polytechnic University<br>
-                        Hong Kong
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="presentation">
-
-                <div class="presentation-label">
-                    Presentation title
-                </div>
-
-                <div class="presentation-title">
-                    To be announced
-                </div>
-
-            </div>
-
-        </article>
 
         <!-- Dr. Dominique Cavell -->
 
@@ -571,7 +734,7 @@ footer a {
                         src="images/dominique-cavell.jpg"
                         alt="Portrait of Dr. Dominique Cavell"
                         class="photo-dominique"
-                        loading="lazy"
+                        loading="eager"
                     >
                 </div>
 
@@ -592,6 +755,115 @@ footer a {
                     <p class="speaker-affiliation">
                         Aurecon<br>
                         Perth, Western Australia
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="presentation">
+
+                <div class="presentation-label">
+                    Presentation title
+                </div>
+
+                <div class="presentation-title">
+                    To be announced
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- Professor Tommy Chan -->
+
+        <article class="speaker-card">
+
+            <div class="speaker-main">
+
+                <div
+                    class="speaker-photo"
+                    style="--speaker-image:url('images/tommy-chan.jpg');"
+                >
+                    <img
+                        src="images/tommy-chan.jpg"
+                        alt="Portrait of Professor Tommy Chan"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="speaker-info">
+
+                    <div class="speaker-label">
+                        Keynote speaker
+                    </div>
+
+                    <h2 class="speaker-name">
+                        Prof. Tommy Chan
+                    </h2>
+
+                    <p class="speaker-position">
+                        Professor in Civil Engineering
+                    </p>
+
+                    <p class="speaker-affiliation">
+                        Queensland University of Technology (QUT)<br>
+                        Brisbane, Queensland
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="presentation">
+
+                <div class="presentation-label">
+                    Presentation title
+                </div>
+
+                <div class="presentation-title">
+                    To be announced
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- Dr. Yew Chin Koay -->
+
+        <article class="speaker-card">
+
+            <div class="speaker-main">
+
+                <div
+                    class="speaker-photo"
+                    style="--speaker-image:url('images/yew-chin-koay.jpg');"
+                >
+                    <img
+                        src="images/yew-chin-koay.jpg"
+                        alt="Portrait of Dr. Yew Chin Koay"
+                        class="photo-yew"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="speaker-info">
+
+                    <div class="speaker-label">
+                        Keynote speaker
+                    </div>
+
+                    <h2 class="speaker-name">
+                        Dr. Yew Chin Koay
+                    </h2>
+
+                    <p class="speaker-position">
+                        Senior Specialist, Materials and Structural Engineering
+                    </p>
+
+                    <p class="speaker-affiliation">
+                        VIDA Roads<br>
+                        Melbourne, Victoria
                     </p>
 
                 </div>
@@ -667,7 +939,7 @@ footer a {
 
         </article>
 
-        <!-- Dr. Yew Chin Koay -->
+        <!-- Prof. Yong Xia -->
 
         <article class="speaker-card">
 
@@ -675,12 +947,12 @@ footer a {
 
                 <div
                     class="speaker-photo"
-                    style="--speaker-image:url('images/yew-chin-koay.jpg');"
+                    style="--speaker-image:url('images/yong-xia.png');"
                 >
                     <img
-                        src="images/yew-chin-koay.jpg"
-                        alt="Portrait of Dr. Yew Chin Koay"
-                        class="photo-yew"
+                        src="images/yong-xia.png"
+                        alt="Portrait of Prof. Yong Xia"
+                        class="photo-yong"
                         loading="lazy"
                     >
                 </div>
@@ -692,16 +964,18 @@ footer a {
                     </div>
 
                     <h2 class="speaker-name">
-                        Dr. Yew Chin Koay
+                        Prof. Yong Xia
                     </h2>
 
                     <p class="speaker-position">
-                        Senior Specialist, Materials and Structural Engineering
+                        Chair Professor of Structural Health Monitoring,
+                        Associate Dean of Graduate School and Director of
+                        Joint Research Centre for Marine Infrastructure
                     </p>
 
                     <p class="speaker-affiliation">
-                        VIDA Roads<br>
-                        Melbourne, Victoria
+                        The Hong Kong Polytechnic University<br>
+                        Hong Kong
                     </p>
 
                 </div>
