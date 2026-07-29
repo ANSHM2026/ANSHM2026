@@ -136,7 +136,7 @@ h1 {
     display: grid;
     grid-template-columns: 185px minmax(0, 1fr);
     gap: 28px;
-    flex: 1;
+    flex: 0 0 auto;
     padding: 28px 30px 25px;
 }
 
@@ -275,18 +275,88 @@ h1 {
     line-height: 1.35;
 }
 
-.speaker-position {
-    margin-bottom: 13px;
-    color: #333;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1.6;
-}
-
 .speaker-affiliation {
     color: #666;
     font-size: 14px;
     line-height: 1.75;
+}
+
+/* ===== Biography Area ===== */
+
+.speaker-bio {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    padding: 0 30px 24px;
+    background: #fff;
+}
+
+.speaker-bio-inner {
+    position: relative;
+    width: 100%;
+    padding: 18px 20px;
+    border: 1px solid rgba(188, 145, 0, 0.20);
+    border-radius: 12px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(247, 230, 161, 0.22),
+            rgba(255, 255, 255, 0.96)
+        );
+}
+
+.speaker-bio-label {
+    margin-bottom: 8px;
+    color: #806500;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.speaker-bio-text {
+    display: -webkit-box;
+    overflow: hidden;
+    color: #555;
+    font-size: 13px;
+    line-height: 1.7;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+}
+
+.speaker-bio.expanded .speaker-bio-text {
+    display: block;
+    overflow: visible;
+}
+
+.bio-toggle {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 10px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #806500;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.bio-toggle:hover {
+    color: #111;
+}
+
+.bio-toggle:focus-visible {
+    outline: 2px solid #d5aa00;
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+.bio-toggle[hidden] {
+    display: none;
 }
 
 /* ===== Presentation Area ===== */
@@ -389,9 +459,22 @@ footer a {
         font-size: 20px;
     }
 
-    .speaker-position,
     .speaker-affiliation {
         font-size: 13px;
+    }
+
+    .speaker-bio {
+        padding-right: 26px;
+        padding-left: 26px;
+    }
+
+    .speaker-bio-inner {
+        padding: 16px 18px;
+    }
+
+    .speaker-bio-text {
+        font-size: 13px;
+        line-height: 1.65;
     }
 
     .presentation {
@@ -511,8 +594,19 @@ footer a {
         font-size: 19px;
     }
 
-    .speaker-position,
     .speaker-affiliation {
+        font-size: 13px;
+    }
+
+    .speaker-bio {
+        padding: 0 23px 22px;
+    }
+
+    .speaker-bio-inner {
+        padding: 16px 17px;
+    }
+
+    .speaker-bio-text {
         font-size: 13px;
     }
 
@@ -594,15 +688,28 @@ footer a {
         font-size: 20px;
     }
 
-    .speaker-position {
-        margin-bottom: 9px;
-        font-size: 13px;
-        line-height: 1.55;
-    }
-
     .speaker-affiliation {
         font-size: 13px;
         line-height: 1.65;
+    }
+
+    .speaker-bio {
+        padding: 0 20px 20px;
+    }
+
+    .speaker-bio-inner {
+        padding: 16px;
+        text-align: left;
+    }
+
+    .speaker-bio-text {
+        font-size: 13px;
+        line-height: 1.65;
+        -webkit-line-clamp: 6;
+    }
+
+    .bio-toggle {
+        font-size: 11px;
     }
 
     .presentation {
@@ -658,6 +765,11 @@ footer a {
     .speaker-photo {
         width: 155px;
         height: 190px;
+    }
+
+    .speaker-bio {
+        padding-right: 17px;
+        padding-left: 17px;
     }
 
     .presentation {
@@ -748,14 +860,36 @@ footer a {
                         Dr. Dominique Cavell
                     </h2>
 
-                    <p class="speaker-position">
-                        Technical Director, Bridges &amp; Civil Structures
-                    </p>
-
                     <p class="speaker-affiliation">
                         Aurecon<br>
                         Perth, Western Australia
                     </p>
+
+                </div>
+
+            </div>
+
+            <div class="speaker-bio">
+
+                <div class="speaker-bio-inner">
+
+                    <div class="speaker-bio-label">
+                        Biography
+                    </div>
+
+                    <p class="speaker-bio-text" id="bio-dominique-cavell">
+                        Dr. Dominique Cavell is Technical Director, Bridges &amp; Civil Structures
+                        at Aurecon, with a professional focus on bridge and civil-structure engineering.
+                    </p>
+
+                    <button
+                        class="bio-toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="bio-dominique-cavell"
+                    >
+                        Read more
+                    </button>
 
                 </div>
 
@@ -802,14 +936,37 @@ footer a {
                         Prof. Tommy Chan
                     </h2>
 
-                    <p class="speaker-position">
-                        Professor in Civil Engineering
-                    </p>
-
                     <p class="speaker-affiliation">
                         Queensland University of Technology (QUT)<br>
                         Brisbane, Queensland
                     </p>
+
+                </div>
+
+            </div>
+
+            <div class="speaker-bio">
+
+                <div class="speaker-bio-inner">
+
+                    <div class="speaker-bio-label">
+                        Biography
+                    </div>
+
+                    <p class="speaker-bio-text" id="bio-tommy-chan">
+                        Prof. Tommy Chan is Professor in Civil Engineering at Queensland
+                        University of Technology, with academic interests in structural
+                        health monitoring and civil infrastructure engineering.
+                    </p>
+
+                    <button
+                        class="bio-toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="bio-tommy-chan"
+                    >
+                        Read more
+                    </button>
 
                 </div>
 
@@ -857,14 +1014,37 @@ footer a {
                         Dr. Yew Chin Koay
                     </h2>
 
-                    <p class="speaker-position">
-                        Senior Specialist, Materials and Structural Engineering
-                    </p>
-
                     <p class="speaker-affiliation">
                         VIDA Roads<br>
                         Melbourne, Victoria
                     </p>
+
+                </div>
+
+            </div>
+
+            <div class="speaker-bio">
+
+                <div class="speaker-bio-inner">
+
+                    <div class="speaker-bio-label">
+                        Biography
+                    </div>
+
+                    <p class="speaker-bio-text" id="bio-yew-chin-koay">
+                        Dr. Yew Chin Koay is Senior Specialist, Materials and Structural
+                        Engineering at VIDA Roads, focusing on materials and structural
+                        engineering for road infrastructure.
+                    </p>
+
+                    <button
+                        class="bio-toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="bio-yew-chin-koay"
+                    >
+                        Read more
+                    </button>
 
                 </div>
 
@@ -912,14 +1092,37 @@ footer a {
                         Dr. Désirée Nortje
                     </h2>
 
-                    <p class="speaker-position">
-                        Principal Asset Engineer – Civil Structures
-                    </p>
-
                     <p class="speaker-affiliation">
                         Transurban<br>
                         Melbourne, Victoria
                     </p>
+
+                </div>
+
+            </div>
+
+            <div class="speaker-bio">
+
+                <div class="speaker-bio-inner">
+
+                    <div class="speaker-bio-label">
+                        Biography
+                    </div>
+
+                    <p class="speaker-bio-text" id="bio-desiree-nortje">
+                        Dr. Désirée Nortje is Principal Asset Engineer – Civil Structures
+                        at Transurban, with a professional focus on civil-structure asset
+                        engineering and management.
+                    </p>
+
+                    <button
+                        class="bio-toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="bio-desiree-nortje"
+                    >
+                        Read more
+                    </button>
 
                 </div>
 
@@ -967,16 +1170,48 @@ footer a {
                         Prof. Yong Xia
                     </h2>
 
-                    <p class="speaker-position">
-                        Chair Professor of Structural Health Monitoring,
-                        Associate Dean of Graduate School and Director of
-                        Joint Research Centre for Marine Infrastructure
-                    </p>
-
                     <p class="speaker-affiliation">
                         The Hong Kong Polytechnic University<br>
                         Hong Kong
                     </p>
+
+                </div>
+
+            </div>
+
+            <div class="speaker-bio">
+
+                <div class="speaker-bio-inner">
+
+                    <div class="speaker-bio-label">
+                        Biography
+                    </div>
+
+                    <p class="speaker-bio-text" id="bio-yong-xia">
+                        Dr. Yong Xia is a Chair Professor of Structural Health Monitoring
+                        at The Hong Kong Polytechnic University, Associate Dean of Graduate
+                        School, and the Director of the Guangdong-Hong Kong Joint Laboratory
+                        for Marine Infrastructure. His main research areas include structural
+                        health monitoring, substructuring methods, and structural dynamics.
+                        He has completed more than 20 structural health monitoring (SHM)
+                        projects, including the 600-m tall Canton Tower, 632-m tall Shanghai
+                        Tower, the 1377-m long main span Tsing Ma Bridge and 55-km long
+                        Hong Kong–Zhuhai–Macao Bridge. He has published over 200 refereed
+                        international journal papers, three research books, and more than
+                        20 design standards. Dr. Xia is now the Co-Editor-in-Chief of
+                        Advances in Structural Engineering. He was awarded The Nishino Prize,
+                        State Technological Innovation Award, ASCE Greater China Distinguished
+                        Leadership Medal, and SHM Person of the Year Award, among many others.
+                    </p>
+
+                    <button
+                        class="bio-toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="bio-yong-xia"
+                    >
+                        Read more
+                    </button>
 
                 </div>
 
@@ -1022,6 +1257,52 @@ footer a {
 function toggleMenu() {
     document.getElementById('nav').classList.toggle('active');
 }
+
+function updateBioToggles() {
+    document.querySelectorAll('.speaker-bio').forEach(function(bio) {
+        const text = bio.querySelector('.speaker-bio-text');
+        const button = bio.querySelector('.bio-toggle');
+        const wasExpanded = bio.classList.contains('expanded');
+
+        if (wasExpanded) {
+            bio.classList.remove('expanded');
+        }
+
+        const isOverflowing = text.scrollHeight > text.clientHeight + 1;
+
+        if (wasExpanded && isOverflowing) {
+            bio.classList.add('expanded');
+        }
+
+        if (!isOverflowing) {
+            bio.classList.remove('expanded');
+            button.hidden = true;
+            button.textContent = 'Read more';
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            button.hidden = false;
+        }
+    });
+}
+
+document.querySelectorAll('.bio-toggle').forEach(function(button) {
+    button.addEventListener('click', function() {
+        const bio = button.closest('.speaker-bio');
+        const isExpanded = bio.classList.toggle('expanded');
+
+        button.textContent = isExpanded ? 'Show less' : 'Read more';
+        button.setAttribute('aria-expanded', String(isExpanded));
+    });
+});
+
+window.addEventListener('load', updateBioToggles);
+
+let bioResizeTimer;
+
+window.addEventListener('resize', function() {
+    clearTimeout(bioResizeTimer);
+    bioResizeTimer = setTimeout(updateBioToggles, 120);
+});
 </script>
 
 </body>
