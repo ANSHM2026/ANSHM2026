@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Registration information for the 18th ANSHM Workshop 2026, hosted by Curtin University.">
+
 <title>Registration - ANSHM 2026</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -16,7 +18,7 @@ h2 {font-size:28px;margin-top:40px;}
 .card {background:#fff;padding:25px;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.15);margin-bottom:30px;}
 
 /* ===== Grid layout ===== */
-.row {display:flex;flex-wrap:wrap;gap:30px;margin-bottom:30px;}
+.row {display:flex;flex-wrap:wrap;align-items:stretch;gap:30px;margin-bottom:30px;}
 .row .card {flex:1 1 45%;}
 
 /* Single full width card for Workshop Details */
@@ -27,11 +29,93 @@ h2 {font-size:28px;margin-top:40px;}
 .card ul {list-style:none;margin-left:0;padding-left:0;}
 .card ul li {padding:6px 0;border-bottom:1px solid #eee;}
 .card strong {color:#000;}
-.card-note {font-size:13px;color:#555;margin-top:10px;}
+.card-note {font-size:13px;color:#555;margin-top:16px;}
 .section-title {border-left:5px solid #000;padding-left:10px;margin-bottom:20px;font-size:22px;}
+
+/* ===== Registration Fees ===== */
+.fee-group {margin-bottom:18px;}
+.fee-group:last-of-type {margin-bottom:0;}
+
+.fee-group-title {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    padding:7px 0 9px;
+    border-bottom:1px solid #eee;
+    color:#000;
+    font-weight:600;
+}
+
+.fee-period {
+    color:#555;
+    font-size:13px;
+    font-weight:400;
+    text-align:right;
+}
+
+.fee-row {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    padding:9px 0;
+    border-bottom:1px solid #eee;
+}
+
+.fee-amount {
+    color:#000;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+/* ===== Complimentary Registration ===== */
+.complimentary-box {
+    margin-top:20px;
+    padding:16px 18px;
+    background:#fff8d6;
+    border:1px solid #eadb93;
+    border-left:5px solid #000;
+    border-radius:8px;
+}
+
+.complimentary-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:12px;
+}
+
+.complimentary-title {
+    color:#000;
+    font-size:16px;
+    font-weight:600;
+}
+
+.fee-waived-badge {
+    display:inline-block;
+    padding:5px 10px;
+    background:#000;
+    color:#fff;
+    border-radius:5px;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.5px;
+    white-space:nowrap;
+}
+
+.complimentary-box p {
+    margin-bottom:5px;
+    font-size:14px;
+    line-height:1.5;
+}
+
+.complimentary-box p:last-child {margin-bottom:0;}
 
 /* ===== Registration Link ===== */
 .registration-link-container {margin-top:22px;}
+
 .registration-link {
     display:inline-block;
     padding:12px 24px;
@@ -43,6 +127,7 @@ h2 {font-size:28px;margin-top:40px;}
     font-weight:600;
     transition:0.3s;
 }
+
 .registration-link:hover {
     background:#ffd54f;
     color:#000;
@@ -65,6 +150,20 @@ nav a:hover {color:#ffd54f;}
     .row {flex-direction:column;}
     .row .card {flex:1 1 100%;}
     .registration-link {width:100%;text-align:center;}
+
+    .fee-group-title {
+        align-items:flex-start;
+        flex-direction:column;
+        gap:3px;
+    }
+
+    .fee-period {text-align:left;}
+
+    .complimentary-header {
+        align-items:flex-start;
+        flex-direction:column;
+        gap:8px;
+    }
 }
 
 /* ===== Footer ===== */
@@ -113,6 +212,7 @@ iframe {width:100%;height:450px;border:0;border-radius:12px;pointer-events:none;
     <div class="row">
         <div class="card full-width">
             <h2 class="section-title">Workshop Details</h2>
+
             <p><strong>Dates:</strong> 23-25 November 2026</p>
             <p><strong>Venue:</strong> Curtin, 137 St Georges Terrace, Perth, Australia</p>
             <p>This Workshop brings together researchers, academics, and industry professionals in structural health monitoring. Please see the registration information below.</p>
@@ -132,27 +232,84 @@ iframe {width:100%;height:450px;border:0;border-radius:12px;pointer-events:none;
 
     <!-- Fees and Cancellation -->
     <div class="row">
+
+        <!-- Registration Fees -->
         <div class="card">
             <h2 class="section-title">Registration Fees</h2>
-            <ul>
-                <li><strong>Early Bird (Before 15 Aug 2026)</strong></li>
-                <ul>
-                    <li>Full Participant: $300 AUD</li>
-                    <li>Student: $200 AUD</li>
-                </ul>
-                <li><strong>Regular (After 15 Aug 2026)</strong></li>
-                <ul>
-                    <li>Full Participant: $350 AUD</li>
-                    <li>Student: $250 AUD</li>
-                </ul>
-            </ul>
-            <p class="card-note">Fee amounts are in Australian dollars. Full and student registration fees cover the technical program, welcome receptions, morning tea, lunch and afternoon tea daily, gala dinner, programme booklet, and e-proceedings.</p>
+
+            <div class="fee-group">
+                <div class="fee-group-title">
+                    <span>Early Bird</span>
+                    <span class="fee-period">Before 15 Aug 2026</span>
+                </div>
+
+                <div class="fee-row">
+                    <span>Full Participant</span>
+                    <span class="fee-amount">$300 AUD</span>
+                </div>
+
+                <div class="fee-row">
+                    <span>Student</span>
+                    <span class="fee-amount">$200 AUD</span>
+                </div>
+            </div>
+
+            <div class="fee-group">
+                <div class="fee-group-title">
+                    <span>Regular</span>
+                    <span class="fee-period">After 15 Aug 2026</span>
+                </div>
+
+                <div class="fee-row">
+                    <span>Full Participant</span>
+                    <span class="fee-amount">$350 AUD</span>
+                </div>
+
+                <div class="fee-row">
+                    <span>Student</span>
+                    <span class="fee-amount">$250 AUD</span>
+                </div>
+            </div>
+
+            <div class="complimentary-box">
+                <div class="complimentary-header">
+                    <div class="complimentary-title">
+                        Complimentary Registration
+                    </div>
+
+                    <span class="fee-waived-badge">
+                        FEE WAIVED
+                    </span>
+                </div>
+
+                <p>
+                    <strong>Eligible members:</strong>
+                    Advisory Board and Executive Committee
+                </p>
+
+                <p>
+                    <strong>Registration fee:</strong>
+                    Waived
+                </p>
+            </div>
+
+            <p class="card-note">
+                Fee amounts are in Australian dollars. Full and student registration fees cover the technical program, welcome receptions, morning tea, lunch and afternoon tea daily, gala dinner, programme booklet, and e-proceedings.
+            </p>
         </div>
 
+        <!-- Cancellation Policy -->
         <div class="card">
             <h2 class="section-title">Cancellation Policy</h2>
-            <p><strong>Cancellation of Registration Deadline:</strong> 15 Oct 2026</p>
-            <p>Written notification is required for cancellations. Cancellations for registrations made by 15 Oct 2026 will result in a full refund less $150 to cover administration costs. As an alternative to cancellation, your registration may be transferred to another person by 10 Oct 2026 without incurring any cost penalty. The Organising Committee retains the authority to make decisions regarding cancellations on an individual basis.</p>
+
+            <p>
+                <strong>Cancellation of Registration Deadline:</strong>
+                15 Oct 2026
+            </p>
+
+            <p>
+                Written notification is required for cancellations. Cancellations for registrations made by 15 Oct 2026 will result in a full refund less $150 to cover administration costs. As an alternative to cancellation, your registration may be transferred to another person by 10 Oct 2026 without incurring any cost penalty. The Organising Committee retains the authority to make decisions regarding cancellations on an individual basis.
+            </p>
         </div>
     </div>
 
@@ -160,6 +317,7 @@ iframe {width:100%;height:450px;border:0;border-radius:12px;pointer-events:none;
     <div class="row">
         <div class="card">
             <h2 class="section-title">Important Dates</h2>
+
             <ul>
                 <li>15 Jul: Deadline for abstract submission</li>
                 <li>1 Aug: Notification of abstract acceptance</li>
@@ -170,6 +328,7 @@ iframe {width:100%;height:450px;border:0;border-radius:12px;pointer-events:none;
 
         <div class="card">
             <h2 class="section-title">Tentative Workshop Program</h2>
+
             <ul>
                 <li>23 Nov: AB & EC Tour (Optional)</li>
                 <li>24 Nov: Full-day Workshop + Dinner</li>
@@ -183,6 +342,7 @@ iframe {width:100%;height:450px;border:0;border-radius:12px;pointer-events:none;
         class="map-link"
         href="https://www.google.com/maps/search/?api=1&query=Curtin+137+St+Georges+Terrace+Perth+Australia"
         target="_blank"
+        rel="noopener noreferrer"
     >
         <div class="map-container">
             <iframe
