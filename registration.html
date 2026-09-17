@@ -134,6 +134,56 @@ h2 {font-size:28px;margin-top:40px;}
     transform:translateY(-2px);
 }
 
+/* ===== Important Dates Extension ===== */
+.date-extended {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.date-extended-text {
+    display:inline-block;
+}
+
+.date-extended-text .old-deadline {
+    text-decoration:line-through;
+    text-decoration-thickness:1.5px;
+    color:#888;
+}
+
+.deadline-extension {
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:5px 10px;
+    background:#fff8d6;
+    border:1px solid #eadb93;
+    border-radius:999px;
+    color:#000;
+    font-size:12px;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+.deadline-extension::before {
+    content:"";
+    width:6px;
+    height:6px;
+    background:#000;
+    border-radius:50%;
+    flex:0 0 6px;
+}
+
+@media(max-width:768px){
+    .date-extended {
+        align-items:flex-start;
+        flex-direction:column;
+        gap:8px;
+    }
+}
+
 /* ===== Header Styles ===== */
 header {display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:rgba(0,0,0,0.75);color:#fff;position:sticky;top:0;z-index:1000;}
 .logo {font-size:22px;font-weight:600;}
@@ -320,7 +370,10 @@ iframe {width:100%;height:450px;border:0;border-radius:12px;pointer-events:none;
 
             <ul>
                 <li>15 Aug: Early bird registration deadline</li>
-                <li>15 Sep: Regular registration deadline</li>
+                <li class="date-extended">
+                    <span class="date-extended-text"><span class="old-deadline">15 Sep</span>: Regular registration deadline</span>
+                    <span class="deadline-extension">Extended to 30 Sep</span>
+                </li>
             </ul>
         </div>
 
