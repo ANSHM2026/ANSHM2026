@@ -89,6 +89,115 @@ border-radius:6px;
 font-size:13px;
 }
 
+/* Unified hotel offer block */
+.discount.offer-card{
+position:relative;
+min-height:82px;
+padding:8px 10px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:1px;
+}
+
+.offer-title{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:6px;
+line-height:1.35;
+font-weight:600;
+text-align:center;
+}
+
+.offer-meta{
+font-weight:400;
+line-height:1.35;
+text-align:center;
+}
+
+.offer-link{
+color:#0000ee;
+font-weight:600;
+line-height:1.35;
+text-decoration:underline;
+}
+
+.info-trigger{
+width:16px;
+height:16px;
+padding:0;
+border:1.5px solid #000;
+border-radius:50%;
+background:#000;
+color:#ffd54f;
+font-family:inherit;
+font-size:10px;
+font-weight:600;
+line-height:1;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+transition:.2s;
+flex:0 0 auto;
+}
+
+.info-trigger:hover,
+.info-trigger:focus-visible,
+.info-trigger[aria-expanded="true"]{
+background:#222;
+outline:none;
+transform:scale(1.05);
+}
+
+/* Floating offer details: appended to <body> so it is not clipped by hotel cards */
+.offer-floating-popover{
+position:fixed;
+width:min(280px,calc(100vw - 24px));
+padding:12px 14px;
+background:rgba(15,15,15,.96);
+color:#fff;
+border-radius:9px;
+box-shadow:0 10px 28px rgba(0,0,0,.30);
+font-size:12px;
+font-weight:400;
+line-height:1.5;
+text-align:left;
+z-index:9999;
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+transition:opacity .16s ease,transform .16s ease,visibility .16s ease;
+transform:translateY(4px);
+}
+
+.offer-floating-popover.show{
+opacity:1;
+visibility:visible;
+pointer-events:auto;
+transform:translateY(0);
+}
+
+.offer-floating-popover ul{
+margin:0;
+padding-left:18px;
+}
+
+.offer-floating-popover li{
+margin:3px 0;
+}
+
+.offer-floating-popover strong{
+font-weight:600;
+}
+
+/* Hidden source content used by the floating popover */
+.offer-info-source{
+display:none;
+}
+
 /* Buttons */
 .buttons{
 display:flex;
@@ -191,11 +300,10 @@ A practical and affordable choice in the city centre, ideal for delegates seekin
 A well-located hotel with modern amenities, providing a comfortable stay near shops and restaurants.
 </div>
 
-<div class="discount">
-<a href="https://www.ihg.com/redirect?path=rates&brandCode=HI&localeCode=en&regionCode=925&hotelCode=PURHS&checkInDate=20&checkInMonthYear=102026&checkOutDate=27&checkOutMonthYear=102026&_PMID=99801505&GPC=ANS&cn=no&adjustMonth=false&showApp=true&monthIndex=00" target="_blank" class="booking-btn">
-20% Best Flexible Rate<br>
-<span>Subject to availability (Link)</span>
-</a>
+<div class="discount offer-card">
+<div class="offer-title">20% Best Flexible Rate</div>
+<div class="offer-meta">Subject to availability</div>
+<a href="https://www.ihg.com/redirect?path=rates&brandCode=HI&localeCode=en&regionCode=925&hotelCode=PURHS&checkInDate=20&checkInMonthYear=102026&checkOutDate=27&checkOutMonthYear=102026&_PMID=99801505&GPC=ANS&cn=no&adjustMonth=false&showApp=true&monthIndex=00" target="_blank" class="offer-link">Book Now</a>
 </div>
   
 <div class="buttons">
@@ -213,7 +321,28 @@ A well-located hotel with modern amenities, providing a comfortable stay near sh
 <div class="hotel-desc">
 A modern apartment-style hotel offering spacious accommodation, ideal for longer stays and added comfort.
 </div>
-<div class="discount">Discount Code: XXX (To be announced)</div>
+<div class="discount offer-card">
+<div class="offer-title">
+<span>15% off our fully flexible rate</span>
+<button type="button"
+class="info-trigger"
+aria-label="View Adina booking details"
+aria-expanded="false"
+aria-describedby="adina-offer-details"
+data-info-source="adina-offer-details">i</button>
+</div>
+<div class="offer-meta">Promo Code: <strong>CONV15</strong></div>
+<a href="https://reservations.tfehotels.com/?adult=1&arrive=2026-11-21&chain=14687&child=0&config=CORP_SBE&currency=AUD&depart=2026-11-28&end=2026-11-28&event_name=18th%20Australian%20Network%20of%20Structural%20Health%20Monitoring%20(ANSHM)%20Workshop&hotel=58462&level=hotel&locale=en-US&productcurrency=AUD&promo=TH17264486&rooms=1&src=MDk5Y2RmMz&start=2026-11-21&theme=SBE_NPR&utm_medium=link&utm_source=corporate" target="_blank" class="offer-link">Book Now</a>
+
+<div id="adina-offer-details" class="offer-info-source">
+<ul>
+<li><strong>Room type:</strong> All room types</li>
+<li><strong>Booking period:</strong> 17/09/2026–28/11/2026</li>
+<li><strong>Travel / stay date:</strong> 21/11/2026–28/11/2026</li>
+<li><strong>Cancellation:</strong> Fully Flexible; subject to availability; cancel or modify up to 24 hours prior to arrival</li>
+</ul>
+</div>
+</div>
 <div class="buttons">
 <a href="https://www.adinahotels.com/en/apartments/perth/" target="_blank" class="btn btn-website">Website</a>
 <a href="https://www.google.com/maps/search/?api=1&query=Adina+Apartment+Hotel+Perth" target="_blank" class="btn btn-map">Directions</a>
@@ -232,6 +361,129 @@ A modern apartment-style hotel offering spacious accommodation, ideal for longer
 
 <script>
 function toggleMenu(){document.getElementById('nav').classList.toggle('active');}
+
+const offerPopover=document.createElement('div');
+offerPopover.className='offer-floating-popover';
+offerPopover.setAttribute('role','tooltip');
+document.body.appendChild(offerPopover);
+
+let activeInfoTrigger=null;
+let hideTimer=null;
+
+function positionOfferPopover(trigger){
+const rect=trigger.getBoundingClientRect();
+const gap=10;
+const margin=12;
+
+offerPopover.style.left='0px';
+offerPopover.style.top='0px';
+offerPopover.classList.add('show');
+
+const popRect=offerPopover.getBoundingClientRect();
+
+let left=rect.left+(rect.width/2)-(popRect.width/2);
+left=Math.max(margin,Math.min(left,window.innerWidth-popRect.width-margin));
+
+let top=rect.top-popRect.height-gap;
+if(top<margin){
+top=rect.bottom+gap;
+}
+if(top+popRect.height>window.innerHeight-margin){
+top=Math.max(margin,window.innerHeight-popRect.height-margin);
+}
+
+offerPopover.style.left=Math.round(left)+'px';
+offerPopover.style.top=Math.round(top)+'px';
+}
+
+function showOfferPopover(trigger){
+clearTimeout(hideTimer);
+
+const sourceId=trigger.dataset.infoSource;
+const source=document.getElementById(sourceId);
+if(!source) return;
+
+if(activeInfoTrigger && activeInfoTrigger!==trigger){
+activeInfoTrigger.setAttribute('aria-expanded','false');
+}
+
+offerPopover.innerHTML=source.innerHTML;
+activeInfoTrigger=trigger;
+trigger.setAttribute('aria-expanded','true');
+positionOfferPopover(trigger);
+}
+
+function hideOfferPopover(immediate=false){
+clearTimeout(hideTimer);
+
+const close=function(){
+offerPopover.classList.remove('show');
+if(activeInfoTrigger){
+activeInfoTrigger.setAttribute('aria-expanded','false');
+activeInfoTrigger=null;
+}
+};
+
+if(immediate){
+close();
+}else{
+hideTimer=setTimeout(close,120);
+}
+}
+
+document.querySelectorAll('.info-trigger[data-info-source]').forEach(function(trigger){
+trigger.addEventListener('mouseenter',function(){showOfferPopover(trigger);});
+trigger.addEventListener('mouseleave',function(){hideOfferPopover();});
+trigger.addEventListener('focus',function(){showOfferPopover(trigger);});
+trigger.addEventListener('blur',function(){hideOfferPopover();});
+
+trigger.addEventListener('click',function(event){
+event.preventDefault();
+event.stopPropagation();
+
+if(activeInfoTrigger===trigger && offerPopover.classList.contains('show')){
+hideOfferPopover(true);
+}else{
+showOfferPopover(trigger);
+}
+});
+});
+
+offerPopover.addEventListener('mouseenter',function(){
+clearTimeout(hideTimer);
+});
+
+offerPopover.addEventListener('mouseleave',function(){
+hideOfferPopover();
+});
+
+document.addEventListener('click',function(event){
+if(
+activeInfoTrigger &&
+!offerPopover.contains(event.target) &&
+!activeInfoTrigger.contains(event.target)
+){
+hideOfferPopover(true);
+}
+});
+
+document.addEventListener('keydown',function(event){
+if(event.key==='Escape'){
+hideOfferPopover(true);
+}
+});
+
+window.addEventListener('resize',function(){
+if(activeInfoTrigger && offerPopover.classList.contains('show')){
+positionOfferPopover(activeInfoTrigger);
+}
+});
+
+window.addEventListener('scroll',function(){
+if(activeInfoTrigger && offerPopover.classList.contains('show')){
+positionOfferPopover(activeInfoTrigger);
+}
+},{passive:true});
 </script>
 
 </body>
