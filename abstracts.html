@@ -1,123 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Call for Abstracts - ANSHM 2026</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Poppins',sans-serif;background:#f7e6a1;}
-
-header{display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:rgba(0,0,0,0.75);color:#fff;position:sticky;top:0;z-index:1000;}
-.logo{font-size:22px;font-weight:600;}
-.subtitle{font-size:12px;opacity:.8;}
-nav a{margin-left:20px;color:#fff;text-decoration:none;font-size:14px;}
-nav a:hover{color:#ffd54f;}
-
-.menu-toggle{display:none;font-size:22px;cursor:pointer;}
-@media(max-width:768px){
-nav{display:none;flex-direction:column;background:#000;position:absolute;top:60px;right:0;width:200px;}
-nav.active{display:flex;}
-.menu-toggle{display:block;}
-}
-
-.container{max-width:1000px;margin:auto;padding:60px 20px;}
-h1{text-align:center;margin-bottom:30px;}
-h2{margin-top:40px;margin-bottom:15px;border-left:5px solid #000;padding-left:10px;}
-p{line-height:1.7;margin-bottom:15px;}
-ul{margin-left:20px;margin-bottom:20px;}
-li{margin-bottom:8px;}
-
-.submit-btn{
-display:inline-block;
-margin-top:20px;
-padding:12px 25px;
-background:#000;
-color:#fff;
-border-radius:8px;
-text-decoration:none;
-transition:0.3s;
-}
-.submit-btn:hover{
-background:#ffd54f;
-color:#000;
-}
-
-footer{background:#000;color:#fff;text-align:center;padding:30px;margin-top:40px;}
-footer a{color:#ffd54f;}
-</style>
-</head>
-
-<body>
-
-<header>
-    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
-    
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Call for Abstracts - ANSHM 2026
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="assets/css/base.css" rel="stylesheet"/>
+  <link href="assets/css/layout.css" rel="stylesheet"/>
+  <link href="assets/css/components.css" rel="stylesheet"/>
+  <link href="assets/css/pages/abstracts.css" rel="stylesheet"/>
+ </head>
+ <body class="page-abstracts">
+  <header class="site-header" data-site-header="">
+   <div class="site-brand">
     <div class="logo">
-    ANSHM 2026
+     ANSHM 2026
     </div>
-    
-    <div class="subtitle" style="margin-top:1px; text-align:center;">
-        Hosted by Curtin University
+    <div class="subtitle">
+     Hosted by Curtin University
     </div>
+   </div>
+   <button aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation menu" class="menu-toggle" type="button">
+    <span aria-hidden="true">
+     ☰
+    </span>
+   </button>
+   <nav aria-label="Primary navigation" class="site-nav" id="nav">
+    <a href="index.html">
+     Home
+    </a>
+    <a href="committees.html">
+     Committees
+    </a>
+    <a href="keynote.html">
+     Speakers &amp; Forums
+    </a>
+    <a aria-current="page" class="active" href="abstracts.html">
+     Submission
+    </a>
+    <a href="registration.html">
+     Registration
+    </a>
+    <a href="docs/program.pdf" rel="noopener noreferrer" target="_blank">
+     Program
+    </a>
+    <a href="docs/sponsorship.pdf" rel="noopener noreferrer" target="_blank">
+     Sponsorship
+    </a>
+    <a href="venue.html">
+     Venue
+    </a>
+    <a href="contact.html">
+     Contact
+    </a>
+   </nav>
+  </header>
+  <aside aria-label="Page sections" class="page-rail" data-page-rail="">
+   <div class="page-rail-shell">
+    <div aria-label="Page progress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="page-rail-track" role="slider" tabindex="0">
+     <span aria-hidden="true" class="page-rail-segments">
+     </span>
+     <span aria-hidden="true" class="page-rail-progress">
+     </span>
+     <span aria-hidden="true" class="page-rail-handle">
+     </span>
+     <span class="page-rail-dots">
+     </span>
     </div>
-
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    
-    <nav id="nav">
-        <a href="index.html">Home</a>
-        <a href="committees.html">Committees</a>
-        <a href="keynote.html">Keynote speakers</a> 
-        <a href="abstracts.html">Submission</a> 
-        <a href="registration.html">Registration</a>
-        <a href="docs/program.pdf" target="_blank">Program</a>
-        <a href="docs/sponsorship.pdf" target="_blank">Sponsorship</a>
-        <a href="venue.html">Venue</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
-
-<div class="container">
-
-<h1>Call for Abstracts</h1>
-
-<h2>Abstract Submission Guidelines</h2>
-<ul>
-<li>Abstracts should be written in English and should not exceed 300 words.</li>
-<li>The abstract should clearly summarise the objectives, methodology, and key contributions of the work.</li>
-<li>All authors’ full names, affiliations, and email addresses must be included.</li>
-<li>The presenting author should be clearly indicated.</li>
-<li>All submissions must be completed through the Microsoft CMT system. Email submissions will not be accepted.</li>
-</ul>
-
-<h2>Submission Process (Microsoft CMT)</h2>
-<ul>
-<li>If you do not have a Microsoft CMT account, please create one at: 
-<a href="https://cmt3.research.microsoft.com/" target="_blank">https://cmt3.research.microsoft.com/</a></li>
-
-<li>Submit your abstract through link: 
-<a href="https://cmt3.research.microsoft.com/ANSHM2026" target="_blank">https://cmt3.research.microsoft.com/ANSHM2026</a> 
-or search for the workshop: <b>ANSHM2026</b></li>
-</ul>
-
-<h2>Important Dates</h2>
-<ul>
-<li>Abstract Submission Deadline: 15 Aug 2026</li>
-</ul>
-
-</div>
-
-<footer>
-<p>If you have any questions regarding the 18th ANSHM Workshop (2026), please feel free to contact us.</p>
-<p>Email: <a href="mailto:Zhen.Peng1@curtin.edu.au">Zhen.Peng1@curtin.edu.au</a></p>
-</footer>
-
-<script>
-function toggleMenu(){document.getElementById('nav').classList.toggle('active');}
-</script>
-
-</body>
+    <button aria-label="Back to top" class="page-rail-top" data-rail-top="" title="Back to top" type="button">
+     &uarr;
+    </button>
+   </div>
+  </aside>
+  <main id="main-content">
+   <div class="container">
+    <h1>
+     Call for Abstracts
+    </h1>
+    <section class="submission-card">
+     <div class="submission-card-header">
+      <h2 data-rail-label="Abstract Submission Guidelines" id="abstract-submission-guidelines">
+       Abstract Submission Guidelines
+      </h2>
+     </div>
+     <div class="submission-card-body">
+      <ul>
+       <li>
+        Abstracts should be written in English and should not exceed 300 words.
+       </li>
+       <li>
+        The abstract should clearly summarise the objectives, methodology, and key contributions of the work.
+       </li>
+       <li>
+        All authors&rsquo; full names, affiliations, and email addresses must be included.
+       </li>
+       <li>
+        The presenting author should be clearly indicated.
+       </li>
+       <li>
+        All submissions must be completed through the Microsoft CMT system. Email submissions will not be accepted.
+       </li>
+      </ul>
+     </div>
+    </section>
+    <section class="submission-card">
+     <div class="submission-card-header">
+      <h2 data-rail-label="Submission Process (Microsoft CMT)" id="submission-process-microsoft-cmt">
+       Submission Process (Microsoft CMT)
+      </h2>
+     </div>
+     <div class="submission-card-body">
+      <ul>
+       <li>
+        If you do not have a Microsoft CMT account, please create one at:
+        <a href="https://cmt3.research.microsoft.com/" rel="noopener noreferrer" target="_blank">
+         https://cmt3.research.microsoft.com/
+        </a>
+       </li>
+       <li>
+        Submit your abstract through link:
+        <a href="https://cmt3.research.microsoft.com/ANSHM2026" rel="noopener noreferrer" target="_blank">
+         https://cmt3.research.microsoft.com/ANSHM2026
+        </a>
+        or search for the workshop:
+        <b>
+         ANSHM2026
+        </b>
+       </li>
+      </ul>
+     </div>
+    </section>
+    <section class="submission-card">
+     <div class="submission-card-header">
+      <h2 data-rail-label="Important Dates" id="important-dates">
+       Important Dates
+      </h2>
+     </div>
+     <div class="submission-card-body">
+      <ul>
+       <li>
+        Abstract Submission Deadline: 15 Aug 2026
+       </li>
+      </ul>
+     </div>
+    </section>
+   </div>
+  </main>
+  <footer class="site-footer">
+   <p>
+    If you have any questions regarding the 18th ANSHM Workshop (2026), please feel free to contact us.
+   </p>
+   <p>
+    Email:
+    <a href="mailto:Zhen.Peng1@curtin.edu.au">
+     Zhen.Peng1@curtin.edu.au
+    </a>
+   </p>
+  </footer>
+  <script defer="" src="assets/js/site.js">
+  </script>
+ </body>
 </html>
