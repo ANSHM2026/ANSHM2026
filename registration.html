@@ -1,419 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Registration information for the 18th ANSHM Workshop 2026, hosted by Curtin University.">
-
-<title>Registration - ANSHM 2026</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-* {margin:0;padding:0;box-sizing:border-box;}
-body {font-family:'Poppins',sans-serif;background:#f7e6a1;color:#333;}
-.container {max-width:1200px;margin:auto;padding:60px 20px;}
-h1,h2 {text-align:center;margin-bottom:40px;}
-h2 {font-size:28px;margin-top:40px;}
-.card {background:#fff;padding:25px;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.15);margin-bottom:30px;}
-
-/* ===== Grid layout ===== */
-.row {display:flex;flex-wrap:wrap;align-items:stretch;gap:30px;margin-bottom:30px;}
-.row .card {flex:1 1 45%;}
-
-/* Single full width card for Workshop Details */
-.full-width {flex:1 1 100%;}
-
-/* Lists and notes */
-.card p {margin-bottom:12px;line-height:1.6;}
-.card ul {list-style:none;margin-left:0;padding-left:0;}
-.card ul li {padding:6px 0;border-bottom:1px solid #eee;}
-.card strong {color:#000;}
-.card-note {font-size:13px;color:#555;margin-top:16px;}
-.section-title {border-left:5px solid #000;padding-left:10px;margin-bottom:20px;font-size:22px;}
-
-/* ===== Registration Fees ===== */
-.fee-group {margin-bottom:18px;}
-.fee-group:last-of-type {margin-bottom:0;}
-
-.fee-group-title {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-    padding:7px 0 9px;
-    border-bottom:1px solid #eee;
-    color:#000;
-    font-weight:600;
-}
-
-.fee-period {
-    color:#555;
-    font-size:13px;
-    font-weight:400;
-    text-align:right;
-}
-
-.fee-row {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-    padding:9px 0;
-    border-bottom:1px solid #eee;
-}
-
-.fee-amount {
-    color:#000;
-    font-weight:600;
-    white-space:nowrap;
-}
-
-/* ===== Complimentary Registration ===== */
-.complimentary-box {
-    margin-top:20px;
-    padding:16px 18px;
-    background:#fff8d6;
-    border:1px solid #eadb93;
-    border-left:5px solid #000;
-    border-radius:8px;
-}
-
-.complimentary-header {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-    margin-bottom:12px;
-}
-
-.complimentary-title {
-    color:#000;
-    font-size:16px;
-    font-weight:600;
-}
-
-.fee-waived-badge {
-    display:inline-block;
-    padding:5px 10px;
-    background:#000;
-    color:#fff;
-    border-radius:5px;
-    font-size:11px;
-    font-weight:600;
-    letter-spacing:0.5px;
-    white-space:nowrap;
-}
-
-.complimentary-box p {
-    margin-bottom:5px;
-    font-size:14px;
-    line-height:1.5;
-}
-
-.complimentary-box p:last-child {margin-bottom:0;}
-
-/* ===== Registration Link ===== */
-.registration-link-container {margin-top:22px;}
-
-.registration-link {
-    display:inline-block;
-    padding:12px 24px;
-    background:#000;
-    color:#fff;
-    text-decoration:none;
-    border-radius:6px;
-    font-size:14px;
-    font-weight:600;
-    transition:0.3s;
-}
-
-.registration-link:hover {
-    background:#ffd54f;
-    color:#000;
-    transform:translateY(-2px);
-}
-
-/* ===== Important Dates Extension ===== */
-.date-extended {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:14px;
-    flex-wrap:wrap;
-}
-
-.date-extended-text {
-    display:inline-block;
-}
-
-.date-extended-text .old-deadline {
-    text-decoration:line-through;
-    text-decoration-thickness:1.5px;
-    color:#888;
-}
-
-.deadline-extension {
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    padding:5px 10px;
-    background:#fff8d6;
-    border:1px solid #eadb93;
-    border-radius:999px;
-    color:#000;
-    font-size:12px;
-    font-weight:600;
-    white-space:nowrap;
-}
-
-.deadline-extension::before {
-    content:"";
-    width:6px;
-    height:6px;
-    background:#000;
-    border-radius:50%;
-    flex:0 0 6px;
-}
-
-@media(max-width:768px){
-    .date-extended {
-        align-items:flex-start;
-        flex-direction:column;
-        gap:8px;
-    }
-}
-
-/* ===== Header Styles ===== */
-header {display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:rgba(0,0,0,0.75);color:#fff;position:sticky;top:0;z-index:1000;}
-.logo {font-size:22px;font-weight:600;}
-.subtitle {font-size:12px;opacity:.8;}
-nav a {margin-left:20px;color:#fff;text-decoration:none;font-size:14px;transition:0.3s;}
-nav a:hover {color:#ffd54f;}
-.menu-toggle {display:none;font-size:22px;cursor:pointer;}
-
-@media(max-width:768px){
-    nav {display:none;flex-direction:column;background:#000;position:absolute;top:60px;right:0;width:200px;}
-    nav a {padding:10px;display:block;}
-    nav.active {display:flex;}
-    .menu-toggle {display:block;}
-    .row {flex-direction:column;}
-    .row .card {flex:1 1 100%;}
-    .registration-link {width:100%;text-align:center;}
-
-    .fee-group-title {
-        align-items:flex-start;
-        flex-direction:column;
-        gap:3px;
-    }
-
-    .fee-period {text-align:left;}
-
-    .complimentary-header {
-        align-items:flex-start;
-        flex-direction:column;
-        gap:8px;
-    }
-}
-
-/* ===== Footer ===== */
-footer {background:#000;color:#fff;text-align:center;padding:30px;margin-top:40px;}
-footer a {color:#ffd54f;}
-.map-container {margin-top:40px;border-radius:12px;overflow:hidden;}
-iframe {width:100%;height:450px;border:0;border-radius:12px;pointer-events:none;}
-.map-link {display:block;width:100%;text-decoration:none;color:inherit;}
-</style>
-</head>
-
-<body>
-
-<!-- Header -->
-<header>
-    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
-
-        <div class="logo">
-            ANSHM 2026
-        </div>
-
-        <div class="subtitle" style="margin-top:1px; text-align:center;">
-            Hosted by Curtin University
-        </div>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Registration information for the 18th ANSHM Workshop 2026, hosted by Curtin University." name="description"/>
+  <title>
+   Registration - ANSHM 2026
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="assets/css/base.css" rel="stylesheet"/>
+  <link href="assets/css/layout.css" rel="stylesheet"/>
+  <link href="assets/css/components.css" rel="stylesheet"/>
+  <link href="assets/css/pages/registration.css" rel="stylesheet"/>
+ </head>
+ <body class="page-registration">
+  <header class="site-header" data-site-header="">
+   <div class="site-brand">
+    <div class="logo">
+     ANSHM 2026
     </div>
-
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-    <nav id="nav">
-        <a href="index.html">Home</a>
-        <a href="committees.html">Committees</a>
-        <a href="keynote.html">Keynote speakers</a>
-        <a href="abstracts.html">Submission</a>
-        <a href="registration.html">Registration</a>
-        <a href="docs/program.pdf" target="_blank">Program</a>
-        <a href="docs/sponsorship.pdf" target="_blank">Sponsorship</a>
-        <a href="venue.html">Venue</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
-
-<div class="container">
-    <h1>Registration</h1>
-
-    <!-- Workshop Details -->
-    <div class="row">
-        <div class="card full-width">
-            <h2 class="section-title">Workshop Details</h2>
-
-            <p><strong>Dates:</strong> 23-25 November 2026</p>
-            <p><strong>Venue:</strong> Curtin, 137 St Georges Terrace, Perth, Australia</p>
-            <p>This Workshop brings together researchers, academics, and industry professionals in structural health monitoring. Please see the registration information below.</p>
-
-            <div class="registration-link-container">
-                <a
-                    class="registration-link"
-                    href="https://payments.curtin.edu.au/other-payments1/booking?UDS_ACTION=S1I&UDS_ACTION_DATA=EVFWATAxW3ZOXlF2MUJDd1dSQnc8WjEbXjNLXABCUDMPRCwk"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Register for ANSHM 2026
-                </a>
-            </div>
-        </div>
+    <div class="subtitle">
+     Hosted by Curtin University
     </div>
-
-    <!-- Fees and Cancellation -->
-    <div class="row">
-
-        <!-- Registration Fees -->
-        <div class="card">
-            <h2 class="section-title">Registration Fees</h2>
-
-            <div class="fee-group">
-                <div class="fee-group-title">
-                    <span>Early Bird</span>
-                    <span class="fee-period">Before 15 Aug 2026</span>
-                </div>
-
-                <div class="fee-row">
-                    <span>Full Participant</span>
-                    <span class="fee-amount">$300 AUD</span>
-                </div>
-
-                <div class="fee-row">
-                    <span>Student</span>
-                    <span class="fee-amount">$200 AUD</span>
-                </div>
-            </div>
-
-            <div class="fee-group">
-                <div class="fee-group-title">
-                    <span>Regular</span>
-                    <span class="fee-period">After 15 Aug 2026</span>
-                </div>
-
-                <div class="fee-row">
-                    <span>Full Participant</span>
-                    <span class="fee-amount">$350 AUD</span>
-                </div>
-
-                <div class="fee-row">
-                    <span>Student</span>
-                    <span class="fee-amount">$250 AUD</span>
-                </div>
-            </div>
-
-            <div class="complimentary-box">
-                <div class="complimentary-header">
-                    <div class="complimentary-title">
-                        Complimentary Registration
-                    </div>
-
-                    <span class="fee-waived-badge">
-                        FEE WAIVED
-                    </span>
-                </div>
-
-                <p>
-                    <strong>Eligible members:</strong>
-                    Advisory Board and Executive Committee
-                </p>
-
-                <p>
-                    <strong>Registration fee:</strong>
-                    Waived
-                </p>
-            </div>
-
-            <p class="card-note">
-                Fee amounts are in Australian dollars. Full and student registration fees cover the technical program, morning tea, lunch and afternoon tea daily, gala dinner, and programme booklet.
-            </p>
-        </div>
-
-        <!-- Cancellation Policy -->
-        <div class="card">
-            <h2 class="section-title">Cancellation Policy</h2>
-
-            <p>
-                <strong>Cancellation of Registration Deadline:</strong>
-                15 Oct 2026
-            </p>
-
-            <p>
-                Written notification is required for cancellations. Cancellations for registrations made by 15 Oct 2026 will result in a full refund less $150 to cover administration costs. As an alternative to cancellation, your registration may be transferred to another person by 10 Oct 2026 without incurring any cost penalty. The Organising Committee retains the authority to make decisions regarding cancellations on an individual basis.
-            </p>
-        </div>
-    </div>
-
-    <!-- Important Dates and Tentative Program -->
-    <div class="row">
-        <div class="card">
-            <h2 class="section-title">Important Dates</h2>
-
-            <ul>
-                <li>15 Aug: Early bird registration deadline</li>
-                <li class="date-extended">
-                    <span class="date-extended-text"><span class="old-deadline">15 Sep</span>: Regular registration deadline</span>
-                    <span class="deadline-extension">Extended to 30 Sep</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2 class="section-title">Tentative Workshop Program</h2>
-
-            <ul>
-                <li>23 Nov: Advisory Board & Executive Committee Tour (Optional)</li>
-                <li>24 Nov: Full-day Workshop + Dinner</li>
-                <li>25 Nov: Half-day Workshop</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Map -->
-    <a
-        class="map-link"
-        href="https://www.google.com/maps/search/?api=1&query=Curtin+137+St+Georges+Terrace+Perth+Australia"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        <div class="map-container">
-            <iframe
-                src="https://www.google.com/maps?q=Curtin+137+St+Georges+Terrace+Perth+Australia&output=embed"
-                allowfullscreen
-            ></iframe>
-        </div>
+   </div>
+   <button aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation menu" class="menu-toggle" type="button">
+    <span aria-hidden="true">
+     ☰
+    </span>
+   </button>
+   <nav aria-label="Primary navigation" class="site-nav" id="nav">
+    <a href="index.html">
+     Home
     </a>
-</div>
-
-<footer>
-    <p>If you have any questions regarding the 18th ANSHM Workshop (2026), please feel free to contact us.</p>
-    <p>Email: <a href="mailto:Zhen.Peng1@curtin.edu.au">Zhen.Peng1@curtin.edu.au</a></p>
-</footer>
-
-<script>
-function toggleMenu(){
-    document.getElementById('nav').classList.toggle('active');
-}
-</script>
-
-</body>
+    <a href="committees.html">
+     Committees
+    </a>
+    <a href="keynote.html">
+     Speakers &amp; Forums
+    </a>
+    <a href="abstracts.html">
+     Submission
+    </a>
+    <a aria-current="page" class="active" href="registration.html">
+     Registration
+    </a>
+    <a href="docs/program.pdf" rel="noopener noreferrer" target="_blank">
+     Program
+    </a>
+    <a href="docs/sponsorship.pdf" rel="noopener noreferrer" target="_blank">
+     Sponsorship
+    </a>
+    <a href="venue.html">
+     Venue
+    </a>
+    <a href="contact.html">
+     Contact
+    </a>
+   </nav>
+  </header>
+  <aside aria-label="Page sections" class="page-rail" data-page-rail="">
+   <div class="page-rail-shell">
+    <div aria-label="Page progress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="page-rail-track" role="slider" tabindex="0">
+     <span aria-hidden="true" class="page-rail-segments">
+     </span>
+     <span aria-hidden="true" class="page-rail-progress">
+     </span>
+     <span aria-hidden="true" class="page-rail-handle">
+     </span>
+     <span class="page-rail-dots">
+     </span>
+    </div>
+    <button aria-label="Back to top" class="page-rail-top" data-rail-top="" title="Back to top" type="button">
+     &uarr;
+    </button>
+   </div>
+  </aside>
+  <main id="main-content">
+   <div class="container">
+    <h1>
+     Registration
+    </h1>
+    <div class="row">
+     <div class="card full-width">
+      <h2 class="section-title" data-rail-label="Workshop Details" id="workshop-details">
+       Workshop Details
+      </h2>
+      <p>
+       <strong>
+        Dates:
+       </strong>
+       23-25 November 2026
+      </p>
+      <p>
+       <strong>
+        Venue:
+       </strong>
+       Curtin, 137 St Georges Terrace, Perth, Australia
+      </p>
+      <p>
+       This Workshop brings together researchers, academics, and industry professionals in structural health monitoring. Please see the registration information below.
+      </p>
+      <div class="registration-link-container">
+       <a class="registration-link" href="https://payments.curtin.edu.au/other-payments1/booking?UDS_ACTION=S1I&amp;UDS_ACTION_DATA=EVFWATAxW3ZOXlF2MUJDd1dSQnc8WjEbXjNLXABCUDMPRCwk" rel="noopener noreferrer" target="_blank">
+        Register for ANSHM 2026
+       </a>
+      </div>
+     </div>
+    </div>
+    <div class="row">
+     <div class="card">
+      <h2 class="section-title" data-rail-label="Registration Fees" id="registration-fees">
+       Registration Fees
+      </h2>
+      <div class="fee-group">
+       <div class="fee-group-title">
+        <span>
+         Early Bird
+        </span>
+        <span class="fee-period">
+         Before 15 Aug 2026
+        </span>
+       </div>
+       <div class="fee-row">
+        <span>
+         Full Participant
+        </span>
+        <span class="fee-amount">
+         $300 AUD
+        </span>
+       </div>
+       <div class="fee-row">
+        <span>
+         Student
+        </span>
+        <span class="fee-amount">
+         $200 AUD
+        </span>
+       </div>
+      </div>
+      <div class="fee-group">
+       <div class="fee-group-title">
+        <span>
+         Regular
+        </span>
+        <span class="fee-period">
+         After 15 Aug 2026
+        </span>
+       </div>
+       <div class="fee-row">
+        <span>
+         Full Participant
+        </span>
+        <span class="fee-amount">
+         $350 AUD
+        </span>
+       </div>
+       <div class="fee-row">
+        <span>
+         Student
+        </span>
+        <span class="fee-amount">
+         $250 AUD
+        </span>
+       </div>
+      </div>
+      <div class="complimentary-box">
+       <div class="complimentary-header">
+        <div class="complimentary-title">
+         Complimentary Registration
+        </div>
+        <span class="fee-waived-badge">
+         FEE WAIVED
+        </span>
+       </div>
+       <p>
+        <strong>
+         Eligible members:
+        </strong>
+        Advisory Board and Executive Committee
+       </p>
+       <p>
+        <strong>
+         Registration fee:
+        </strong>
+        Waived
+       </p>
+      </div>
+      <p class="card-note">
+       Fee amounts are in Australian dollars. Full and student registration fees cover the technical program, morning tea, lunch and afternoon tea daily, gala dinner, and programme booklet.
+      </p>
+     </div>
+     <div class="card">
+      <h2 class="section-title" data-rail-label="Cancellation Policy" id="cancellation-policy">
+       Cancellation Policy
+      </h2>
+      <p>
+       <strong>
+        Cancellation of Registration Deadline:
+       </strong>
+       15 Oct 2026
+      </p>
+      <p>
+       Written notification is required for cancellations. Cancellations for registrations made by 15 Oct 2026 will result in a full refund less $150 to cover administration costs. As an alternative to cancellation, your registration may be transferred to another person by 10 Oct 2026 without incurring any cost penalty. The Organising Committee retains the authority to make decisions regarding cancellations on an individual basis.
+      </p>
+     </div>
+    </div>
+    <div class="row">
+     <div class="card">
+      <h2 class="section-title" data-rail-label="Important Dates" id="important-dates">
+       Important Dates
+      </h2>
+      <ul>
+       <li>
+        15 Aug: Early bird registration deadline
+       </li>
+       <li class="date-extended">
+        <span class="date-original">
+         <span class="date-struck">15 Sep</span>: Regular registration deadline
+        </span>
+        <span class="date-extension">
+         Extended to 30 Sep
+        </span>
+       </li>
+      </ul>
+     </div>
+     <div class="card">
+      <h2 class="section-title" data-rail-label="Tentative Workshop Program" id="tentative-workshop-program">
+       Tentative Workshop Program
+      </h2>
+      <ul>
+       <li>
+        23 Nov: AB &amp; EC Tour (Optional)
+       </li>
+       <li>
+        24 Nov: Full-day Workshop + Dinner
+       </li>
+       <li>
+        25 Nov: Half-day Workshop
+       </li>
+      </ul>
+     </div>
+    </div>
+    <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Curtin+137+St+Georges+Terrace+Perth+Australia" rel="noopener noreferrer" target="_blank">
+     <div class="map-container">
+      <iframe allowfullscreen="" src="https://www.google.com/maps?q=Curtin+137+St+Georges+Terrace+Perth+Australia&amp;output=embed">
+      </iframe>
+     </div>
+    </a>
+   </div>
+  </main>
+  <footer class="site-footer">
+   <p>
+    If you have any questions regarding the 18th ANSHM Workshop (2026), please feel free to contact us.
+   </p>
+   <p>
+    Email:
+    <a href="mailto:Zhen.Peng1@curtin.edu.au">
+     Zhen.Peng1@curtin.edu.au
+    </a>
+   </p>
+  </footer>
+  <script defer="" src="assets/js/site.js">
+  </script>
+ </body>
 </html>
