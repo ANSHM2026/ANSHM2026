@@ -1,0 +1,123 @@
+.page-abstracts .container {
+  max-width: 1040px;
+}
+
+.page-abstracts .container > h1 {
+  margin-bottom: 34px;
+}
+
+.page-abstracts .submission-card {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid rgba(104, 80, 0, 0.12);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 218, 82, 0.15), transparent 15rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.52));
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.page-abstracts .submission-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, #f6cf43, #9f7900);
+}
+
+.page-abstracts .submission-card-header {
+  position: relative;
+  padding: 24px 30px 13px 34px;
+}
+
+.page-abstracts .submission-card-header::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 3px;
+  margin-top: 12px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #b88b00, rgba(184, 139, 0, 0.18));
+}
+
+.page-abstracts .submission-card h2 {
+  margin: 0;
+  font-size: clamp(1.28rem, 2.3vw, 1.58rem);
+  line-height: 1.3;
+}
+
+.page-abstracts .submission-card-body {
+  padding: 4px 32px 26px 34px;
+}
+
+.page-abstracts .submission-card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.page-abstracts .submission-card li {
+  padding-left: 5px;
+  color: #514d43;
+  font-size: 13.9px;
+  line-height: 1.72;
+}
+
+.page-abstracts .submission-card li + li {
+  margin-top: 9px;
+}
+
+.page-abstracts .submission-card li::marker {
+  color: #a47c00;
+}
+
+.page-abstracts .submission-card a {
+  color: #705700;
+  font-weight: 600;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.page-abstracts .submission-card a:hover {
+  color: #3f3100;
+}
+
+.page-abstracts .submission-card:nth-of-type(2) {
+  background:
+    radial-gradient(circle at 0% 100%, rgba(255, 218, 82, 0.11), transparent 13rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.50));
+}
+
+.page-abstracts .submission-card:nth-of-type(3) {
+  background:
+    radial-gradient(circle at 100% 100%, rgba(255, 218, 82, 0.13), transparent 12rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.54));
+}
+
+@media (max-width: 760px) {
+  .page-abstracts .container > h1 {
+    margin-bottom: 26px;
+  }
+
+  .page-abstracts .submission-card {
+    margin-bottom: 16px;
+    border-radius: 19px;
+  }
+
+  .page-abstracts .submission-card-header {
+    padding: 20px 20px 10px 24px;
+  }
+
+  .page-abstracts .submission-card-body {
+    padding: 4px 20px 22px 24px;
+  }
+
+  .page-abstracts .submission-card li {
+    font-size: 13.4px;
+  }
+}

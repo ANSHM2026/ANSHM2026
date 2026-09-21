@@ -1,0 +1,87 @@
+.page-registration .container{max-width:1120px;}
+.page-registration .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-bottom:24px;}
+.page-registration .card{min-width:0;padding:27px;border:1px solid rgba(104,80,0,.12);border-radius:21px;background:rgba(255,255,255,.76);box-shadow:var(--shadow-md);}
+.page-registration .full-width{grid-column:1/-1;}
+.page-registration .section-title{margin-bottom:18px;font-size:1.35rem;}
+.page-registration .card p,.page-registration li{color:#565247;font-size:13.5px;line-height:1.75;}
+.page-registration ul{padding-left:20px;}
+.page-registration li+li{margin-top:8px;}
+.page-registration .registration-link-container{margin-top:22px;}
+.page-registration .fee-group{margin-top:14px;padding:16px;border:1px solid rgba(104,80,0,.10);border-radius:14px;background:rgba(250,243,218,.62);}
+.page-registration .fee-group-title,.page-registration .fee-row{display:flex;justify-content:space-between;gap:18px;align-items:baseline;}
+.page-registration .fee-group-title{padding-bottom:10px;border-bottom:1px solid rgba(104,80,0,.12);font-weight:650;}
+.page-registration .fee-period{font-size:11px;color:var(--gold-deep);}
+.page-registration .fee-row{padding-top:10px;font-size:13px;}
+.page-registration .fee-amount{font-weight:650;white-space:nowrap;}
+.page-registration .complimentary-box{margin-top:16px;padding:17px;border-radius:15px;background:#181816;color:#fff;box-shadow:var(--shadow-sm);}
+.page-registration .complimentary-header{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:10px;}
+.page-registration .complimentary-title{font-weight:650;}
+.page-registration .fee-waived-badge{padding:5px 9px;border-radius:999px;background:#ffd95d;color:#1a1a17;font-size:9.5px;font-weight:700;letter-spacing:.06em;}
+.page-registration .complimentary-box p{color:rgba(255,255,255,.82);font-size:12.5px;}
+.page-registration .card-note{margin-top:16px!important;font-size:11.5px!important;color:#777064!important;}
+.page-registration .map-container{overflow:hidden;height:360px;margin-top:6px;border:1px solid rgba(104,80,0,.12);border-radius:21px;box-shadow:var(--shadow-md);background:#eee;}
+.page-registration .map-container iframe{width:100%;height:100%;border:0;}
+.page-registration .map-link{display:block;text-decoration:none;}
+@media(max-width:780px){
+  .page-registration .row{grid-template-columns:1fr;gap:17px;margin-bottom:17px;}
+  .page-registration .card{padding:22px 18px;border-radius:18px;}
+  .page-registration .full-width{grid-column:auto;}
+  .page-registration .map-container{height:310px;border-radius:18px;}
+}
+@media(max-width:430px){
+  .page-registration .fee-group-title,.page-registration .fee-row{gap:10px;}
+  .page-registration .complimentary-header{align-items:flex-start;flex-direction:column;}
+}
+
+.page-registration #important-dates + ul .date-extended,
+.page-registration .date-extended {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 11px;
+  border-top: 1px solid rgba(104, 80, 0, 0.10);
+}
+
+.page-registration .date-original {
+  color: #575247;
+}
+
+.page-registration .date-struck {
+  color: #8a857b;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  text-decoration-color: #8a857b;
+}
+
+.page-registration .date-extension {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+  border: 1px solid rgba(180, 137, 0, 0.28);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255, 219, 88, 0.32), rgba(255, 255, 255, 0.46));
+  color: #493800;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+.page-registration .date-extension::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #9c7800;
+  box-shadow: 0 0 0 4px rgba(208, 167, 25, 0.12);
+}
+
+@media (max-width: 520px) {
+  .page-registration .date-extended {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

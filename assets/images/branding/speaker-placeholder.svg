@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 960" role="img" aria-label="Speaker portrait placeholder">
+<defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f7e7a7"/><stop offset="1" stop-color="#d2ad32"/></linearGradient></defs>
+<rect width="800" height="960" fill="url(#g)"/><circle cx="400" cy="330" r="145" fill="#fff" opacity=".72"/><path d="M142 846c28-191 126-294 258-294s230 103 258 294" fill="#fff" opacity=".72"/><circle cx="662" cy="160" r="92" fill="#fff" opacity=".16"/><circle cx="150" cy="180" r="120" fill="#fff" opacity=".11"/>
+</svg>

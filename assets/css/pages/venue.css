@@ -1,0 +1,210 @@
+.page-venue .container {
+  max-width: 1120px;
+}
+
+.page-venue .venue-location-bar {
+  width: min(830px, 100%);
+  margin: -8px auto 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 11px 12px 11px 18px;
+  border: 1px solid rgba(104, 80, 0, 0.12);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.64), rgba(255, 255, 255, 0.38));
+  box-shadow: 0 10px 28px rgba(67, 52, 5, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.page-venue .venue-address-text {
+  min-width: 0;
+  color: #4f493d;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.page-venue .venue-map-link {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 8px 13px;
+  border-radius: 12px;
+  background: #171714;
+  color: #fff;
+  text-decoration: none;
+  font-size: 11.5px;
+  font-weight: 650;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.page-venue .venue-map-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+.page-venue .venue-map-link:hover {
+  transform: translateY(-1px);
+  background: #c99f14;
+  color: #171714;
+}
+
+.page-venue .slider {
+  height: 500px;
+  margin-top: 0;
+  border: 1px solid rgba(104, 80, 0, 0.12);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+}
+
+.page-venue .slider-overlay {
+  position: absolute;
+  z-index: 3;
+  left: 28px;
+  bottom: 54px;
+  max-width: 520px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  color: #fff;
+  background: rgba(9, 9, 9, 0.46);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.page-venue .slider-overlay h2 {
+  font-size: 1.5rem;
+}
+
+.page-venue .slider-overlay p {
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 12.5px;
+}
+
+.page-venue .venue-slider-dots {
+  bottom: 18px;
+  padding: 6px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.33);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.page-venue .venue-slider-dots .dot {
+  width: 8px;
+  height: 8px;
+}
+
+.page-venue .venue-slider-dots .dot.active {
+  width: 26px;
+}
+
+.page-venue .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.page-venue .card {
+  padding: 27px;
+  border: 1px solid rgba(104, 80, 0, 0.12);
+  border-radius: 21px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: var(--shadow-md);
+}
+
+.page-venue .card h2 {
+  margin-bottom: 16px;
+  font-size: 1.4rem;
+}
+
+.page-venue .card p,
+.page-venue .card li {
+  color: #565247;
+  font-size: 13.5px;
+  line-height: 1.75;
+}
+
+.page-venue .card p + p {
+  margin-top: 13px;
+}
+
+.page-venue .card ul {
+  margin-top: 8px;
+  padding-left: 20px;
+}
+
+.page-venue .card li + li {
+  margin-top: 8px;
+}
+
+.page-venue .icon {
+  display: inline-flex;
+  width: 27px;
+}
+
+.page-venue .map-link {
+  color: #695100;
+  text-decoration: none;
+  font-weight: 550;
+}
+
+.page-venue .map-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 760px) {
+  .page-venue .venue-location-bar {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding: 14px;
+    border-radius: 17px;
+  }
+
+  .page-venue .venue-address-text {
+    font-size: 12.5px;
+  }
+
+  .page-venue .venue-map-link {
+    width: 100%;
+  }
+
+  .page-venue .slider {
+    height: 390px;
+    border-radius: 19px;
+  }
+
+  .page-venue .slider-overlay {
+    left: 14px;
+    right: 14px;
+    bottom: 50px;
+    padding: 14px 15px;
+  }
+
+  .page-venue .slider-overlay h2 {
+    font-size: 1.25rem;
+  }
+
+  .page-venue .grid {
+    grid-template-columns: 1fr;
+    gap: 17px;
+    margin-top: 18px;
+  }
+
+  .page-venue .card {
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+}

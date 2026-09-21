@@ -1,0 +1,109 @@
+/* Shared interactive surfaces */
+.slider { position: relative; overflow: hidden; background: #1c1c19; }
+.slides { position: absolute; inset: 0; }
+.slides img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.015);
+  transition: opacity .85s ease, transform 5.5s ease;
+}
+.slides img.active { opacity: 1; transform: scale(1.045); }
+.slider::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.34));
+}
+.slider-controls {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 clamp(12px, 2.4vw, 26px);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.slider-btn {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(8,8,8,.46);
+  box-shadow: 0 8px 22px rgba(0,0,0,.18);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+.slider-btn:hover { transform: scale(1.06); background: rgba(8,8,8,.68); }
+.slider-dots {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 20px;
+  display: flex;
+  gap: 8px;
+  transform: translateX(-50%);
+}
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.70);
+  box-shadow: 0 2px 7px rgba(0,0,0,.22);
+  cursor: pointer;
+  transition: width .22s ease, background .22s ease;
+}
+.dot.active { width: 28px; background: #ffd85b; }
+
+.card,
+.theme-box,
+.section-heading {
+  border-color: rgba(117,91,5,.14);
+}
+
+.btn,
+.map-btn,
+.registration-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: #151512;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 550;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  transition: transform .2s var(--ease), box-shadow .2s ease, background .2s ease, color .2s ease;
+}
+.btn:hover,
+.map-btn:hover,
+.registration-link:hover {
+  transform: translateY(-2px);
+  background: #d0a719;
+  color: #111;
+  box-shadow: 0 12px 25px rgba(91,70,2,.18);
+}
+
+.accent-link { color: #ffda5d; }
+
+@media (max-width: 760px) {
+  .slider-btn { width: 40px; height: 40px; }
+  .slider-dots { bottom: 14px; }
+}
