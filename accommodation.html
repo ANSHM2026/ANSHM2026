@@ -1,490 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Accommodation - ANSHM 2026</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Poppins',sans-serif;background:#f7e6a1;}
-
-/* Header */
-header{display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:rgba(0,0,0,0.75);color:#fff;position:sticky;top:0;z-index:1000;}
-.logo{font-size:22px;font-weight:600;}
-.subtitle{font-size:12px;opacity:.8;}
-nav a{margin-left:20px;color:#fff;text-decoration:none;font-size:14px;}
-nav a:hover{color:#ffd54f;}
-
-.menu-toggle{display:none;font-size:22px;cursor:pointer;}
-@media(max-width:768px){
-nav{display:none;flex-direction:column;background:#000;position:absolute;top:60px;right:0;width:200px;}
-nav.active{display:flex;}
-.menu-toggle{display:block;}
-}
-
-/* Content */
-.container{max-width:1200px;margin:auto;padding:60px 20px;}
-h1{text-align:center;margin-bottom:20px;}
-.subtitle-text{text-align:center;margin-bottom:40px;color:#555;line-height:1.7;}
-
-/* Cards */
-.cards{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:30px;
-}
-
-@media(max-width:768px){
-.cards{grid-template-columns:1fr;}
-}
-
-.card{
-background:#fff;
-border-radius:12px;
-overflow:hidden;
-box-shadow:0 8px 20px rgba(0,0,0,.15);
-transition:.3s;
-display:flex;
-flex-direction:column;
-height:100%;
-}
-.card:hover{transform:translateY(-8px);}
-
-.card img{
-width:100%;
-height:200px;
-object-fit:cover;
-}
-
-.card-content{
-padding:15px;
-display:flex;
-flex-direction:column;
-height:100%;
-}
-
-.hotel-name{
-font-weight:600;
-margin-bottom:8px;
-}
-
-.hotel-desc{
-font-size:14px;
-color:#555;
-margin-bottom:10px;
-flex:1;
-}
-
-/* Discount */
-.discount{
-margin-top:10px;
-padding:8px;
-background:#ffd54f;
-text-align:center;
-font-weight:600;
-border-radius:6px;
-font-size:13px;
-}
-
-/* Unified hotel offer block */
-.discount.offer-card{
-position:relative;
-min-height:82px;
-padding:8px 10px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-gap:1px;
-}
-
-.offer-title{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:6px;
-line-height:1.35;
-font-weight:600;
-text-align:center;
-}
-
-.offer-meta{
-font-weight:400;
-line-height:1.35;
-text-align:center;
-}
-
-.offer-link{
-color:#0000ee;
-font-weight:600;
-line-height:1.35;
-text-decoration:underline;
-}
-
-.info-trigger{
-width:16px;
-height:16px;
-padding:0;
-border:1.5px solid #000;
-border-radius:50%;
-background:#000;
-color:#ffd54f;
-font-family:inherit;
-font-size:10px;
-font-weight:600;
-line-height:1;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-cursor:pointer;
-transition:.2s;
-flex:0 0 auto;
-}
-
-.info-trigger:hover,
-.info-trigger:focus-visible,
-.info-trigger[aria-expanded="true"]{
-background:#222;
-outline:none;
-transform:scale(1.05);
-}
-
-/* Floating offer details: appended to <body> so it is not clipped by hotel cards */
-.offer-floating-popover{
-position:fixed;
-width:min(280px,calc(100vw - 24px));
-padding:12px 14px;
-background:rgba(15,15,15,.96);
-color:#fff;
-border-radius:9px;
-box-shadow:0 10px 28px rgba(0,0,0,.30);
-font-size:12px;
-font-weight:400;
-line-height:1.5;
-text-align:left;
-z-index:9999;
-opacity:0;
-visibility:hidden;
-pointer-events:none;
-transition:opacity .16s ease,transform .16s ease,visibility .16s ease;
-transform:translateY(4px);
-}
-
-.offer-floating-popover.show{
-opacity:1;
-visibility:visible;
-pointer-events:auto;
-transform:translateY(0);
-}
-
-.offer-floating-popover ul{
-margin:0;
-padding-left:18px;
-}
-
-.offer-floating-popover li{
-margin:3px 0;
-}
-
-.offer-floating-popover strong{
-font-weight:600;
-}
-
-/* Hidden source content used by the floating popover */
-.offer-info-source{
-display:none;
-}
-
-/* Buttons */
-.buttons{
-display:flex;
-gap:10px;
-margin-top:12px;
-}
-
-.btn{
-flex:1;
-text-align:center;
-padding:8px;
-border-radius:6px;
-text-decoration:none;
-font-size:13px;
-transition:.3s;
-}
-
-.btn-website{background:#000;color:#fff;}
-.btn-website:hover{background:#ffd54f;color:#000;}
-
-.btn-map{border:1px solid #000;color:#000;}
-.btn-map:hover{background:#000;color:#fff;}
-
-footer{background:#000;color:#fff;text-align:center;padding:30px;margin-top:40px;}
-footer a{color:#ffd54f;}
-</style>
-</head>
-
-<body>
-
-<header>
-<div style="display:flex; flex-direction:column; align-items:center;">
-<div class="logo">ANSHM 2026</div>
-<div class="subtitle">Hosted by Curtin University</div>
-</div>
-
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-<nav id="nav">
-<a href="index.html">Home</a>
-<a href="committees.html">Committees</a>
-<a href="keynote.html">Keynote speakers</a> 
-<a href="abstracts.html">Submission</a> 
-<a href="registration.html">Registration</a>
-<a href="docs/program.pdf" target="_blank">Program</a>
-<a href="docs/sponsorship.pdf" target="_blank">Sponsorship</a>
-<a href="venue.html">Venue</a>
-<a href="contact.html">Contact</a>
-</nav>
-</header>
-
-<div class="container">
-
-<h1>Accommodation</h1>
-
-<p class="subtitle-text">
-A selection of recommended hotels is available within walking distance of the workshop venue at Curtin University, 137 St Georges Terrace, Perth. These accommodations offer a range of options from premium to budget-friendly, all conveniently located near the central business district, dining, and public transport.
-</p>
-
-<div class="cards">
-
-<!-- Hotel 1 -->
-<div class="card">
-<img src="images/hotel3.jpg">
-<div class="card-content">
-<div class="hotel-name">Holiday Inn Perth City Centre by IHG</div>
-<div class="hotel-desc">
-A well-located hotel with modern amenities, providing a comfortable stay near shops and restaurants.
-</div>
-
-<div class="discount offer-card">
-<div class="offer-title">20% Best Flexible Rate</div>
-<div class="offer-meta">Subject to availability</div>
-<a href="https://www.ihg.com/redirect?path=rates&brandCode=HI&localeCode=en&regionCode=925&hotelCode=PURHS&checkInDate=20&checkInMonthYear=102026&checkOutDate=27&checkOutMonthYear=102026&_PMID=99801505&GPC=ANS&cn=no&adjustMonth=false&showApp=true&monthIndex=00" target="_blank" class="offer-link">Book Now</a>
-</div>
-  
-<div class="buttons">
-<a href="https://www.ihg.com/holidayinn/hotels/us/en/perth/purhs/hoteldetail" target="_blank" class="btn btn-website">Website</a>
-<a href="https://www.google.com/maps/search/?api=1&query=Holiday+Inn+Perth+City+Centre" target="_blank" class="btn btn-map">Directions</a>
-</div>
-</div>
-</div>
-
-<!-- Hotel 2 -->
-<div class="card">
-<img src="images/hotel4.jpg">
-<div class="card-content">
-<div class="hotel-name">Adina Apartment Hotel Perth</div>
-<div class="hotel-desc">
-A modern apartment-style hotel offering spacious accommodation, ideal for longer stays and added comfort.
-</div>
-<div class="discount offer-card">
-<div class="offer-title">
-<span>15% off our fully flexible rate</span>
-<button type="button"
-class="info-trigger"
-aria-label="View Adina booking details"
-aria-expanded="false"
-aria-describedby="adina-offer-details"
-data-info-source="adina-offer-details">i</button>
-</div>
-<div class="offer-meta">Promo Code: <strong>CONV15</strong></div>
-<a href="https://reservations.tfehotels.com/?adult=1&arrive=2026-11-21&chain=14687&child=0&config=CORP_SBE&currency=AUD&depart=2026-11-28&end=2026-11-28&event_name=18th%20Australian%20Network%20of%20Structural%20Health%20Monitoring%20(ANSHM)%20Workshop&hotel=58462&level=hotel&locale=en-US&productcurrency=AUD&promo=TH17264486&rooms=1&src=MDk5Y2RmMz&start=2026-11-21&theme=SBE_NPR&utm_medium=link&utm_source=corporate" target="_blank" class="offer-link">Book Now</a>
-
-<div id="adina-offer-details" class="offer-info-source">
-<ul>
-<li><strong>Room type:</strong> All room types</li>
-<li><strong>Booking period:</strong> 17/09/2026–28/11/2026</li>
-<li><strong>Travel / stay date:</strong> 21/11/2026–28/11/2026</li>
-<li><strong>Cancellation:</strong> Fully Flexible; subject to availability; cancel or modify up to 24 hours prior to arrival</li>
-</ul>
-</div>
-</div>
-<div class="buttons">
-<a href="https://www.adinahotels.com/en/apartments/perth/" target="_blank" class="btn btn-website">Website</a>
-<a href="https://www.google.com/maps/search/?api=1&query=Adina+Apartment+Hotel+Perth" target="_blank" class="btn btn-map">Directions</a>
-</div>
-</div>
-</div>
-
-<!-- Hotel 3 -->
-<div class="card">
-<img src="images/hotel1.jpg">
-<div class="card-content">
-<div class="hotel-name">Parmelia Hilton Perth</div>
-<div class="hotel-desc">
-A premium hotel located close to the venue, offering high-end facilities and comfort for workshop delegates.
-</div>
-<div class="discount">Discount Code: XXX (To be announced)</div>
-<div class="buttons">
-<a href="https://www.hilton.com/en/hotels/perhitw-parmelia-hilton-perth/" target="_blank" class="btn btn-website">Website</a>
-<a href="https://www.google.com/maps/search/?api=1&query=Parmelia+Hilton+Perth" target="_blank" class="btn btn-map">Directions</a>
-</div>
-</div>
-</div>
-
-<!-- Hotel 4 -->
-<div class="card">
-<img src="images/hotel2.jpg">
-<div class="card-content">
-<div class="hotel-name">ibis Perth</div>
-<div class="hotel-desc">
-A practical and affordable choice in the city centre, ideal for delegates seeking convenience and value.
-</div>
-<div class="discount">Discount Code: XXX (To be announced)</div>
-<div class="buttons">
-<a href="https://all.accor.com/hotel/1773/index.en.shtml" target="_blank" class="btn btn-website">Website</a>
-<a href="https://www.google.com/maps/search/?api=1&query=ibis+Perth" target="_blank" class="btn btn-map">Directions</a>
-</div>
-</div>
-</div>
-
-</div>
-
-</div>
-
-<footer>
-<p>If you have any questions regarding the 18th ANSHM Workshop (2026), please feel free to contact us.</p>
-<p>Email: <a href="mailto:Zhen.Peng1@curtin.edu.au">Zhen.Peng1@curtin.edu.au</a></p>
-</footer>
-
-<script>
-function toggleMenu(){document.getElementById('nav').classList.toggle('active');}
-
-const offerPopover=document.createElement('div');
-offerPopover.className='offer-floating-popover';
-offerPopover.setAttribute('role','tooltip');
-document.body.appendChild(offerPopover);
-
-let activeInfoTrigger=null;
-let hideTimer=null;
-
-function positionOfferPopover(trigger){
-const rect=trigger.getBoundingClientRect();
-const gap=10;
-const margin=12;
-
-offerPopover.style.left='0px';
-offerPopover.style.top='0px';
-offerPopover.classList.add('show');
-
-const popRect=offerPopover.getBoundingClientRect();
-
-let left=rect.left+(rect.width/2)-(popRect.width/2);
-left=Math.max(margin,Math.min(left,window.innerWidth-popRect.width-margin));
-
-let top=rect.top-popRect.height-gap;
-if(top<margin){
-top=rect.bottom+gap;
-}
-if(top+popRect.height>window.innerHeight-margin){
-top=Math.max(margin,window.innerHeight-popRect.height-margin);
-}
-
-offerPopover.style.left=Math.round(left)+'px';
-offerPopover.style.top=Math.round(top)+'px';
-}
-
-function showOfferPopover(trigger){
-clearTimeout(hideTimer);
-
-const sourceId=trigger.dataset.infoSource;
-const source=document.getElementById(sourceId);
-if(!source) return;
-
-if(activeInfoTrigger && activeInfoTrigger!==trigger){
-activeInfoTrigger.setAttribute('aria-expanded','false');
-}
-
-offerPopover.innerHTML=source.innerHTML;
-activeInfoTrigger=trigger;
-trigger.setAttribute('aria-expanded','true');
-positionOfferPopover(trigger);
-}
-
-function hideOfferPopover(immediate=false){
-clearTimeout(hideTimer);
-
-const close=function(){
-offerPopover.classList.remove('show');
-if(activeInfoTrigger){
-activeInfoTrigger.setAttribute('aria-expanded','false');
-activeInfoTrigger=null;
-}
-};
-
-if(immediate){
-close();
-}else{
-hideTimer=setTimeout(close,120);
-}
-}
-
-document.querySelectorAll('.info-trigger[data-info-source]').forEach(function(trigger){
-trigger.addEventListener('mouseenter',function(){showOfferPopover(trigger);});
-trigger.addEventListener('mouseleave',function(){hideOfferPopover();});
-trigger.addEventListener('focus',function(){showOfferPopover(trigger);});
-trigger.addEventListener('blur',function(){hideOfferPopover();});
-
-trigger.addEventListener('click',function(event){
-event.preventDefault();
-event.stopPropagation();
-
-if(activeInfoTrigger===trigger && offerPopover.classList.contains('show')){
-hideOfferPopover(true);
-}else{
-showOfferPopover(trigger);
-}
-});
-});
-
-offerPopover.addEventListener('mouseenter',function(){
-clearTimeout(hideTimer);
-});
-
-offerPopover.addEventListener('mouseleave',function(){
-hideOfferPopover();
-});
-
-document.addEventListener('click',function(event){
-if(
-activeInfoTrigger &&
-!offerPopover.contains(event.target) &&
-!activeInfoTrigger.contains(event.target)
-){
-hideOfferPopover(true);
-}
-});
-
-document.addEventListener('keydown',function(event){
-if(event.key==='Escape'){
-hideOfferPopover(true);
-}
-});
-
-window.addEventListener('resize',function(){
-if(activeInfoTrigger && offerPopover.classList.contains('show')){
-positionOfferPopover(activeInfoTrigger);
-}
-});
-
-window.addEventListener('scroll',function(){
-if(activeInfoTrigger && offerPopover.classList.contains('show')){
-positionOfferPopover(activeInfoTrigger);
-}
-},{passive:true});
-</script>
-
-</body>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Accommodation - ANSHM 2026
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="assets/css/base.css" rel="stylesheet"/>
+  <link href="assets/css/layout.css" rel="stylesheet"/>
+  <link href="assets/css/components.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet"/>
+  <link href="assets/css/pages/accommodation.css" rel="stylesheet"/>
+ </head>
+ <body class="page-accommodation">
+  <header class="site-header" data-site-header="">
+   <div class="site-brand">
+    <div class="logo">
+     ANSHM 2026
+    </div>
+    <div class="subtitle">
+     Hosted by Curtin University
+    </div>
+   </div>
+   <button aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation menu" class="menu-toggle" type="button">
+    <span aria-hidden="true">
+     ☰
+    </span>
+   </button>
+   <nav aria-label="Primary navigation" class="site-nav" id="nav">
+    <a href="index.html">
+     Home
+    </a>
+    <a href="committees.html">
+     Committees
+    </a>
+    <a href="keynote.html">
+     Speakers &amp; Forums
+    </a>
+    <a href="abstracts.html">
+     Submission
+    </a>
+    <a href="registration.html">
+     Registration
+    </a>
+    <a href="docs/program.pdf" rel="noopener noreferrer" target="_blank">
+     Program
+    </a>
+    <a href="docs/sponsorship.pdf" rel="noopener noreferrer" target="_blank">
+     Sponsorship
+    </a>
+    <a href="venue.html">
+     Venue
+    </a>
+    <a href="contact.html">
+     Contact
+    </a>
+   </nav>
+  </header>
+  <aside aria-label="Page sections" class="page-rail" data-page-rail="">
+   <div class="page-rail-shell">
+    <div aria-label="Page progress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="page-rail-track" role="slider" tabindex="0">
+     <span aria-hidden="true" class="page-rail-segments">
+     </span>
+     <span aria-hidden="true" class="page-rail-progress">
+     </span>
+     <span aria-hidden="true" class="page-rail-handle">
+     </span>
+     <span class="page-rail-dots">
+     </span>
+    </div>
+    <button aria-label="Back to top" class="page-rail-top" data-rail-top="" title="Back to top" type="button">
+     &uarr;
+    </button>
+   </div>
+  </aside>
+  <main id="main-content">
+   <div class="container">
+    <h1>
+     Accommodation
+    </h1>
+    <p class="subtitle-text">
+     A selection of recommended hotels is available within walking distance of the workshop venue at Curtin University, 137 St Georges Terrace, Perth. These accommodations offer a range of options from premium to budget-friendly, all conveniently located near the central business district, dining, and public transport.
+    </p>
+    <div class="cards" data-rail-label="Recommended Hotels" id="recommended-hotels">
+     <article class="card" data-default-order="0" data-hotel-card="holiday" id="holiday-inn-perth-city-centre-by-ihg">
+      <img alt="Holiday Inn Perth City Centre by IHG" loading="lazy" src="assets/images/accommodation/holiday-inn-perth-city-centre.jpg"/>
+      <div class="card-content">
+       <div class="hotel-card-heading">
+        <h2 class="hotel-name">
+         Holiday Inn Perth City Centre by IHG
+        </h2>
+        <span class="hotel-sort-metric" data-hotel-metric="holiday" hidden="">
+        </span>
+       </div>
+       <div class="hotel-desc">
+        A well-located hotel with modern amenities, providing a comfortable stay near shops and restaurants.
+       </div>
+       <div class="discount offer-card">
+        <div class="offer-title">
+         20% Best Flexible Rate
+        </div>
+        <div class="offer-meta">
+         Subject to availability
+        </div>
+        <a class="offer-link" href="https://www.ihg.com/redirect?path=rates&amp;brandCode=HI&amp;localeCode=en&amp;regionCode=925&amp;hotelCode=PURHS&amp;checkInDate=20&amp;checkInMonthYear=102026&amp;checkOutDate=27&amp;checkOutMonthYear=102026&amp;_PMID=99801505&amp;GPC=ANS&amp;cn=no&amp;adjustMonth=false&amp;showApp=true&amp;monthIndex=00" rel="noopener noreferrer" target="_blank">
+         Book Now
+        </a>
+       </div>
+       <div class="buttons">
+        <a class="btn btn-website" href="https://www.ihg.com/holidayinn/hotels/us/en/perth/purhs/hoteldetail" rel="noopener noreferrer" target="_blank">
+         Website
+        </a>
+        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&amp;query=Holiday+Inn+Perth+City+Centre" rel="noopener noreferrer" target="_blank">
+         Directions
+        </a>
+       </div>
+      </div>
+     </article>
+     <article class="card" data-default-order="1" data-hotel-card="adina" id="adina-apartment-hotel-perth">
+      <img alt="Adina Apartment Hotel Perth" loading="lazy" src="assets/images/accommodation/adina-apartment-hotel-perth.jpg"/>
+      <div class="card-content">
+       <div class="hotel-card-heading">
+        <h2 class="hotel-name">
+         Adina Apartment Hotel Perth
+        </h2>
+        <span class="hotel-sort-metric" data-hotel-metric="adina" hidden="">
+        </span>
+       </div>
+       <div class="hotel-desc">
+        A modern apartment-style hotel offering spacious accommodation, ideal for longer stays and added comfort.
+       </div>
+       <div class="discount offer-card">
+        <div class="offer-title">
+         <span>
+          15% off our fully flexible rate
+         </span>
+         <button aria-describedby="adina-offer-details" aria-expanded="false" aria-label="View Adina booking details" class="info-trigger" data-info-source="adina-offer-details" type="button">
+          i
+         </button>
+        </div>
+        <div class="offer-meta">
+         Promo Code:
+         <strong>
+          CONV15
+         </strong>
+        </div>
+        <a class="offer-link" href="https://reservations.tfehotels.com/?adult=1&amp;arrive=2026-11-21&amp;chain=14687&amp;child=0&amp;config=CORP_SBE&amp;currency=AUD&amp;depart=2026-11-28&amp;end=2026-11-28&amp;event_name=18th%20Australian%20Network%20of%20Structural%20Health%20Monitoring%20(ANSHM)%20Workshop&amp;hotel=58462&amp;level=hotel&amp;locale=en-US&amp;productcurrency=AUD&amp;promo=TH17264486&amp;rooms=1&amp;src=MDk5Y2RmMz&amp;start=2026-11-21&amp;theme=SBE_NPR&amp;utm_medium=link&amp;utm_source=corporate" rel="noopener noreferrer" target="_blank">
+         Book Now
+        </a>
+        <div class="offer-info-source" id="adina-offer-details">
+         <ul>
+          <li>
+           <strong>
+            Room type:
+           </strong>
+           All room types
+          </li>
+          <li>
+           <strong>
+            Booking period:
+           </strong>
+           17/09/2026&ndash;28/11/2026
+          </li>
+          <li>
+           <strong>
+            Travel / stay date:
+           </strong>
+           21/11/2026&ndash;28/11/2026
+          </li>
+          <li>
+           <strong>
+            Cancellation:
+           </strong>
+           Fully Flexible; subject to availability; cancel or modify up to 24 hours prior to arrival
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="buttons">
+        <a class="btn btn-website" href="https://www.adinahotels.com/en/apartments/perth/" rel="noopener noreferrer" target="_blank">
+         Website
+        </a>
+        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&amp;query=Adina+Apartment+Hotel+Perth" rel="noopener noreferrer" target="_blank">
+         Directions
+        </a>
+       </div>
+      </div>
+     </article>
+     <article class="card" data-default-order="2" data-hotel-card="parmelia" id="parmelia-hilton-perth">
+      <img alt="Parmelia Hilton Perth" loading="lazy" src="assets/images/accommodation/parmelia-hilton-perth.jpg"/>
+      <div class="card-content">
+       <div class="hotel-card-heading">
+        <h2 class="hotel-name">
+         Parmelia Hilton Perth
+        </h2>
+        <span class="hotel-sort-metric" data-hotel-metric="parmelia" hidden="">
+        </span>
+       </div>
+       <div class="hotel-desc">
+        A premium hotel located close to the venue, offering high-end facilities and comfort for workshop delegates.
+       </div>
+       <div class="discount">
+        Discount details to be announced
+       </div>
+       <div class="buttons">
+        <a class="btn btn-website" href="https://www.hilton.com/en/hotels/perhitw-parmelia-hilton-perth/" rel="noopener noreferrer" target="_blank">
+         Website
+        </a>
+        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&amp;query=Parmelia+Hilton+Perth" rel="noopener noreferrer" target="_blank">
+         Directions
+        </a>
+       </div>
+      </div>
+     </article>
+     <article class="card" data-default-order="3" data-hotel-card="ibis" id="ibis-perth">
+      <img alt="ibis Perth" loading="lazy" src="assets/images/accommodation/ibis-perth.jpg"/>
+      <div class="card-content">
+       <div class="hotel-card-heading">
+        <h2 class="hotel-name">
+         ibis Perth
+        </h2>
+        <span class="hotel-sort-metric" data-hotel-metric="ibis" hidden="">
+        </span>
+       </div>
+       <div class="hotel-desc">
+        A practical and affordable choice in the city centre, ideal for delegates seeking convenience and value.
+       </div>
+       <div class="discount">
+        Discount details to be announced
+       </div>
+       <div class="buttons">
+        <a class="btn btn-website" href="https://all.accor.com/hotel/1773/index.en.shtml" rel="noopener noreferrer" target="_blank">
+         Website
+        </a>
+        <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&amp;query=ibis+Perth" rel="noopener noreferrer" target="_blank">
+         Directions
+        </a>
+       </div>
+      </div>
+     </article>
+    </div>
+    <section class="travel-section" data-rail-label="Getting to the Workshop" id="getting-to-the-workshop">
+     <div class="travel-heading">
+      <h2 id="travel-title">
+       Getting to the Workshop
+      </h2>
+      <p>
+       Select a hotel to compare its location with the workshop venue. Walking is shown by default; choose another travel mode or open Google Maps for detailed directions.
+      </p>
+     </div>
+     <div class="travel-sort-panel">
+      <span class="travel-sort-label">
+       Sort hotels by
+      </span>
+      <div aria-label="Sort hotels by travel mode" class="travel-sort-modes" role="group">
+       <button class="travel-sort-button" data-sort-mode="walking" type="button">
+        Walking
+       </button>
+       <button class="travel-sort-button" data-sort-mode="driving" type="button">
+        Driving
+       </button>
+       <button class="travel-sort-button" data-sort-mode="transit" type="button">
+        Public transport
+       </button>
+      </div>
+     </div>
+     <div aria-label="Choose a hotel" class="hotel-route-tabs" role="group">
+      <button class="hotel-route-tab active" data-hotel="holiday" type="button">
+       Holiday Inn
+      </button>
+      <button class="hotel-route-tab" data-hotel="adina" type="button">
+       Adina
+      </button>
+      <button class="hotel-route-tab" data-hotel="parmelia" type="button">
+       Parmelia Hilton
+      </button>
+      <button class="hotel-route-tab" data-hotel="ibis" type="button">
+       ibis Perth
+      </button>
+     </div>
+     <div class="travel-shell">
+      <div class="travel-map-wrap">
+       <div aria-label="Interactive 2D map showing the recommended hotels, walking route and workshop venue" id="travel-map">
+       </div>
+       <div class="map-ui-top">
+        <div class="map-help">
+         <button aria-controls="map-help-panel" aria-expanded="false" class="map-help-button" id="map-help-button" type="button">
+          ⓘ Map controls
+         </button>
+         <div class="map-help-panel" hidden="" id="map-help-panel">
+          <ul>
+           <li>
+            Click map: enable mouse-wheel zoom.
+           </li>
+           <li>
+            Mouse wheel: zoom in / out.
+           </li>
+           <li>
+            Left drag: move the map.
+           </li>
+           <li>
+            Right click: switch between selected route and all hotels.
+           </li>
+           <li>
+            Pointer leaves map / Esc: release wheel zoom.
+           </li>
+          </ul>
+         </div>
+        </div>
+        <button class="map-view-button" id="map-view-button" type="button">
+         Show all hotels
+        </button>
+       </div>
+       <div class="route-status" data-state="loading" id="route-status">
+        Loading walking route&hellip;
+       </div>
+       <div class="map-scroll-state" id="map-scroll-state">
+        Mouse-wheel zoom enabled
+       </div>
+       <div class="map-fallback" id="travel-map-fallback">
+        <div>
+         <strong>
+          Interactive map unavailable.
+         </strong>
+         <br/>
+         You can still open the selected route in Google Maps.
+         <br/>
+         <a class="" href="https://www.google.com/maps/search/?api=1&amp;query=Curtin%20137%20St%20Georges%20Terrace%2C%20Perth%20WA%206000%2C%20Australia" rel="noopener noreferrer" target="_blank">
+          Open workshop venue
+         </a>
+        </div>
+       </div>
+      </div>
+      <aside aria-live="polite" class="travel-panel">
+       <div class="travel-panel-kicker">
+        Selected hotel
+       </div>
+       <div class="travel-hotel-name" id="travel-hotel-name">
+        Holiday Inn Perth City Centre by IHG
+       </div>
+       <div class="travel-address" id="travel-address">
+        778&ndash;788 Hay Street, Perth WA 6000
+       </div>
+       <div class="travel-summary">
+        <div class="travel-stat">
+         <span class="travel-stat-label" id="travel-distance-label">
+          Walking distance
+         </span>
+         <span class="travel-stat-value" id="travel-distance">
+          Loading&hellip;
+         </span>
+        </div>
+        <div class="travel-stat">
+         <span class="travel-stat-label" id="travel-time-label">
+          Approx. time
+         </span>
+         <span class="travel-stat-value" id="travel-time">
+          Loading&hellip;
+         </span>
+        </div>
+       </div>
+       <div class="mode-label">
+        Choose a travel mode
+       </div>
+       <div aria-label="Choose a travel mode" class="transport-modes" role="group">
+        <button class="transport-mode active" data-mode="walking" type="button">
+         <svg aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
+          <circle cx="13" cy="4.5" r="2">
+          </circle>
+          <path d="M10.5 9.3l2.4-2 2.4 1.5 2.2 3.1">
+          </path>
+          <path d="M12.7 7.7l-1.2 5 3.1 2.5 1.6 4">
+          </path>
+          <path d="M11.5 12.7l-3.4 2.2-2 3.7">
+          </path>
+         </svg>
+         <strong>
+          Walking
+         </strong>
+         <span id="mode-walking-time">
+          Route shown
+         </span>
+        </button>
+        <button class="transport-mode" data-mode="driving" type="button">
+         <svg aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
+          <path d="M5 16h14l-1.2-5.2a2 2 0 0 0-1.9-1.5H8.1a2 2 0 0 0-1.9 1.5L5 16Z">
+          </path>
+          <path d="M4 16v2.5M20 16v2.5M7 13h10">
+          </path>
+          <circle cx="7.5" cy="17.5" r="1.3">
+          </circle>
+          <circle cx="16.5" cy="17.5" r="1.3">
+          </circle>
+         </svg>
+         <strong>
+          Driving
+         </strong>
+         <span id="mode-driving-time">
+          Road route
+         </span>
+        </button>
+        <button class="transport-mode" data-mode="transit" type="button">
+         <svg aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
+          <rect height="14" rx="2" width="12" x="6" y="3.5">
+          </rect>
+          <path d="M8.5 7h7M8 13h8M8 20l2-2.5M16 20l-2-2.5">
+          </path>
+          <circle cx="9" cy="15" fill="currentColor" r=".8" stroke="none">
+          </circle>
+          <circle cx="15" cy="15" fill="currentColor" r=".8" stroke="none">
+          </circle>
+         </svg>
+         <strong>
+          Public transport
+         </strong>
+         <span id="mode-transit-time">
+          &asymp; 5&ndash;12 min*
+         </span>
+        </button>
+       </div>
+       <div class="mode-detail" id="mode-detail">
+        The map will show the available walking route using OpenStreetMap routing data.
+       </div>
+       <div class="travel-actions">
+        <a class="route-primary" href="#" id="google-route-link" rel="noopener noreferrer" target="_blank">
+         <span>
+          Open walking route in Google Maps
+         </span>
+         <span aria-hidden="true">
+          &nearrow;
+         </span>
+        </a>
+        <div class="travel-secondary-links">
+         <a class="" href="https://www.google.com/maps/search/?api=1&amp;query=Curtin%20137%20St%20Georges%20Terrace%2C%20Perth%20WA%206000%2C%20Australia" rel="noopener noreferrer" target="_blank">
+          Workshop venue
+         </a>
+         <a class="" href="https://www.transperth.wa.gov.au/journey-planner" rel="noopener noreferrer" target="_blank">
+          Transperth JourneyPlanner
+         </a>
+        </div>
+        <p class="travel-disclaimer">
+         Walking and driving routes use non-live OpenStreetMap routing when available. Public transport time is indicative only. For current traffic, departures and detailed navigation, use Google Maps or Transperth JourneyPlanner.
+        </p>
+       </div>
+      </aside>
+     </div>
+    </section>
+   </div>
+  </main>
+  <footer class="site-footer">
+   <p>
+    If you have any questions regarding the 18th ANSHM Workshop (2026), please feel free to contact us.
+   </p>
+   <p>
+    Email:
+    <a href="mailto:Zhen.Peng1@curtin.edu.au">
+     Zhen.Peng1@curtin.edu.au
+    </a>
+   </p>
+  </footer>
+  <script defer="" src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js">
+  </script>
+  <script defer="" src="assets/js/site.js">
+  </script>
+  <script defer="" src="assets/js/accommodation.js">
+  </script>
+ </body>
 </html>
