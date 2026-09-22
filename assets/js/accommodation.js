@@ -40,18 +40,18 @@
       transitTime: '≈ 5–12 min*'
     },
     ibis: {
-      name: 'ibis Perth',
-      shortName: 'ibis Perth',
+      name: 'Ibis Perth',
+      shortName: 'Ibis Perth',
       marker: 'I',
       address: '334 Murray Street, Perth WA 6000',
-      mapsAddress: 'ibis Perth, 334 Murray Street, Perth WA 6000, Australia',
+      mapsAddress: 'Ibis Perth, 334 Murray Street, Perth WA 6000, Australia',
       lng: 115.85576,
       lat: -31.95168,
       transitTime: '≈ 5–12 min*'
     }
   };
 
-  const defaultOrder = ['holiday', 'adina', 'parmelia', 'ibis'];
+  const defaultOrder = ['holiday', 'adina', 'ibis', 'parmelia'];
   const routeCache = new Map();
   const markerAnchors = {};
   let selectedHotelKey = 'holiday';
