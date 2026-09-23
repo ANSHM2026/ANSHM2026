@@ -115,19 +115,37 @@
     const biographies = Array.from(document.querySelectorAll('.speaker-bio'));
     if (!biographies.length) return;
 
+    const hasCollapsedOverflow = (bio, text) => {
+      const wasExpanded = bio.classList.contains('expanded');
+      if (wasExpanded) bio.classList.remove('expanded');
+
+      const collapsedHeight = text.getBoundingClientRect().height;
+      const previousStyle = text.getAttribute('style');
+
+      text.style.display = 'block';
+      text.style.overflow = 'visible';
+      text.style.webkitLineClamp = 'unset';
+      const fullHeight = text.getBoundingClientRect().height;
+
+      if (previousStyle === null) text.removeAttribute('style');
+      else text.setAttribute('style', previousStyle);
+
+      const overflowing = fullHeight > collapsedHeight + 1;
+      if (wasExpanded && overflowing) bio.classList.add('expanded');
+      return overflowing;
+    };
+
     const updateButtons = () => {
       biographies.forEach((bio) => {
         const text = bio.querySelector('.speaker-bio-text');
         const button = bio.querySelector('[data-bio-toggle]');
         if (!text || !button) return;
 
-        const expanded = bio.classList.contains('expanded');
-        if (expanded) bio.classList.remove('expanded');
-        const overflowing = text.scrollHeight > text.clientHeight + 1;
-        if (expanded && overflowing) bio.classList.add('expanded');
-
+        const overflowing = hasCollapsedOverflow(bio, text);
         button.hidden = !overflowing;
+
         if (!overflowing) {
+          bio.classList.remove('expanded');
           button.textContent = 'Read more';
           button.setAttribute('aria-expanded', 'false');
         }
@@ -145,8 +163,21 @@
       });
     });
 
+    let resizeFrame = null;
+    const requestButtonUpdate = () => {
+      if (resizeFrame !== null) cancelAnimationFrame(resizeFrame);
+      resizeFrame = requestAnimationFrame(() => {
+        resizeFrame = null;
+        updateButtons();
+      });
+    };
+
     updateButtons();
-    window.addEventListener('resize', updateButtons, { passive: true });
+    window.addEventListener('resize', requestButtonUpdate, { passive: true });
+
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(requestButtonUpdate).catch(() => {});
+    }
   }
 
   function initSectionRail() {
