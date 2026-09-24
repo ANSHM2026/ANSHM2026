@@ -220,6 +220,8 @@
 }
 
 .speaker-card {
+  container-type: inline-size;
+  container-name: speaker-card;
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -364,9 +366,32 @@
 }
 
 .speaker-affiliation {
+  --affiliation-min-font-size: 10.5px;
+  width: 100%;
   color: #666;
   font-size: 13px;
   line-height: 1.75;
+}
+
+.speaker-affiliation-org,
+.speaker-affiliation-location {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.speaker-affiliation-location {
+  margin-top: 1px;
+}
+
+.speaker-affiliation-org.affiliation-wrap-fallback,
+.speaker-affiliation-location.affiliation-wrap-fallback {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
 }
 
 .speaker-bio {
@@ -473,6 +498,41 @@
 }
 
 .presentation-title.tba { font-style: normal; }
+
+@container speaker-card (max-width: 430px) {
+  .speaker-main {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    min-height: 0;
+    padding: 22px 19px 18px;
+    text-align: center;
+  }
+
+  .speaker-photo {
+    width: 156px;
+    height: 188px;
+  }
+
+  .speaker-info {
+    align-items: center;
+    width: 100%;
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .speaker-label {
+    align-self: center;
+    margin-bottom: 13px;
+  }
+
+  .speaker-name {
+    font-size: 19px;
+  }
+
+  .speaker-affiliation {
+    width: 100%;
+  }
+}
 
 @media (max-width: 1320px) {
   .keynote-grid, .ai-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
