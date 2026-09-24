@@ -96,6 +96,68 @@
   }
 
 
+  function initSpeakerAffiliations() {
+    const lines = Array.from(document.querySelectorAll(
+      '.speaker-affiliation-org, .speaker-affiliation-location'
+    ));
+    if (!lines.length) return;
+
+    const fitLine = (line) => {
+      const parent = line.closest('.speaker-affiliation');
+      if (!parent) return;
+
+      line.classList.remove('affiliation-wrap-fallback');
+      line.style.removeProperty('font-size');
+
+      const parentStyle = window.getComputedStyle(parent);
+      const maxSize = parseFloat(parentStyle.fontSize) || 13;
+      const minSize = parseFloat(parentStyle.getPropertyValue('--affiliation-min-font-size')) || 10.5;
+      const availableWidth = line.clientWidth;
+      if (!availableWidth) return;
+
+      line.style.fontSize = `${maxSize}px`;
+      if (line.scrollWidth <= availableWidth + 0.5) return;
+
+      let low = Math.min(minSize, maxSize);
+      let high = maxSize;
+
+      for (let i = 0; i < 9; i += 1) {
+        const size = (low + high) / 2;
+        line.style.fontSize = `${size}px`;
+        if (line.scrollWidth <= availableWidth + 0.5) low = size;
+        else high = size;
+      }
+
+      line.style.fontSize = `${Math.max(minSize, Math.floor(low * 10) / 10)}px`;
+
+      // If even the readable minimum cannot fit, wrap as a last-resort safeguard
+      // rather than clipping the organisation or location.
+      if (line.scrollWidth > line.clientWidth + 0.5) {
+        line.style.fontSize = `${minSize}px`;
+        line.classList.add('affiliation-wrap-fallback');
+      }
+    };
+
+    const fitAll = () => lines.forEach(fitLine);
+    let resizeFrame = null;
+    const requestFit = () => {
+      if (resizeFrame !== null) cancelAnimationFrame(resizeFrame);
+      resizeFrame = requestAnimationFrame(() => {
+        resizeFrame = null;
+        fitAll();
+        window.dispatchEvent(new Event('anshm:layoutchange'));
+      });
+    };
+
+    requestFit();
+    window.addEventListener('resize', requestFit, { passive: true });
+    window.addEventListener('load', requestFit, { once: true });
+
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(requestFit).catch(() => {});
+    }
+  }
+
   function initSpeakerPhotos() {
     document.querySelectorAll('[data-speaker-photo]').forEach((image) => {
       const showFallback = () => {
@@ -380,6 +442,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initSliders();
+    initSpeakerAffiliations();
     initSpeakerPhotos();
     initSpeakerBiographies();
     initSectionRail();
