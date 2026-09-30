@@ -1,5 +1,7 @@
 .page-registration .container{max-width:1120px;}
 .page-registration .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-bottom:24px;}
+.page-registration .registration-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:24px;margin-bottom:24px;}
+.page-registration .registration-side{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:24px;align-content:stretch;min-width:0;}
 .page-registration .card{min-width:0;padding:27px;border:1px solid rgba(104,80,0,.12);border-radius:21px;background:rgba(255,255,255,.76);box-shadow:var(--shadow-md);}
 .page-registration .full-width{grid-column:1/-1;}
 .page-registration .section-title{margin-bottom:18px;font-size:1.35rem;}
@@ -24,6 +26,8 @@
 .page-registration .map-link{display:block;text-decoration:none;}
 @media(max-width:780px){
   .page-registration .row{grid-template-columns:1fr;gap:17px;margin-bottom:17px;}
+  .page-registration .registration-layout{grid-template-columns:1fr;gap:17px;margin-bottom:17px;}
+  .page-registration .registration-side{grid-template-rows:auto;gap:17px;}
   .page-registration .card{padding:22px 18px;border-radius:18px;}
   .page-registration .full-width{grid-column:auto;}
   .page-registration .map-container{height:310px;border-radius:18px;}
@@ -33,14 +37,16 @@
   .page-registration .complimentary-header{align-items:flex-start;flex-direction:column;}
 }
 
-.page-registration #important-dates + ul .date-extended,
 .page-registration .date-extended {
+  padding-top: 11px;
+  border-top: 1px solid rgba(104, 80, 0, 0.10);
+}
+
+.page-registration .date-extended-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  padding-top: 11px;
-  border-top: 1px solid rgba(104, 80, 0, 0.10);
 }
 
 .page-registration .date-original {
@@ -80,7 +86,7 @@
 }
 
 @media (max-width: 520px) {
-  .page-registration .date-extended {
+  .page-registration .date-extended-content {
     align-items: flex-start;
     flex-direction: column;
   }
