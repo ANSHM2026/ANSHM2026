@@ -586,23 +586,35 @@
 /* AI Forum panellists: photo and profile, without biography or presentation. */
 .ai-forum-section .panelist-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
   gap: 28px;
   margin-top: 28px;
+  align-items: stretch;
 }
 
 .ai-forum-section .panelist-card .speaker-main {
   display: grid;
-  grid-template-columns: 116px minmax(0, 1fr);
-  gap: 16px;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 22px;
   align-items: start;
   min-height: 0;
-  padding: 24px;
+  padding: 24px 24px 20px;
 }
 
 .ai-forum-section .panelist-card .speaker-photo {
-  width: 116px;
-  height: 148px;
+  width: 160px;
+  height: 190px;
+}
+
+@media (max-width: 1120px) {
+  .ai-forum-section .panelist-card .speaker-main {
+    grid-template-columns: 150px minmax(0, 1fr);
+  }
+
+  .ai-forum-section .panelist-card .speaker-photo {
+    width: 150px;
+    height: 180px;
+  }
 }
 
 .ai-forum-section .panelist-card .speaker-info {
@@ -616,12 +628,6 @@
   color: #666;
   font-size: 12px;
   line-height: 1.5;
-}
-
-@media (min-width: 769px) and (max-width: 1050px) {
-  .ai-forum-section .panelist-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 768px) {
@@ -697,8 +703,13 @@
 
 .ai-forum-section .panelist-card .photo-hong-guan img {
   object-fit: cover;
-  object-position: 50% 50%;
+  object-position: 50% 0%;
   background: #e0e0e6;
+}
+
+/* Keep the small space above Hong's hair visible on hover. */
+.ai-forum-section .panelist-card:hover .photo-hong-guan img {
+  transform: none;
 }
 
 .ai-forum-section .panelist-card .photo-alex-ching-tai-ng img {
