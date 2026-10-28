@@ -583,3 +583,45 @@
   .presentation { padding-inline:16px; }
 }
 
+/* AI Forum panellists: details-only cards, using the same speaker-card styling. */
+.ai-forum-section .panelist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.ai-forum-section .panelist-card .speaker-main {
+  display: block;
+  min-height: 0;
+  padding: 24px;
+}
+
+.ai-forum-section .panelist-card .speaker-info {
+  width: 100%;
+  padding-top: 0;
+}
+
+@media (min-width: 769px) and (max-width: 1050px) {
+  .ai-forum-section .panelist-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .ai-forum-section .panelist-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 22px;
+  }
+
+  .ai-forum-section .panelist-card .speaker-main {
+    padding: 22px 19px;
+  }
+}
+
+@media (max-width: 420px) {
+  .ai-forum-section .panelist-card .speaker-main {
+    padding-inline: 16px;
+  }
+}
