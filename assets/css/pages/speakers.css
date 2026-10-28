@@ -583,7 +583,7 @@
   .presentation { padding-inline:16px; }
 }
 
-/* AI Forum panellists: details-only cards, using the same speaker-card styling. */
+/* AI Forum panellists: photo and profile, without biography or presentation. */
 .ai-forum-section .panelist-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -592,14 +592,30 @@
 }
 
 .ai-forum-section .panelist-card .speaker-main {
-  display: block;
+  display: grid;
+  grid-template-columns: 116px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
   min-height: 0;
   padding: 24px;
 }
 
+.ai-forum-section .panelist-card .speaker-photo {
+  width: 116px;
+  height: 148px;
+}
+
 .ai-forum-section .panelist-card .speaker-info {
   width: 100%;
+  min-width: 0;
   padding-top: 0;
+}
+
+.ai-forum-section .panelist-card .panelist-position {
+  margin: 10px 0 0;
+  color: #666;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 @media (min-width: 769px) and (max-width: 1050px) {
@@ -624,4 +640,82 @@
   .ai-forum-section .panelist-card .speaker-main {
     padding-inline: 16px;
   }
+}
+
+@container speaker-card (max-width: 430px) {
+  .ai-forum-section .panelist-card .speaker-main {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .ai-forum-section .panelist-card .speaker-photo {
+    width: 156px;
+    height: 188px;
+  }
+
+  .ai-forum-section .panelist-card .speaker-info {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .ai-forum-section .panelist-card .speaker-main {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .ai-forum-section .panelist-card .speaker-photo {
+    width: 168px;
+    height: 198px;
+  }
+
+  .ai-forum-section .panelist-card .speaker-info {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .ai-forum-section .panelist-card .speaker-photo {
+    width: 156px;
+    height: 188px;
+  }
+}
+
+/* Panellist portraits: shared photo-frame dimensions, individual focal points. */
+.ai-forum-section .panelist-card .photo-hong-guan {
+  background: #e0e0e6;
+}
+
+.ai-forum-section .panelist-card .photo-hong-guan::before,
+.ai-forum-section .panelist-card .photo-hong-guan::after {
+  content: none;
+}
+
+.ai-forum-section .panelist-card .photo-hong-guan img {
+  object-fit: cover;
+  object-position: 50% 50%;
+  background: #e0e0e6;
+}
+
+.ai-forum-section .panelist-card .photo-alex-ching-tai-ng img {
+  transform: scale(1.56);
+  transform-origin: 50% 33%;
+}
+
+.ai-forum-section .panelist-card:hover .photo-alex-ching-tai-ng img {
+  transform: scale(1.59);
+}
+
+/* The new Peter Runcie photograph is level; no CSS rotation is needed. */
+.ai-forum-section .panelist-card .photo-peter-runcie img {
+  object-position: 49% 50%;
+  transform: scale(1);
+}
+
+.ai-forum-section .panelist-card:hover .photo-peter-runcie img {
+  transform: scale(1.025);
 }
