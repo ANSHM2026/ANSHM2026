@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="380" viewBox="0 0 320 380" role="img" aria-label="Portrait pending for Peter Lamb">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#efe6d5"/><stop offset="1" stop-color="#dacba8"/></linearGradient>
+  </defs>
+  <rect width="320" height="380" fill="url(#bg)"/>
+  <circle cx="160" cy="166" r="90" fill="#f8f5ec" opacity=".65"/>
+  <circle cx="160" cy="166" r="88" fill="none" stroke="#b49359" stroke-width="2"/>
+  <text x="160" y="184" fill="#5c513c" text-anchor="middle" font-family="Arial, sans-serif" font-size="62" font-weight="700">PL</text>
+  <text x="160" y="306" fill="#6c604b" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="2">PHOTO PENDING</text>
+ </svg>
