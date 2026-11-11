@@ -210,13 +210,9 @@
 }
 
 .keynote-grid,
-.ai-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
+.ai-grid,
 .industry-grid {
-  grid-template-columns: minmax(340px, 488px);
-  justify-content: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .speaker-card {
@@ -534,8 +530,38 @@
   }
 }
 
+/* On a 3-column grid, centre an incomplete last row without enlarging cards.
+   Two remaining cards have equal left, middle and right free space. */
+@media (min-width: 1321px) {
+  .speaker-grid > .speaker-card:last-child:nth-child(3n + 1),
+  .panelist-grid > .panelist-card:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+
+  .speaker-grid > .speaker-card:nth-last-child(2):nth-child(3n + 1),
+  .panelist-grid > .panelist-card:nth-last-child(2):nth-child(3n + 1) {
+    grid-column: 1;
+    translate: calc(33.333333% + 18.666667px) 0;
+  }
+
+  .speaker-grid > .speaker-card:last-child:nth-child(3n + 2),
+  .panelist-grid > .panelist-card:last-child:nth-child(3n + 2) {
+    grid-column: 3;
+    translate: calc(-33.333333% - 18.666667px) 0;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1320px) {
+  .speaker-grid > .speaker-card:last-child:nth-child(2n + 1),
+  .panelist-grid > .panelist-card:last-child:nth-child(2n + 1) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc((100% - 28px) / 2);
+  }
+}
+
 @media (max-width: 1320px) {
-  .keynote-grid, .ai-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .keynote-grid, .ai-grid, .industry-grid, .forum-section .panelist-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 1120px) {
@@ -583,16 +609,22 @@
   .presentation { padding-inline:16px; }
 }
 
-/* AI Forum panellists: photo and profile, without biography or presentation. */
-.ai-forum-section .panelist-grid {
+/* Forum panellists: shared portrait and profile cards, without bio or presentation. */
+.forum-section .panelist-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px;
   margin-top: 28px;
   align-items: stretch;
 }
 
-.ai-forum-section .panelist-card .speaker-main {
+@media (min-width: 769px) and (max-width: 1320px) {
+  .forum-section .panelist-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.forum-section .panelist-card .speaker-main {
   display: grid;
   grid-template-columns: 160px minmax(0, 1fr);
   gap: 22px;
@@ -601,91 +633,84 @@
   padding: 24px 24px 20px;
 }
 
-.ai-forum-section .panelist-card .speaker-photo {
+.forum-section .panelist-card .speaker-photo {
   width: 160px;
   height: 190px;
 }
 
 @media (max-width: 1120px) {
-  .ai-forum-section .panelist-card .speaker-main {
+  .forum-section .panelist-card .speaker-main {
     grid-template-columns: 150px minmax(0, 1fr);
   }
 
-  .ai-forum-section .panelist-card .speaker-photo {
+  .forum-section .panelist-card .speaker-photo {
     width: 150px;
     height: 180px;
   }
 }
 
-.ai-forum-section .panelist-card .speaker-info {
+.forum-section .panelist-card .speaker-info {
   width: 100%;
   min-width: 0;
   padding-top: 0;
 }
 
-.ai-forum-section .panelist-card .panelist-position {
-  margin: 10px 0 0;
-  color: #666;
-  font-size: 12px;
-  line-height: 1.5;
-}
-
 @media (max-width: 768px) {
-  .ai-forum-section .panelist-grid {
+  .forum-section .panelist-grid {
     grid-template-columns: 1fr;
     gap: 22px;
     margin-top: 22px;
   }
 
-  .ai-forum-section .panelist-card .speaker-main {
+  .forum-section .panelist-card .speaker-main {
     padding: 22px 19px;
   }
 }
 
 @media (max-width: 420px) {
-  .ai-forum-section .panelist-card .speaker-main {
+  .forum-section .panelist-card .speaker-main {
     padding-inline: 16px;
   }
 }
 
 @container speaker-card (max-width: 430px) {
-  .ai-forum-section .panelist-card .speaker-main {
+  .forum-section .panelist-card .speaker-main {
     grid-template-columns: 1fr;
     justify-items: center;
     text-align: center;
   }
 
-  .ai-forum-section .panelist-card .speaker-photo {
+  .forum-section .panelist-card .speaker-photo {
     width: 156px;
     height: 188px;
   }
 
-  .ai-forum-section .panelist-card .speaker-info {
+  .forum-section .panelist-card .speaker-info {
     align-items: center;
     text-align: center;
   }
 }
 
 @media (max-width: 768px) {
-  .ai-forum-section .panelist-card .speaker-main {
+  .forum-section .panelist-card .speaker-main {
     grid-template-columns: 1fr;
     justify-items: center;
     text-align: center;
   }
 
-  .ai-forum-section .panelist-card .speaker-photo {
+  .forum-section .panelist-card .speaker-photo {
     width: 168px;
     height: 198px;
   }
 
-  .ai-forum-section .panelist-card .speaker-info {
+  .forum-section .panelist-card .speaker-info {
     align-items: center;
     text-align: center;
   }
 }
 
 @media (max-width: 420px) {
-  .ai-forum-section .panelist-card .speaker-photo {
+  .forum-section .panelist-card .speaker-photo {
     width: 156px;
     height: 188px;
   }
@@ -729,4 +754,18 @@
 
 .ai-forum-section .panelist-card:hover .photo-peter-runcie img {
   transform: scale(1.025);
+}
+
+/* Keep longer job titles readable while allowing natural wrapping. */
+.industry-forum-section .panelist-card .speaker-affiliation {
+  --affiliation-min-font-size: 12px;
+}
+
+/* Industry forum: preserve the space above John Vazey's hair at every size. */
+.industry-forum-section .panelist-card .photo-john-vazey img {
+  object-position: 50% 0%;
+}
+
+.industry-forum-section .panelist-card:hover .photo-john-vazey img {
+  transform: none;
 }
