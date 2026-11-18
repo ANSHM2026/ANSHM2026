@@ -769,3 +769,67 @@
 .industry-forum-section .panelist-card:hover .photo-john-vazey img {
   transform: none;
 }
+
+/* Forum facilitator badges: preserve the existing speaker labels and alignment. */
+.forum-section .forum-role-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.forum-section .forum-role-tags .speaker-label {
+  margin-bottom: 0;
+}
+
+.forum-section .facilitator-label {
+  display: inline-grid;
+  place-items: center;
+  box-sizing: border-box;
+  min-height: 28px;
+  height: 28px;
+  padding: 2px 11px 0;
+  border: 1px solid color-mix(in srgb, var(--section-accent) 38%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--section-accent) 9%, white);
+  color: var(--section-accent);
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: .65px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@container speaker-card (max-width: 430px) {
+  .forum-section .forum-role-tags {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .forum-section .forum-role-tags {
+    justify-content: center;
+  }
+}
+
+/* Industry invited panellists: preserve natural space above the hairline. */
+.industry-forum-section .panelist-card .photo-henry-griscti img {
+  object-position: 50% 0%;
+  transform: none;
+}
+
+
+.industry-forum-section .panelist-card .photo-colin-caprani img {
+  box-sizing: border-box;
+  object-fit: contain;
+  object-position: center;
+  padding: 11px 5px;
+  background: #f2f0ef;
+  transform: none;
+}
+
+.industry-forum-section .panelist-card:hover .photo-henry-griscti img,
+.industry-forum-section .panelist-card:hover .photo-colin-caprani img {
+  transform: none;
+}
