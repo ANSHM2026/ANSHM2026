@@ -833,3 +833,59 @@
 .industry-forum-section .panelist-card:hover .photo-colin-caprani img {
   transform: none;
 }
+/* Industry forum theme: subtle editorial label, no card or extra background. */
+.industry-forum-section .industry-forum-theme {
+  display: flex;
+  align-items: baseline;
+  max-width: 920px;
+  margin-top: 15px;
+  column-gap: 13px;
+  color: #574533;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -.016em;
+  line-height: 1.52;
+}
+
+.industry-forum-section .industry-forum-theme-label {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 12px;
+  color: #946c41;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  line-height: 1.6;
+}
+
+.industry-forum-section .industry-forum-theme-label::after {
+  content: "";
+  width: 1px;
+  height: 12px;
+  background: rgba(148, 108, 65, .34);
+}
+
+.industry-forum-section .industry-forum-theme-title {
+  min-width: 0;
+  text-wrap: pretty;
+}
+
+.industry-forum-section .industry-forum-theme + .section-description {
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .industry-forum-section .industry-forum-theme {
+    margin-top: 12px;
+    column-gap: 10px;
+    font-size: 15px;
+    line-height: 1.52;
+  }
+
+  .industry-forum-section .industry-forum-theme-label {
+    gap: 9px;
+    font-size: 9px;
+    letter-spacing: .12em;
+  }
+}
